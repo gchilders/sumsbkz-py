@@ -1,0 +1,1342 @@
+k,m,table_n,kind,least_n_of_database_identity
+17,1,39,identity,39
+17,2,40,derived bound,41
+17,3,35,identity,35
+17,4,33,identity,33
+17,5,27,identity,27
+17,6,28,derived bound,30
+17,7,23,identity,23
+17,8,24,identity,24
+17,9,23,identity,23
+17,10,20,identity,20
+17,11,20,identity,20
+17,12,18,identity,18
+17,13,16,identity,16
+17,14,14,identity,14
+18,1,57,identity,57
+18,2,57,identity,57
+18,3,57,identity,57
+18,4,44,identity,44
+18,5,43,identity,43
+18,6,34,identity,34
+18,7,35,derived bound,42
+18,8,36,identity,36
+18,9,31,identity,31
+18,10,28,identity,28
+18,11,29,identity,29
+18,12,25,identity,25
+18,13,15,identity,15
+18,14,16,identity,16
+18,15,15,identity (database only),15
+19,1,51,identity,51
+19,2,52,derived bound,64
+19,3,53,derived bound,54
+19,4,51,identity,51
+19,5,43,identity,43
+19,6,40,identity,40
+19,7,41,identity,41
+19,8,36,identity,36
+19,9,33,identity,33
+19,10,29,identity,29
+19,11,30,derived bound,38
+19,12,31,identity,31
+19,13,23,identity,23
+19,14,24,derived bound,27
+19,15,17,identity,17
+19,16,17,identity,17
+20,1,61,identity,61
+20,2,62,derived bound,63
+20,3,61,identity,61
+20,4,60,identity,60
+20,5,59,identity,59
+20,6,53,identity,53
+20,7,39,identity,39
+20,8,40,derived bound,
+20,9,35,identity,35
+20,10,35,identity,35
+20,11,35,identity,35
+20,12,35,identity,35
+20,13,35,identity,35
+20,14,35,identity,35
+20,15,35,identity,35
+20,16,26,identity,26
+21,1,75,identity,75
+21,2,72,identity,72
+21,3,67,identity,67
+21,4,60,identity,60
+21,5,57,identity,57
+21,6,50,identity,50
+21,7,51,derived bound,
+21,8,46,identity,46
+21,9,41,identity,41
+21,10,39,identity,39
+21,11,37,identity,37
+21,12,34,identity,34
+21,13,26,identity,26
+21,14,25,identity,25
+21,15,25,identity,25
+21,16,24,identity,24
+22,1,95,identity,95
+22,2,75,identity,75
+22,3,76,derived bound,79
+22,4,72,identity,72
+22,5,73,derived bound,74
+22,6,73,identity,73
+22,7,59,identity,59
+22,8,57,identity,57
+22,9,54,identity,54
+22,10,54,identity,54
+22,11,52,identity,52
+22,12,36,identity,36
+22,13,37,derived bound,
+22,14,37,identity,37
+22,15,36,identity,36
+22,16,37,identity,37
+23,1,105,identity,105
+23,2,91,identity,91
+23,3,87,identity,87
+23,4,86,identity,86
+23,5,81,identity,81
+23,6,72,identity,72
+23,7,62,identity,62
+23,8,63,derived bound,65
+23,9,62,identity,62
+23,10,53,identity,53
+23,11,49,identity,49
+23,12,47,identity,47
+23,13,41,identity,41
+23,14,36,identity,36
+23,15,37,identity,37
+23,16,33,identity,33
+24,1,124,identity,124
+24,2,116,identity,116
+24,3,109,identity,109
+24,4,97,identity,97
+24,5,85,identity,85
+24,6,85,identity,85
+24,7,71,identity,71
+24,8,72,derived bound,81
+24,9,65,identity,65
+24,10,66,derived bound,69
+24,11,57,identity,57
+24,12,58,derived bound,65
+24,13,58,identity,58
+24,14,55,identity,55
+24,15,52,identity,52
+24,16,53,derived bound,57
+25,1,137,identity,137
+25,2,118,identity,118
+25,3,104,identity,104
+25,4,94,identity,94
+25,5,89,identity,89
+25,6,90,derived bound,92
+25,7,81,identity,81
+25,8,82,derived bound,94
+25,9,80,identity,80
+25,10,80,identity,80
+25,11,74,identity,74
+25,12,70,identity,70
+25,13,68,identity,68
+25,14,69,derived bound,72
+25,15,69,identity,69
+25,16,67,identity,67
+26,1,155,identity,155
+26,2,133,identity,133
+26,3,119,identity,119
+26,4,116,identity,116
+26,5,111,identity,111
+26,6,106,identity,106
+26,7,99,identity,99
+26,8,100,derived bound,130
+26,9,81,identity,81
+26,10,82,derived bound,90
+26,11,75,identity,75
+26,12,72,identity,72
+26,13,70,identity,70
+26,14,52,identity,52
+26,15,53,derived bound,54
+26,16,54,identity,54
+27,1,162,identity,162
+27,2,146,identity,146
+27,3,132,identity,132
+27,4,118,identity,118
+27,5,119,derived bound,131
+27,6,104,identity,104
+27,7,99,identity,99
+27,8,100,derived bound,101
+27,9,87,identity,87
+27,10,88,derived bound,97
+27,11,89,derived bound,90
+27,12,63,identity,63
+27,13,64,derived bound,71
+27,14,65,derived bound,98
+27,15,66,derived bound,68
+27,16,56,identity,56
+28,1,183,identity,183
+28,2,147,identity,147
+28,3,148,identity,148
+28,4,128,identity,128
+28,5,129,derived bound,148
+28,6,124,identity,124
+28,7,124,identity,124
+28,8,124,identity,124
+28,9,96,identity,96
+28,10,96,identity,96
+28,11,96,identity,96
+28,12,97,identity,97
+28,13,98,identity,98
+28,14,74,identity,74
+28,15,73,identity,73
+28,16,74,identity,74
+29,1,173,identity,173
+29,2,168,identity,168
+29,3,145,identity,145
+29,4,146,derived bound,160
+29,5,147,derived bound,159
+29,6,136,identity,136
+29,7,137,derived bound,146
+29,8,119,identity,119
+29,9,120,derived bound,125
+29,10,108,identity,108
+29,11,109,derived bound,115
+29,12,102,identity,102
+29,13,96,identity,96
+29,14,89,identity,89
+29,15,90,derived bound,97
+29,16,84,identity,84
+30,1,191,identity,191
+30,2,188,identity,188
+30,3,189,derived bound,190
+30,4,164,identity,164
+30,5,139,identity,139
+30,6,140,derived bound,160
+30,7,141,derived bound,192
+30,8,142,derived bound,167
+30,9,133,identity,133
+30,10,134,identity,134
+30,11,135,identity,135
+30,12,106,identity,106
+30,13,107,derived bound,135
+30,14,108,identity,108
+30,15,109,identity,109
+30,16,80,identity,80
+31,1,211,identity,211
+31,2,200,identity,200
+31,3,199,identity,199
+31,4,191,identity,191
+31,5,184,identity,184
+31,6,182,identity,182
+31,7,160,identity,160
+31,8,161,derived bound,178
+31,9,162,derived bound,168
+31,10,162,identity,162
+31,11,153,identity,153
+31,12,151,identity,151
+31,13,149,identity,149
+31,14,150,derived bound,155
+31,15,143,identity,143
+31,16,127,identity,127
+32,1,230,identity,230
+32,2,214,identity,214
+32,3,210,identity,210
+32,4,210,identity,210
+32,5,194,identity,194
+32,6,195,derived bound,199
+32,7,191,identity,191
+32,8,179,identity,179
+32,9,180,derived bound,183
+32,10,181,derived bound,183
+32,11,179,identity,179
+32,12,175,identity,175
+32,13,168,identity,168
+32,14,167,identity,167
+32,15,157,identity,157
+32,16,158,derived bound,163
+33,1,295,identity,295
+33,2,218,identity,218
+33,3,219,derived bound,
+33,4,220,derived bound,
+33,5,221,derived bound,
+33,6,216,identity,216
+33,7,207,identity,207
+33,8,202,identity,202
+33,9,199,identity,199
+33,10,194,identity,194
+33,11,167,identity,167
+33,12,168,derived bound,
+33,13,169,derived bound,
+33,14,170,derived bound,
+33,15,171,derived bound,
+33,16,159,identity,159
+34,1,318,identity,318
+34,2,276,identity,276
+34,3,268,identity,268
+34,4,261,identity,261
+34,5,254,identity,254
+34,6,241,identity,241
+34,7,225,identity,225
+34,8,220,identity,220
+34,9,221,derived bound,
+34,10,213,identity,213
+34,11,213,identity,213
+34,12,207,identity,207
+34,13,198,identity,198
+34,14,199,derived bound,
+34,15,193,identity,193
+34,16,192,identity,192
+35,1,395,identity,395
+35,2,371,identity,371
+35,3,342,identity,342
+35,4,286,identity,286
+35,5,287,derived bound,
+35,6,285,identity,285
+35,7,268,identity,268
+35,8,269,derived bound,
+35,9,258,identity,258
+35,10,257,identity,257
+35,11,245,identity,245
+35,12,244,identity,244
+35,13,244,identity,244
+35,14,245,derived bound,
+35,15,226,identity,226
+35,16,227,derived bound,
+36,1,377,identity,377
+36,2,374,identity,374
+36,3,375,identity,375
+36,4,338,identity,338
+36,5,338,identity,338
+36,6,315,identity,315
+36,7,303,identity,303
+36,8,304,identity,304
+36,9,269,identity,269
+36,10,242,identity,242
+36,11,243,derived bound,
+36,12,244,derived bound,
+36,13,245,derived bound,
+36,14,238,identity,238
+36,15,236,identity,236
+36,16,237,identity,237
+37,1,385,identity,385
+37,2,386,derived bound,
+37,3,364,identity,364
+37,4,363,identity,363
+37,5,348,identity,348
+37,6,329,identity,329
+37,7,330,derived bound,
+37,8,325,identity,325
+37,9,318,identity,318
+37,10,308,identity,308
+37,11,309,derived bound,
+37,12,303,identity,303
+37,13,303,identity,303
+37,14,286,identity,286
+37,15,287,derived bound,
+37,16,288,derived bound,
+38,1,471,identity,471
+38,2,472,derived bound,
+38,3,473,derived bound,
+38,4,384,identity,384
+38,5,385,derived bound,
+38,6,345,identity,345
+38,7,340,identity,340
+38,8,341,derived bound,
+38,9,339,identity,339
+38,10,340,derived bound,
+38,11,311,identity,311
+38,12,312,derived bound,
+38,13,293,identity,293
+38,14,294,derived bound,
+38,15,294,identity,294
+38,16,295,derived bound,
+39,1,667,identity,667
+39,2,525,identity,525
+39,3,477,identity,477
+39,4,478,derived bound,
+39,5,408,identity,408
+39,6,409,derived bound,
+39,7,393,identity,393
+39,8,394,derived bound,
+39,9,359,identity,359
+39,10,349,identity,349
+39,11,350,derived bound,
+39,12,331,identity,331
+39,13,332,derived bound,
+39,14,333,derived bound,
+39,15,321,identity,321
+39,16,322,derived bound,
+40,1,745,identity,745
+40,2,551,identity,551
+40,3,499,identity,499
+40,4,497,identity,497
+40,5,459,identity,459
+40,6,460,derived bound,
+40,7,429,identity,429
+40,8,430,derived bound,
+40,9,431,derived bound,
+40,10,391,identity,391
+40,11,392,derived bound,
+40,12,393,derived bound,
+40,13,386,identity,386
+40,14,387,derived bound,
+40,15,386,identity,386
+40,16,386,identity,386
+41,1,610,identity,610
+41,2,591,identity,591
+41,3,574,identity,574
+41,4,575,derived bound,
+41,5,561,identity,561
+41,6,438,identity,438
+41,7,439,derived bound,
+41,8,440,derived bound,
+41,9,441,derived bound,
+41,10,356,identity,356
+41,11,357,derived bound,
+41,12,356,identity,356
+41,13,357,derived bound,
+41,14,312,identity,312
+41,15,309,identity,309
+41,16,310,derived bound,
+42,1,818,identity,818
+42,2,605,identity,605
+42,3,606,derived bound,
+42,4,607,identity,607
+42,5,582,identity,582
+42,6,564,identity,564
+42,7,438,identity,438
+42,8,439,derived bound,
+42,9,398,identity,398
+42,10,399,derived bound,
+42,11,400,derived bound,
+42,12,401,derived bound,
+42,13,402,derived bound,
+42,14,402,identity,402
+42,15,402,identity,402
+42,16,400,identity,400
+43,1,639,identity,639
+43,2,595,identity,595
+43,3,578,identity,578
+43,4,536,identity,536
+43,5,533,identity,533
+43,6,504,identity,504
+43,7,505,derived bound,
+43,8,506,derived bound,
+43,9,490,identity,490
+43,10,479,identity,479
+43,11,469,identity,469
+43,12,456,identity,456
+43,13,457,derived bound,
+43,14,453,identity,453
+43,15,439,identity,439
+43,16,429,identity,429
+44,1,809,identity,809
+44,2,726,identity,726
+44,3,675,identity,675
+44,4,636,identity,636
+44,5,601,identity,601
+44,6,546,identity,546
+44,7,547,derived bound,
+44,8,529,identity,529
+44,9,504,identity,504
+44,10,491,identity,491
+44,11,492,derived bound,
+44,12,493,derived bound,
+44,13,494,derived bound,
+44,14,479,identity,479
+44,15,480,derived bound,
+44,16,475,identity,475
+45,1,882,identity,882
+45,2,877,identity,877
+45,3,871,identity,871
+45,4,747,identity,747
+45,5,631,identity,631
+45,6,632,derived bound,
+45,7,626,identity,626
+45,8,587,identity,587
+45,9,541,identity,541
+45,10,542,derived bound,
+45,11,543,derived bound,
+45,12,521,identity,521
+45,13,522,derived bound,
+45,14,521,identity,521
+45,15,514,identity,514
+45,16,494,identity,494
+46,1,866,identity,866
+46,2,761,identity,761
+46,3,755,identity,755
+46,4,664,identity,664
+46,5,622,identity,622
+46,6,575,identity,575
+46,7,576,derived bound,
+46,8,577,derived bound,
+46,9,574,identity,574
+46,10,534,identity,534
+46,11,528,identity,528
+46,12,528,identity,528
+46,13,498,identity,498
+46,14,499,derived bound,
+46,15,500,derived bound,
+46,16,488,identity,488
+47,1,940,identity,940
+47,2,906,identity,906
+47,3,778,identity,778
+47,4,779,derived bound,
+47,5,757,identity,757
+47,6,758,derived bound,
+47,7,707,identity,707
+47,8,682,identity,682
+47,9,647,identity,647
+47,10,648,identity,648
+47,11,649,derived bound,
+47,12,638,identity,638
+47,13,629,identity,629
+47,14,571,identity,571
+47,15,572,derived bound,
+47,16,557,identity,557
+48,1,1077,identity,1077
+48,2,935,identity,935
+48,3,936,derived bound,
+48,4,925,identity,925
+48,5,926,derived bound,
+48,6,774,identity,774
+48,7,775,derived bound,
+48,8,776,derived bound,
+48,9,777,derived bound,
+48,10,733,identity,733
+48,11,686,identity,686
+48,12,687,derived bound,
+48,13,667,identity,667
+48,14,604,identity,604
+48,15,605,derived bound,
+48,16,606,derived bound,
+49,1,939,identity,939
+49,2,940,derived bound,
+49,3,908,identity,908
+49,4,824,identity,824
+49,5,816,identity,816
+49,6,817,derived bound,
+49,7,797,identity,797
+49,8,750,identity,750
+49,9,751,derived bound,
+49,10,752,derived bound,
+49,11,753,derived bound,
+49,12,670,identity,670
+49,13,671,derived bound,
+49,14,672,derived bound,
+49,15,673,derived bound,
+49,16,633,identity,633
+50,1,1164,identity,1164
+50,2,996,identity,996
+50,3,945,identity,945
+50,4,946,derived bound,
+50,5,918,identity,918
+50,6,899,identity,899
+50,7,895,identity,895
+50,8,896,derived bound,
+50,9,891,identity,891
+50,10,888,identity,888
+50,11,876,identity,876
+50,12,744,identity,744
+50,13,739,identity,739
+50,14,735,identity,735
+50,15,719,identity,719
+50,16,698,identity,698
+51,1,1140,identity,1140
+51,2,1084,identity,1084
+51,3,1015,identity,1015
+51,4,1016,derived bound,
+51,5,1013,identity,1013
+51,6,955,identity,955
+51,7,894,identity,894
+51,8,848,identity,848
+51,9,824,identity,824
+51,10,825,derived bound,
+51,11,826,derived bound,
+51,12,827,derived bound,
+51,13,777,identity,777
+51,14,765,identity,765
+51,15,766,identity,766
+51,16,713,identity,713
+52,1,1826,identity,1826
+52,2,1350,identity,1350
+52,3,1288,identity,1288
+52,4,1194,identity,1194
+52,5,1122,identity,1122
+52,6,1123,derived bound,
+52,7,1104,identity,1104
+52,8,1105,derived bound,
+52,9,1079,identity,1079
+52,10,1080,derived bound,
+52,11,1081,derived bound,
+52,12,1071,identity,1071
+52,13,1072,derived bound,
+52,14,1073,derived bound,
+52,15,993,identity,993
+52,16,994,derived bound,
+53,1,1438,identity,1438
+53,2,1394,identity,1394
+53,3,1356,identity,1356
+53,4,1345,identity,1345
+53,5,1054,identity,1054
+53,6,1055,derived bound,
+53,7,926,identity,926
+53,8,927,derived bound,
+53,9,924,identity,924
+53,10,925,derived bound,
+53,11,926,derived bound,
+53,12,927,derived bound,
+53,13,896,identity,896
+53,14,897,derived bound,
+53,15,898,derived bound,
+53,16,895,identity,895
+54,1,1772,identity,1772
+54,2,1582,identity,1582
+54,3,1496,identity,1496
+54,4,1468,identity,1468
+54,5,1253,identity,1253
+54,6,1225,identity,1225
+54,7,1185,identity,1185
+54,8,1186,derived bound,
+54,9,1091,identity,1091
+54,10,1092,derived bound,
+54,11,1067,identity,1067
+54,12,1068,derived bound,
+54,13,1069,derived bound,
+54,14,978,identity,978
+54,15,956,identity,956
+54,16,953,identity,953
+55,1,1350,identity,1350
+55,2,1296,identity,1296
+55,3,1158,identity,1158
+55,4,1159,derived bound,
+55,5,1160,derived bound,
+55,6,1120,identity,1120
+55,7,1057,identity,1057
+55,8,1058,derived bound,
+55,9,1011,identity,1011
+55,10,978,identity,978
+55,11,979,derived bound,
+55,12,980,derived bound,
+55,13,981,derived bound,
+55,14,982,derived bound,
+55,15,955,identity,955
+55,16,956,derived bound,
+56,1,1772,identity,1772
+56,2,1497,identity,1497
+56,3,1478,identity,1478
+56,4,1437,identity,1437
+56,5,1394,identity,1394
+56,6,1389,identity,1389
+56,7,1350,identity,1350
+56,8,1283,identity,1283
+56,9,1230,identity,1230
+56,10,1231,derived bound,
+56,11,1232,derived bound,
+56,12,1051,identity,1051
+56,13,1052,derived bound,
+56,14,1053,derived bound,
+56,15,1054,derived bound,
+56,16,1051,identity,1051
+57,1,2501,identity,2501
+57,2,1908,identity,1908
+57,3,1708,identity,1708
+57,4,1658,identity,1658
+57,5,1624,identity,1624
+57,6,1461,identity,1461
+57,7,1439,identity,1439
+57,8,1400,identity,1400
+57,9,1365,identity,1365
+57,10,1305,identity,1305
+57,11,1232,identity,1232
+57,12,1233,derived bound,
+57,13,1234,derived bound,
+57,14,1231,identity,1231
+57,15,1200,identity,1200
+57,16,1201,derived bound,
+58,1,2071,identity,2071
+58,2,1911,identity,1911
+58,3,1909,identity,1909
+58,4,1794,identity,1794
+58,5,1673,identity,1673
+58,6,1615,identity,1615
+58,7,1499,identity,1499
+58,8,1319,identity,1319
+58,9,1317,identity,1317
+58,10,1318,derived bound,
+58,11,1319,derived bound,
+58,12,1320,derived bound,
+58,13,1312,identity,1312
+58,14,1209,identity,1209
+58,15,1210,derived bound,
+58,16,1211,derived bound,
+59,1,2223,identity,2223
+59,2,2016,identity,2016
+59,3,2007,identity,2007
+59,4,1858,identity,1858
+59,5,1391,identity,1391
+59,6,1392,derived bound,
+59,7,1393,derived bound,
+59,8,1394,derived bound,
+59,9,1395,derived bound,
+59,10,1396,derived bound,
+59,11,1397,derived bound,
+59,12,1398,derived bound,
+59,13,1384,identity,1384
+59,14,1385,derived bound,
+59,15,1344,identity,1344
+59,16,1345,derived bound,
+60,1,2703,identity,2703
+60,2,2256,identity,2256
+60,3,2212,identity,2212
+60,4,2164,identity,2164
+60,5,1937,identity,1937
+60,6,1938,derived bound,
+60,7,1764,identity,1764
+60,8,1765,derived bound,
+60,9,1766,derived bound,
+60,10,1767,derived bound,
+60,11,1499,identity,1499
+60,12,1500,derived bound,
+60,13,1501,derived bound,
+60,14,1502,derived bound,
+60,15,1444,identity,1444
+60,16,1445,derived bound,
+61,1,1818,identity,1818
+61,2,1783,identity,1783
+61,3,1721,identity,1721
+61,4,1718,identity,1718
+61,5,1714,identity,1714
+61,6,1659,identity,1659
+61,7,1660,derived bound,
+61,8,1661,derived bound,
+61,9,1662,derived bound,
+61,10,1534,identity,1534
+61,11,1535,derived bound,
+61,12,1536,derived bound,
+61,13,1517,identity,1517
+61,14,1518,derived bound,
+61,15,1519,derived bound,
+61,16,1496,identity,1496
+62,1,2140,identity,2140
+62,2,2141,derived bound,
+62,3,2142,derived bound,
+62,4,1967,identity,1967
+62,5,1968,derived bound,
+62,6,1969,derived bound,
+62,7,1970,derived bound,
+62,8,1971,derived bound,
+62,9,1972,derived bound,
+62,10,1788,identity,1788
+62,11,1786,identity,1786
+62,12,1632,identity,1632
+62,13,1633,derived bound,
+62,14,1634,derived bound,
+62,15,1635,derived bound,
+62,16,1636,derived bound,
+63,1,2819,identity,2819
+63,2,2659,identity,2659
+63,3,2546,identity,2546
+63,4,2205,identity,2205
+63,5,2206,derived bound,
+63,6,2207,derived bound,
+63,7,2208,derived bound,
+63,8,2209,derived bound,
+63,9,2202,identity,2202
+63,10,2190,identity,2190
+63,11,2191,derived bound,
+63,12,2192,derived bound,
+63,13,2190,identity,2190
+63,14,2180,identity,2180
+63,15,2020,identity,2020
+63,16,2021,derived bound,
+64,1,2738,identity,2738
+64,2,2739,derived bound,
+64,3,2670,identity,2670
+64,4,2611,identity,2611
+64,5,2612,derived bound,
+64,6,2613,derived bound,
+64,7,2614,derived bound,
+64,8,2580,identity,2580
+64,9,1938,identity,1938
+64,10,1939,derived bound,
+64,11,1940,derived bound,
+64,12,1941,derived bound,
+64,13,1896,identity,1896
+64,14,1812,identity,1812
+64,15,1813,derived bound,
+64,16,1814,derived bound,
+65,1,3392,identity,3392
+65,2,2810,identity,2810
+65,3,2465,identity,2465
+65,4,2250,identity,2250
+65,5,2232,identity,2232
+65,6,2126,identity,2126
+65,7,1947,identity,1947
+65,8,1948,derived bound,
+65,9,1777,identity,1777
+65,10,1778,derived bound,
+65,11,1779,derived bound,
+65,12,1780,derived bound,
+65,13,1781,derived bound,
+65,14,1722,identity,1722
+65,15,1723,derived bound,
+65,16,1724,derived bound,
+66,1,5662,identity,5662
+66,2,2620,identity,2620
+66,3,2563,identity,2563
+66,4,2456,identity,2456
+66,5,2420,identity,2420
+66,6,2421,derived bound,
+66,7,2359,identity,2359
+66,8,2028,identity,2028
+66,9,2029,derived bound,
+66,10,2030,derived bound,
+66,11,2031,derived bound,
+66,12,2032,derived bound,
+66,13,1955,identity,1955
+66,14,1956,derived bound,
+66,15,1957,derived bound,
+66,16,1958,derived bound,
+67,1,4079,identity,4079
+67,2,3609,identity,3609
+67,3,3495,identity,3495
+67,4,3479,identity,3479
+67,5,2841,identity,2841
+67,6,2518,identity,2518
+67,7,2519,derived bound,
+67,8,2520,derived bound,
+67,9,2521,derived bound,
+67,10,2448,identity,2448
+67,11,2449,derived bound,
+67,12,2028,identity,2028
+67,13,2029,derived bound,
+67,14,2030,derived bound,
+67,15,2029,identity,2029
+67,16,2030,derived bound,
+68,1,4394,identity,4394
+68,2,3520,identity,3520
+68,3,2587,identity,2587
+68,4,2588,derived bound,
+68,5,2589,derived bound,
+68,6,2590,derived bound,
+68,7,2575,identity,2575
+68,8,2553,identity,2553
+68,9,2554,derived bound,
+68,10,2399,identity,2399
+68,11,2400,derived bound,
+68,12,2383,identity,2383
+68,13,2345,identity,2345
+68,14,2319,identity,2319
+68,15,2189,identity,2189
+68,16,2190,derived bound,
+69,1,5292,identity,5292
+69,2,3436,identity,3436
+69,3,3095,identity,3095
+69,4,3019,identity,3019
+69,5,2922,identity,2922
+69,6,2869,identity,2869
+69,7,2870,derived bound,
+69,8,2871,derived bound,
+69,9,2843,identity,2843
+69,10,2844,derived bound,
+69,11,2785,identity,2785
+69,12,2770,identity,2770
+69,13,2721,identity,2721
+69,14,2722,derived bound,
+69,15,2633,identity,2633
+69,16,2634,derived bound,
+70,1,3148,identity,3148
+70,2,3081,identity,3081
+70,3,2953,identity,2953
+70,4,2935,identity,2935
+70,5,2861,identity,2861
+70,6,2846,identity,2846
+70,7,2784,identity,2784
+70,8,2785,derived bound,
+70,9,2786,derived bound,
+70,10,2510,identity,2510
+70,11,2428,identity,2428
+70,12,2429,derived bound,
+70,13,2430,derived bound,
+70,14,2431,derived bound,
+70,15,2432,derived bound,
+70,16,2242,identity,2242
+71,1,4832,identity,4832
+71,2,3536,identity,3536
+71,3,3537,derived bound,
+71,4,3432,identity,3432
+71,5,3381,identity,3381
+71,6,3382,derived bound,
+71,7,3156,identity,3156
+71,8,2930,identity,2930
+71,9,2834,identity,2834
+71,10,2835,derived bound,
+71,11,2836,derived bound,
+71,12,2837,derived bound,
+71,13,2838,derived bound,
+71,14,2637,identity,2637
+71,15,2638,derived bound,
+71,16,2639,derived bound,
+72,1,3690,identity,3690
+72,2,3691,derived bound,
+72,3,3520,identity,3520
+72,4,3427,identity,3427
+72,5,3311,identity,3311
+72,6,2956,identity,2956
+72,7,2957,derived bound,
+72,8,2680,identity,2680
+72,9,2681,derived bound,
+72,10,2682,derived bound,
+72,11,2683,derived bound,
+72,12,2684,derived bound,
+72,13,2685,derived bound,
+72,14,2686,derived bound,
+72,15,2677,identity,2677
+72,16,2583,identity,2583
+73,1,3555,identity,3555
+73,2,3532,identity,3532
+73,3,3506,identity,3506
+73,4,3507,derived bound,
+73,5,3408,identity,3408
+73,6,3409,derived bound,
+73,7,3410,derived bound,
+73,8,3411,derived bound,
+73,9,3412,derived bound,
+73,10,3413,derived bound,
+73,11,3414,derived bound,
+73,12,3378,identity,3378
+73,13,3379,derived bound,
+73,14,3380,derived bound,
+73,15,3381,derived bound,
+73,16,3382,derived bound,
+74,1,3928,identity,3928
+74,2,3667,identity,3667
+74,3,3668,derived bound,
+74,4,3669,derived bound,
+74,5,3670,derived bound,
+74,6,3671,derived bound,
+74,7,3484,identity,3484
+74,8,3485,derived bound,
+74,9,3421,identity,3421
+74,10,3323,identity,3323
+74,11,3324,derived bound,
+74,12,3325,derived bound,
+74,13,3326,derived bound,
+74,14,3327,derived bound,
+74,15,3328,derived bound,
+74,16,3235,identity,3235
+75,1,8160,identity,8160
+75,2,8161,derived bound,
+75,3,6414,identity,6414
+75,4,6415,derived bound,
+75,5,6416,derived bound,
+75,6,6266,identity,6266
+75,7,6267,derived bound,
+75,8,6268,derived bound,
+75,9,6269,derived bound,
+75,10,6233,identity,6233
+75,11,6164,identity,6164
+75,12,5997,identity,5997
+75,13,5998,derived bound,
+75,14,5877,identity,5877
+75,15,5878,derived bound,
+75,16,5879,derived bound,
+76,1,6780,identity,6780
+76,2,5319,identity,5319
+76,3,5254,identity,5254
+76,4,4712,identity,4712
+76,5,3823,identity,3823
+76,6,3824,derived bound,
+76,7,3825,derived bound,
+76,8,3826,derived bound,
+76,9,3827,derived bound,
+76,10,3828,derived bound,
+76,11,3740,identity,3740
+76,12,3741,derived bound,
+76,13,3666,identity,3666
+76,14,3667,derived bound,
+76,15,3482,identity,3482
+76,16,3483,derived bound,
+77,1,5177,identity,5177
+77,2,4797,identity,4797
+77,3,4056,identity,4056
+77,4,4057,derived bound,
+77,5,3631,identity,3631
+77,6,3496,identity,3496
+77,7,3450,identity,3450
+77,8,3440,identity,3440
+77,9,3397,identity,3397
+77,10,3334,identity,3334
+77,11,3320,identity,3320
+77,12,3276,identity,3276
+77,13,3203,identity,3203
+77,14,3204,derived bound,
+77,15,3194,identity,3194
+77,16,3195,derived bound,
+78,1,5463,identity,5463
+78,2,5032,identity,5032
+78,3,4766,identity,4766
+78,4,4424,identity,4424
+78,5,4365,identity,4365
+78,6,4366,derived bound,
+78,7,4367,derived bound,
+78,8,3803,identity,3803
+78,9,3804,derived bound,
+78,10,3505,identity,3505
+78,11,3506,derived bound,
+78,12,3507,derived bound,
+78,13,3508,derived bound,
+78,14,3509,derived bound,
+78,15,3510,derived bound,
+78,16,3511,derived bound,
+79,1,5685,identity,5685
+79,2,4950,identity,4950
+79,3,4951,derived bound,
+79,4,4765,identity,4765
+79,5,4688,identity,4688
+79,6,4689,derived bound,
+79,7,4429,identity,4429
+79,8,4430,derived bound,
+79,9,4420,identity,4420
+79,10,4182,identity,4182
+79,11,4183,derived bound,
+79,12,4129,identity,4129
+79,13,3879,identity,3879
+79,14,3880,derived bound,
+79,15,3881,derived bound,
+79,16,3680,identity,3680
+80,1,7651,identity,7651
+80,2,5655,identity,5655
+80,3,4611,identity,4611
+80,4,4612,derived bound,
+80,5,4613,derived bound,
+80,6,4614,derived bound,
+80,7,4615,derived bound,
+80,8,4616,derived bound,
+80,9,4378,identity,4378
+80,10,4318,identity,4318
+80,11,4319,derived bound,
+80,12,4148,identity,4148
+80,13,3944,identity,3944
+80,14,3903,identity,3903
+80,15,3827,identity,3827
+80,16,3828,derived bound,
+81,1,7084,identity,7084
+81,2,6652,identity,6652
+81,3,6653,derived bound,
+81,4,6562,identity,6562
+81,5,6563,derived bound,
+81,6,4634,identity,4634
+81,7,4635,derived bound,
+81,8,4636,derived bound,
+81,9,4637,derived bound,
+81,10,4638,derived bound,
+81,11,4639,derived bound,
+81,12,4640,derived bound,
+81,13,3970,identity,3970
+81,14,3890,identity,3890
+81,15,3891,derived bound,
+81,16,3715,identity,3715
+82,1,9665,identity,9665
+82,2,8737,identity,8737
+82,3,8337,identity,8337
+82,4,8010,identity,8010
+82,5,7373,identity,7373
+82,6,7333,identity,7333
+82,7,7319,identity,7319
+82,8,6204,identity,6204
+82,9,4708,identity,4708
+82,10,4709,derived bound,
+82,11,4710,derived bound,
+82,12,4711,derived bound,
+82,13,4712,derived bound,
+82,14,4713,derived bound,
+82,15,4714,derived bound,
+82,16,4715,derived bound,
+83,1,7894,identity,7894
+83,2,6186,identity,6186
+83,3,5736,identity,5736
+83,4,5061,identity,5061
+83,5,5062,derived bound,
+83,6,5063,derived bound,
+83,7,5007,identity,5007
+83,8,4834,identity,4834
+83,9,4835,derived bound,
+83,10,4836,derived bound,
+83,11,4837,derived bound,
+83,12,4838,derived bound,
+83,13,4839,derived bound,
+83,14,4840,derived bound,
+83,15,4841,derived bound,
+83,16,4842,derived bound,
+84,1,7496,identity,7496
+84,2,6113,identity,6113
+84,3,6026,identity,6026
+84,4,5738,identity,5738
+84,5,5667,identity,5667
+84,6,5553,identity,5553
+84,7,5195,identity,5195
+84,8,5196,derived bound,
+84,9,5197,derived bound,
+84,10,5116,identity,5116
+84,11,4567,identity,4567
+84,12,4568,derived bound,
+84,13,4569,derived bound,
+84,14,4570,derived bound,
+84,15,4571,derived bound,
+84,16,4311,identity,4311
+85,1,5893,identity,5893
+85,2,5573,identity,5573
+85,3,5574,derived bound,
+85,4,5575,derived bound,
+85,5,5206,identity,5206
+85,6,5207,derived bound,
+85,7,5208,derived bound,
+85,8,5209,derived bound,
+85,9,5210,derived bound,
+85,10,5211,derived bound,
+85,11,5212,derived bound,
+85,12,5191,identity,5191
+85,13,5192,derived bound,
+85,14,5193,derived bound,
+85,15,5194,derived bound,
+85,16,5195,identity,5195
+86,1,9295,identity,9295
+86,2,9296,derived bound,
+86,3,9297,derived bound,
+86,4,9298,derived bound,
+86,5,9299,derived bound,
+86,6,9300,derived bound,
+86,7,9301,derived bound,
+86,8,9302,derived bound,
+86,9,9303,derived bound,
+86,10,9261,identity,9261
+86,11,8924,identity,8924
+86,12,8925,derived bound,
+86,13,8926,derived bound,
+86,14,8927,derived bound,
+86,15,8838,identity,8838
+86,16,8839,derived bound,
+87,1,9411,identity,9411
+87,2,6487,identity,6487
+87,3,6488,derived bound,
+87,4,6080,identity,6080
+87,5,6081,derived bound,
+87,6,5565,identity,5565
+87,7,5566,derived bound,
+87,8,5567,derived bound,
+87,9,5568,derived bound,
+87,10,5569,derived bound,
+87,11,5570,derived bound,
+87,12,5506,identity,5506
+87,13,5507,derived bound,
+87,14,5508,derived bound,
+87,15,5509,derived bound,
+87,16,5510,derived bound,
+88,1,12874,identity,12874
+88,2,8923,identity,8923
+88,3,8084,identity,8084
+88,4,6859,identity,6859
+88,5,6630,identity,6630
+88,6,6352,identity,6352
+88,7,6353,derived bound,
+88,8,6080,identity,6080
+88,9,6000,identity,6000
+88,10,5895,identity,5895
+88,11,5761,identity,5761
+88,12,5762,derived bound,
+88,13,5763,derived bound,
+88,14,5764,derived bound,
+88,15,5558,identity,5558
+88,16,5559,derived bound,
+89,1,11431,identity,11431
+89,2,10709,identity,10709
+89,3,9145,identity,9145
+89,4,8893,identity,8893
+89,5,7896,identity,7896
+89,6,5671,identity,5671
+89,7,5672,derived bound,
+89,8,5424,identity,5424
+89,9,5425,derived bound,
+89,10,5426,derived bound,
+89,11,5427,derived bound,
+89,12,5428,derived bound,
+89,13,5429,derived bound,
+89,14,5430,derived bound,
+89,15,5431,derived bound,
+89,16,5432,derived bound,
+90,1,11017,identity,11017
+90,2,9153,identity,9153
+90,3,8288,identity,8288
+90,4,7918,identity,7918
+90,5,7919,derived bound,
+90,6,7854,identity,7854
+90,7,7780,identity,7780
+90,8,7637,identity,7637
+90,9,7638,derived bound,
+90,10,6697,identity,6697
+90,11,6698,derived bound,
+90,12,6171,identity,6171
+90,13,6172,derived bound,
+90,14,6173,derived bound,
+90,15,6174,derived bound,
+90,16,6175,derived bound,
+91,1,12230,identity,12230
+91,2,11084,identity,11084
+91,3,9722,identity,9722
+91,4,9310,identity,9310
+91,5,9311,derived bound,
+91,6,7826,identity,7826
+91,7,7827,derived bound,
+91,8,7828,derived bound,
+91,9,7829,derived bound,
+91,10,7830,derived bound,
+91,11,7831,derived bound,
+91,12,7118,identity,7118
+91,13,7097,identity,7097
+91,14,6857,identity,6857
+91,15,6858,derived bound,
+91,16,6721,identity,6721
+92,1,9922,identity,9922
+92,2,9923,derived bound,
+92,3,9924,derived bound,
+92,4,9925,derived bound,
+92,5,8489,identity,8489
+92,6,8306,identity,8306
+92,7,8239,identity,8239
+92,8,8166,identity,8166
+92,9,7727,identity,7727
+92,10,7728,derived bound,
+92,11,7729,derived bound,
+92,12,7730,derived bound,
+92,13,7731,derived bound,
+92,14,6602,identity,6602
+92,15,6603,derived bound,
+92,16,6604,derived bound,
+93,1,14590,identity,14590
+93,2,9440,identity,9440
+93,3,8714,identity,8714
+93,4,8391,identity,8391
+93,5,8241,identity,8241
+93,6,8242,derived bound,
+93,7,8243,derived bound,
+93,8,8096,identity,8096
+93,9,8097,derived bound,
+93,10,7425,identity,7425
+93,11,7426,derived bound,
+93,12,6802,identity,6802
+93,13,6803,derived bound,
+93,14,6804,derived bound,
+93,15,6805,derived bound,
+93,16,6672,identity,6672
+94,1,15670,identity,15670
+94,2,12383,identity,12383
+94,3,9542,identity,9542
+94,4,9142,identity,9142
+94,5,8988,identity,8988
+94,6,8820,identity,8820
+94,7,8642,identity,8642
+94,8,8374,identity,8374
+94,9,8375,derived bound,
+94,10,8093,identity,8093
+94,11,7573,identity,7573
+94,12,7574,derived bound,
+94,13,7139,identity,7139
+94,14,7140,derived bound,
+94,15,7141,derived bound,
+94,16,7142,derived bound,
+95,1,12940,identity,12940
+95,2,10469,identity,10469
+95,3,10059,identity,10059
+95,4,9979,identity,9979
+95,5,9980,derived bound,
+95,6,9889,identity,9889
+95,7,8471,identity,8471
+95,8,8472,derived bound,
+95,9,7798,identity,7798
+95,10,7799,derived bound,
+95,11,7800,derived bound,
+95,12,7801,derived bound,
+95,13,7802,derived bound,
+95,14,7803,derived bound,
+95,15,7736,identity,7736
+95,16,7737,derived bound,
+96,1,18670,identity,18670
+96,2,13620,identity,13620
+96,3,10573,identity,10573
+96,4,10574,derived bound,
+96,5,9193,identity,9193
+96,6,9194,derived bound,
+96,7,9195,derived bound,
+96,8,9196,derived bound,
+96,9,8873,identity,8873
+96,10,8874,derived bound,
+96,11,8875,derived bound,
+96,12,8876,derived bound,
+96,13,8676,identity,8676
+96,14,8677,derived bound,
+96,15,8678,derived bound,
+96,16,8441,identity,8441
+97,1,11362,identity,11362
+97,2,11363,derived bound,
+97,3,11364,derived bound,
+97,4,11015,identity,11015
+97,5,11016,derived bound,
+97,6,11017,derived bound,
+97,7,11018,derived bound,
+97,8,11019,derived bound,
+97,9,10506,identity,10506
+97,10,10507,derived bound,
+97,11,10508,derived bound,
+97,12,10509,derived bound,
+97,13,10510,derived bound,
+97,14,10511,derived bound,
+97,15,10512,derived bound,
+97,16,10513,derived bound,
+98,1,19845,identity,19845
+98,2,13529,identity,13529
+98,3,13135,identity,13135
+98,4,11898,identity,11898
+98,5,11899,derived bound,
+98,6,11772,identity,11772
+98,7,10305,identity,10305
+98,8,10306,derived bound,
+98,9,10307,derived bound,
+98,10,9641,identity,9641
+98,11,9642,derived bound,
+98,12,9643,derived bound,
+98,13,9644,derived bound,
+98,14,9645,derived bound,
+98,15,9646,derived bound,
+98,16,9647,derived bound,
+99,1,30611,identity,30611
+99,2,12527,identity,12527
+99,3,12528,derived bound,
+99,4,12253,identity,12253
+99,5,10404,identity,10404
+99,6,9801,identity,9801
+99,7,9625,identity,9625
+99,8,9626,derived bound,
+99,9,9627,derived bound,
+99,10,9628,derived bound,
+99,11,9629,derived bound,
+99,12,9264,identity,9264
+99,13,9265,derived bound,
+99,14,9266,derived bound,
+99,15,8717,identity,8717
+99,16,8718,derived bound,
+100,1,14031,identity,14031
+100,2,12217,identity,12217
+100,3,12218,derived bound,
+100,4,12124,identity,12124
+100,5,12025,identity,12025
+100,6,11937,identity,11937
+100,7,11938,derived bound,
+100,8,11780,identity,11780
+100,9,11290,identity,11290
+100,10,11291,derived bound,
+100,11,11292,derived bound,
+100,12,11130,identity,11130
+100,13,11131,derived bound,
+100,14,11132,derived bound,
+100,15,11133,derived bound,
+100,16,11134,derived bound,

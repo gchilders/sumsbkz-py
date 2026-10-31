@@ -1,0 +1,111 @@
+501985                 eslp-build  p_nsm_compute         16                             billing=16,cpu=16,mem=32G,node=1   00:07:47       FAILED 
+501986                 eslp-bases  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:02    COMPLETED 
+501987                 eslp-build  p_nsm_compute         16                             billing=16,cpu=16,mem=32G,node=1   00:08:05       FAILED 
+501988                   eslp-ext  p_nsm_compute          8                               billing=8,cpu=8,mem=16G,node=1   00:00:08       FAILED 
+501989                   eslp-ext  p_nsm_compute          8                               billing=8,cpu=8,mem=16G,node=1   00:00:36       FAILED 
+501990                   eslp-ext  p_nsm_compute          8                               billing=8,cpu=8,mem=16G,node=1   00:00:40       FAILED 
+501991                  eslp-h200     p_gpu_h200         60                 billing=60,cpu=60,gres/gpu=4,mem=900G,node=1   00:04:28 CANCELLED b+ 
+502002                  eslp-h200     p_gpu_h200         60                 billing=60,cpu=60,gres/gpu=4,mem=900G,node=1   00:07:26 CANCELLED b+ 
+502010                  eslp-h200     p_gpu_h200         60                 billing=60,cpu=60,gres/gpu=4,mem=900G,node=1   01:37:31 CANCELLED b+ 
+502111              eslp-gpubench     p_gpu_h200         60                 billing=60,cpu=60,gres/gpu=4,mem=400G,node=1   00:12:51    COMPLETED 
+502124              eslp-cpubuild  p_nsm_compute         16                             billing=16,cpu=16,mem=32G,node=1   00:00:21       FAILED 
+502125                  eslp-h200     p_gpu_h200         60                 billing=60,cpu=60,gres/gpu=4,mem=900G,node=1   07:28:21 CANCELLED b+ 
+502157              eslp-cpubuild  p_nsm_compute         16                             billing=16,cpu=16,mem=32G,node=1   00:00:10       FAILED 
+502158              eslp-cpubuild  p_nsm_compute         16                             billing=16,cpu=16,mem=32G,node=1   00:01:40       FAILED 
+502159              eslp-cpubuild  p_nsm_compute         16                             billing=16,cpu=16,mem=32G,node=1   00:01:02    COMPLETED 
+502160              eslp-k19-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   09:23:32 CANCELLED b+ 
+502161              eslp-k20-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   09:23:32 CANCELLED b+ 
+502162              eslp-k21-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:27:32    COMPLETED 
+502163              eslp-k22-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   09:23:32 CANCELLED b+ 
+502164              eslp-k23-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   06:10:25 CANCELLED b+ 
+502165              eslp-k24-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:39:07    COMPLETED 
+502166              eslp-k25-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   01:07:34    COMPLETED 
+502167              eslp-k26-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:32:43    COMPLETED 
+502168              eslp-k27-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:49:42    COMPLETED 
+502169              eslp-k28-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:57:31    COMPLETED 
+502170              eslp-k29-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:57:17    COMPLETED 
+502171              eslp-k30-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:35:30    COMPLETED 
+502323                eslp-h200x4     p_gpu_h200         60                 billing=60,cpu=60,gres/gpu=4,mem=900G,node=1 3-03:04:55    COMPLETED 
+502329              eslp-k14-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:10:25    COMPLETED 
+502330              eslp-k15-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:35:07    COMPLETED 
+502331              eslp-k16-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   06:06:53 CANCELLED b+ 
+502332_33          eslp-high-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:48:37    COMPLETED 
+502332_34          eslp-high-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   01:12:21    COMPLETED 
+502332_35          eslp-high-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:53:04    COMPLETED 
+502332_36          eslp-high-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:31:33    COMPLETED 
+502332_37          eslp-high-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:56:52    COMPLETED 
+502332_38          eslp-high-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:41:28    COMPLETED 
+502332_39          eslp-high-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:26:03    COMPLETED 
+502332_40          eslp-high-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:40:18    COMPLETED 
+502332_41          eslp-high-N100  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:41:30    COMPLETED 
+502332_[42-+       eslp-high-N100  p_nsm_compute          0                                                                00:00:00 CANCELLED b+ 
+502338               eslp-t4bench       p_gpu_t4         12                  billing=12,cpu=12,gres/gpu=1,mem=64G,node=1   00:12:57    COMPLETED 
+502343         eslp-k19-N100-bgj1  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:16 CANCELLED b+ 
+502344         eslp-k20-N100-bgj1  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:37 CANCELLED b+ 
+502345         eslp-k22-N100-bgj1  p_nsm_compute          0                                                                00:00:00 CANCELLED b+ 
+502346         eslp-k23-N100-bgj1  p_nsm_compute          0                                                                00:00:00 CANCELLED b+ 
+502347               eslp-t4bench       p_gpu_t4         12                  billing=12,cpu=12,gres/gpu=1,mem=64G,node=1   00:07:59    COMPLETED 
+502348_[19-+         eslp-t4-N100       p_gpu_t4          0                                                                00:00:00 CANCELLED b+ 
+502349                eslp-t4pool       p_gpu_t4         30                 billing=30,cpu=30,gres/gpu=5,mem=200G,node=1   05:24:33    COMPLETED 
+502350                eslp-t4pool       p_gpu_t4          6                    billing=6,cpu=6,gres/gpu=1,mem=40G,node=1   05:10:10    COMPLETED 
+502371                eslp-t4pool       p_gpu_t4          6                    billing=6,cpu=6,gres/gpu=1,mem=40G,node=1   00:14:37    COMPLETED 
+502376                eslp-t4comp       p_gpu_t4         30                 billing=30,cpu=30,gres/gpu=5,mem=200G,node=1   05:41:05    COMPLETED 
+502377                eslp-t4comp       p_gpu_t4          6                    billing=6,cpu=6,gres/gpu=1,mem=40G,node=1   05:11:10    COMPLETED 
+502381                eslp-t4pool       p_gpu_t4          0                                                                00:00:00 CANCELLED b+ 
+502383                eslp-t4c140       p_gpu_t4          0                                                                00:00:00 CANCELLED b+ 
+502395                  eslp-t4cs       p_gpu_t4          0                                                                00:00:00 CANCELLED b+ 
+502415                eslp-t4pool       p_gpu_t4          0                                                                00:00:00 CANCELLED b+ 
+502416                eslp-t4c140       p_gpu_t4          0                                                                00:00:00 CANCELLED b+ 
+502417                  eslp-t4cs       p_gpu_t4         24                 billing=24,cpu=24,gres/gpu=4,mem=160G,node=1 1-01:59:18 CANCELLED b+ 
+502434                eslp-t4c140       p_gpu_t4          6                    billing=6,cpu=6,gres/gpu=1,mem=60G,node=1   00:00:35    COMPLETED 
+502489_1              eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:04:39    COMPLETED 
+502489_2              eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:04:55    COMPLETED 
+502489_3              eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:03:30    COMPLETED 
+502489_4              eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:49:25    COMPLETED 
+502489_5              eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:58    COMPLETED 
+502489_6              eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:04 CANCELLED b+ 
+502489_7              eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:52    COMPLETED 
+502489_8              eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:46:05    COMPLETED 
+502489_9              eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:36    COMPLETED 
+502489_10             eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:04 CANCELLED b+ 
+502489_11             eslp-struct  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   02:03:20    COMPLETED 
+502500_6             eslp-struct3  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:47:22    COMPLETED 
+502500_7             eslp-struct3  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:45    COMPLETED 
+502500_9             eslp-struct3  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:37    COMPLETED 
+502500_10            eslp-struct3  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:16:36    COMPLETED 
+502512_1             eslp-struct4  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:52    COMPLETED 
+502512_2             eslp-struct4  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:50    COMPLETED 
+502514_1             eslp-struct5  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   01:19:05    COMPLETED 
+502514_2             eslp-struct5  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   01:29:40    COMPLETED 
+502514_3             eslp-struct5  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:09:11    COMPLETED 
+502514_4             eslp-struct5  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:11:22    COMPLETED 
+502514_5             eslp-struct5  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:06:42    COMPLETED 
+502514_6             eslp-struct5  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:07:21    COMPLETED 
+502525             eslp-struct85w  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:05:23    COMPLETED 
+502583                 eslp-rerun       p_gpu_t4         12                  billing=12,cpu=12,gres/gpu=2,mem=80G,node=1   01:26:28    COMPLETED 
+503065                eslp-rerun2       p_gpu_t4         36                 billing=36,cpu=36,gres/gpu=6,mem=300G,node=1   01:14:38    COMPLETED 
+503100              eslp-rerun110       p_gpu_t4         36                 billing=36,cpu=36,gres/gpu=6,mem=300G,node=1   06:07:47    COMPLETED 
+503128              eslp-recstart       p_gpu_t4         36                 billing=36,cpu=36,gres/gpu=6,mem=300G,node=1   00:22:15    COMPLETED 
+503182             eslp-rerun110b       p_gpu_t4         36                 billing=36,cpu=36,gres/gpu=6,mem=300G,node=1   19:13:24 CANCELLED b+ 
+503184             eslp-dbmoments  p_nsm_compute          8                               billing=8,cpu=8,mem=64G,node=1   00:00:00       FAILED 
+503183_0             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:00    COMPLETED 
+503183_1             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:00    COMPLETED 
+503183_2             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:00    COMPLETED 
+503183_3             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:00    COMPLETED 
+503183_4             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:01    COMPLETED 
+503183_5             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:00    COMPLETED 
+503183_6             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:00    COMPLETED 
+503183_7             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:00    COMPLETED 
+503183_8             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:00:00    COMPLETED 
+503194             eslp-dbmoments  p_nsm_compute          8                               billing=8,cpu=8,mem=64G,node=1   00:02:24    COMPLETED 
+503193_0             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:10    COMPLETED 
+503193_1             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:06    COMPLETED 
+503193_2             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:06    COMPLETED 
+503193_3             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:11    COMPLETED 
+503193_4             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:13    COMPLETED 
+503193_5             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:13    COMPLETED 
+503193_6             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:13    COMPLETED 
+503193_7             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:18    COMPLETED 
+503193_8             eslp-moveset  p_nsm_compute         32                             billing=32,cpu=32,mem=64G,node=1   00:01:14    COMPLETED 
+503230           eslp-smallN-h200     p_gpu_h200         60                 billing=60,cpu=60,gres/gpu=4,mem=900G,node=1   00:27:28    COMPLETED 
+503280          eslp-smallN3-h200     p_gpu_h200         60                 billing=60,cpu=60,gres/gpu=4,mem=900G,node=1   00:47:55    COMPLETED 

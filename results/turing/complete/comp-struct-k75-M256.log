@@ -1,0 +1,23 @@
+k=75: 19 distinct congruence inputs
+database 4235915 vectors, 6s
+  dev = Device(devnum)
+  input 0: c=308+5 M=256 fixed=308+5 D~10^126 particular=1 new frontier entries 0  19s
+  input 1: c=289+8 M=256 fixed=289+8 D~10^123 particular=1 new frontier entries 0  15s
+  input 2: c=245+22 M=256 fixed=245+22 D~10^126 particular=1 new frontier entries 18  18s
+  input 3: c=280+19 M=256 fixed=280+19 D~10^125 particular=1 new frontier entries 1  28s
+  input 4: c=270+11 M=256 fixed=270+11 D~10^126 particular=1 new frontier entries 0  17s
+  input 5: c=271+17 M=256 fixed=271+17 D~10^125 particular=1 new frontier entries 23  16s
+  input 6: c=284+14 M=256 fixed=284+14 D~10^126 particular=1 new frontier entries 3  17s
+  input 7: c=290+15 M=256 fixed=290+15 D~10^126 particular=1 new frontier entries 0  19s
+  input 8: c=270+9 M=256 fixed=270+9 D~10^126 particular=1 new frontier entries 0  25s
+  input 9: c=294+8 M=256 fixed=294+8 D~10^126 particular=1 new frontier entries 8  17s
+  input 10: c=278+8 M=256 fixed=278+8 D~10^126 particular=1 new frontier entries 8  17s
+  input 11: c=287+9 M=256 fixed=287+9 D~10^126 particular=1 new frontier entries 0  29s
+  input 12: c=289+7 M=256 fixed=289+7 D~10^124 particular=1 new frontier entries 1  22s
+  input 13: c=262+20 M=256 fixed=262+20 D~10^126 particular=1 new frontier entries 0  21s
+  input 14: c=290+14 M=256 fixed=290+14 D~10^125 particular=1 new frontier entries 0  20s
+  input 15: c=284+9 M=256 fixed=284+9 D~10^126 particular=1 new frontier entries 0  17s
+  input 16: c=298+5 M=256 fixed=298+5 D~10^125 particular=1 new frontier entries 2  23s
+  input 17: c=267+13 M=256 fixed=267+13 D~10^124 particular=1 new frontier entries 0  19s
+  input 18: c=236+21 M=256 fixed=236+21 D~10^124 particular=1 new frontier entries 0  18s
+  k= 75  7:4047<6267!  8:3861<6268!  9:3482<6269!  10:3090<6233!  11:3004<6164!  12:2910<5997!  13:2836<5998!  14:2786<5877!  15:2725<5878!  16:2724<5879!

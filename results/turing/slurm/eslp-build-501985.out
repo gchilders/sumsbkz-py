@@ -1,0 +1,12 @@
+rebuild exit 1
+/usr/bin/ld: cannot find -lcublas
+/usr/bin/ld: cannot find -lcurand
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:44: libG6K.so] Error 1
+make: Leaving directory '/data/ChildersGroup/euler/sumsbkz-py/g6kgpu/kernel'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/gchilders/data/euler/sumsbkz-py/g6kgpu/g6k/__init__.py", line 3, in <module>
+    from .siever_params import SieverParams # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'g6k.siever_params'

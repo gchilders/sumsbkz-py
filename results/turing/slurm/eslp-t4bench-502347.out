@@ -1,0 +1,53 @@
+0, Tesla T4, 15360 MiB
+1, Tesla T4, 15360 MiB
+2, Tesla T4, 15360 MiB
+3, Tesla T4, 15360 MiB
+4, Tesla T4, 15360 MiB
+5, Tesla T4, 15360 MiB
+model name	: Intel(R) Xeon(R) Gold 5220R CPU @ 2.20GHz
+avx2
+G6K-GPU n=50 bgj1: OK 6.0s
+G6K-GPU n=50 bdgl: OK 6.0s
+G6K-GPU n=52 bgj1: OK 6.5s
+G6K-GPU n=52 bdgl: OK 6.6s
+/data/ChildersGroup/euler/sumsbkz-py/env/lib/python3.10/site-packages/numba_cuda/numba/cuda/cudadrv/driver.py:381: UserWarning: cuda-bindings was built for CUDA major version 13, but the NVIDIA driver only supports up to CUDA 12. Some cuda-bindings features may not work correctly. Consider updating your NVIDIA driver, or using a cuda-bindings version built for CUDA 12. (Set CUDA_PYTHON_DISABLE_MAJOR_VERSION_WARNING=1 to suppress this warning.)
+  dev = Device(devnum)
+/data/ChildersGroup/euler/sumsbkz-py/env/lib/python3.10/site-packages/numba_cuda/numba/cuda/dispatcher.py:748: NumbaPerformanceWarning: Grid size 3 will likely result in GPU under-utilization due to low occupancy.
+  warn(errors.NumbaPerformanceWarning(msg))
+IDENTICAL
+start Wed Oct 28 00:27:42 PDT 2026
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+/data/ChildersGroup/euler/sumsbkz-py/env/lib/python3.10/site-packages/numba_cuda/numba/cuda/cudadrv/driver.py:381: UserWarning: cuda-bindings was built for CUDA major version 13, but the NVIDIA driver only supports up to CUDA 12. Some cuda-bindings features may not work correctly. Consider updating your NVIDIA driver, or using a cuda-bindings version built for CUDA 12. (Set CUDA_PYTHON_DISABLE_MAJOR_VERSION_WARNING=1 to suppress this warning.)
+k=24 run 1/1  bases 1..100 (100)  db 4230677  sieve 332.2s  descent 76.5s
+
+real	6m50.064s
+user	4m14.717s
+sys	0m13.268s
+done Wed Oct 28 00:34:32 PDT 2026

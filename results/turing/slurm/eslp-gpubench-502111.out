@@ -1,0 +1,5 @@
+basis k=28 run=0 done
+authors-bgj1 exit=0 wall=746s :: k=28 run 1/1  bases 1..100 (100)  db 4230677  sieve 698.5s  descent 45.0s
+authors exit=0 wall=748s :: k=28 run 1/1  bases 1..100 (100)  db 4230677  sieve 701.9s  descent 43.8s
+authors-r128 exit=0 wall=748s :: k=28 run 1/1  bases 1..100 (100)  db 4230677  sieve 702.4s  descent 43.4s
+default exit=0 wall=771s :: k=28 run 1/1  bases 1..100 (100)  db 4887424  sieve 742.4s  descent 27.0s

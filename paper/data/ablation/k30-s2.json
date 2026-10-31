@@ -1,0 +1,65 @@
+{
+ "k": 30,
+ "N": 60,
+ "seed": 2,
+ "radius": 1.5,
+ "threads": 16,
+ "db": {
+  "size": 501006,
+  "gh2_exact": 244.59594883645664,
+  "gh2_asym": 223.85508507475512,
+  "norm2_over_gh2_q": [
+   1.0629775400484778,
+   1.5208755573001296,
+   1.6680570628453035,
+   1.7907083174662817,
+   1.8642990702388686
+  ],
+  "frac_outside_radius": 0.921783371855826,
+  "sat_achieved": 0.5005873497359176,
+  "T_q": [
+   92.0,
+   116.0,
+   124.0,
+   130.0,
+   148.0
+  ],
+  "minpq_q": [
+   17.0,
+   44.0,
+   58.0,
+   64.0,
+   72.0
+  ],
+  "minpq_le16": 0,
+  "max_T": 148,
+  "max_norm2": 456,
+  "sieves": 10,
+  "unsaturated": 0,
+  "final_unsaturated": false
+ },
+ "sieve_s": 8.5,
+ "descent_steps": {
+  "tasks": 2513,
+  "median": 3.0,
+  "p99": 7.0,
+  "max": 9,
+  "at_cap": 0
+ },
+ "combine": {
+  "rounds": 1,
+  "pool": 241,
+  "capped": false,
+  "seconds": 1.5
+ },
+ "A_passes": 2959,
+ "E_passes": 2460,
+ "E_moves": 123062,
+ "E_descent_steps": {
+  "tasks": 2513,
+  "median": 4.0,
+  "p99": 8.0,
+  "max": 10,
+  "at_cap": 0
+ }
+}

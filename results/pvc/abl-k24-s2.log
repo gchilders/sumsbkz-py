@@ -1,0 +1,16 @@
+== abl-k24-s2 start Wed Oct 28 03:45:38 UTC 2026 on gc-eslp-abl-k24-s2-lmmh6 threads=16
+model name	: AMD EPYC 7742 64-Core Processor
+avx2 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Wed Oct 28 03:47:03 UTC 2026
+k=24 seed=2 A:  1 entries below the table, time   155.0s
+k=24 seed=2 B:  0 entries below the table, time    10.3s
+k=24 seed=2 C:  0 entries below the table, time    51.5s
+k=24 seed=2 D:  1 entries below the table, time   154.0s
+k=24 seed=2 E:  8 entries below the table, time    91.2s
+{"k": 24, "N": 60, "seed": 2, "radius": 1.5, "threads": 16, "db": {"size": 501006, "gh2_exact": 106.6053926224709, "gh2_asym": 97.56563568796935, "norm2_over_gh2_q": [1.031842736038229, 1.5102425500195895, 1.6603287661706048, 1.772893428283866, 1.8291757593404967], "frac_outside_radius": 0.9217913557921462, "sat_achieved": 0.5005362524485788, "T_q": [55.0, 74.0, 80.0, 85.0, 97.0], "minpq_q": [17.0, 32.0, 37.0, 41.0, 48.0], "minpq_le16": 0, "max_T": 97, "max_norm2": 195, "sieves": 10, "unsaturated": 0, "final_unsaturated": false}, "sieve_s": 10.3, "descent_steps": {"tasks": 2513, "median": 3.0, "p99": 7.0, "max": 10, "at_cap": 0}, "combine": {"rounds": 4, "pool": 269, "capped": false, "seconds": 7.5}, "A_passes": 4027, "E_passes": 2900, "E_moves": 143820, "E_descent_steps": {"tasks": 2513, "median": 4.0, "p99": 8.0, "max": 12, "at_cap": 0}}
+== abl-k24-s2 done Wed Oct 28 03:53:54 UTC 2026

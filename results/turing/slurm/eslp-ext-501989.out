@@ -1,0 +1,9 @@
+build_ext exit 1
+/usr/bin/ld: cannot find -lgmp
+collect2: error: ld returned 1 exit status
+error: Command '['c++', '-pthread', '-Wno-unused-result', '-Wsign-compare', '-Wunreachable-code', '-DNDEBUG', '-g', '-fwrapv', '-O3', '-Wall', '-O3', '-fstack-protector', '-fstack-clash-protection', '-U_FORTIFY_SOURCE', '-D_FORTIFY_SOURCE=2', '-fno-omit-frame-pointer', '-mno-omit-leaf-frame-pointer', '-fPIC', '-shared', 'build/temp.linux-x86_64-cpython-310/g6k/siever.o', '-L/home/gchilders/.local/share/uv/python/cpython-3.10.22-linux-x86_64-gnu/lib', '-lgmp', '-lpthread', '-lG6K', '-o', 'build/lib.linux-x86_64-cpython-310/g6k/siever.cpython-310-x86_64-linux-gnu.so', '-shared', '-pthread', '-L/data/ChildersGroup/euler/sumsbkz-py/g6kgpu/kernel', '-Wl,-rpath=/data/ChildersGroup/euler/sumsbkz-py/g6kgpu/kernel', '-lpthread', '-L/opt/ohpc/pub/apps/cuda/12.9.1/lib64', '-Wl,-rpath=/opt/ohpc/pub/apps/cuda/12.9.1/lib64', '-lcudart', '-L/opt/ohpc/pub/apps/cuda/12.9.1/lib64/stubs', '-Wl,-rpath=/opt/ohpc/pub/apps/cuda/12.9.1/lib64/stubs', '-lcuda', '-lcublas', '-lcurand']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/gchilders/data/euler/sumsbkz-py/g6kgpu/g6k/__init__.py", line 3, in <module>
+    from .siever_params import SieverParams # noqa
+ModuleNotFoundError: No module named 'g6k.siever_params'

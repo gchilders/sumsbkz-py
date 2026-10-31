@@ -1,0 +1,6 @@
+Spilling full transaction db8Spilling full transaction db6 1
+Spilling full transaction dbSpilling full transaction db 1
+14 1
+13 1
+k=34 run 1/1  bases 1..100 (100)  db 4887424  sieve 3965.4s  descent 373.6s
+  k= 34  1:208<318!  2:173<276!  3:174<268!  4:169<261!  5:148<254!  6:144<241!  7:147<225!  8:134<220!  9:137<221!  10:129<213!  11:126<213!  12:119<207!  13:120<198!  14:101<199!  15:108<193!  16:97<192!  17:97<186!  18:94<185!  19:82<171!  20:75+

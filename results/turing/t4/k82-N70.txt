@@ -1,0 +1,1 @@
+// sievesearch k=82..82 N=70 subset=0 runs=1 radius=1.45 alg=gpu starts=300 moves=0 seed=82070 2026-10-28 12:28

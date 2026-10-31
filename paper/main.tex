@@ -1,0 +1,1326 @@
+% New records for equal sums of like powers via lattice sieving
+% Build: latexmk -pdf main.tex
+% All tables and the numbers set by macros (\NumImproved etc.) are generated from the
+% verified result files by tools/make_tables.py, tools/controls.py, tools/ablation_table.py,
+% tools/nsweep_table.py and tools/logstats.py.
+\documentclass[11pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{cite}
+\usepackage{booktabs,longtable,array}
+\usepackage{algorithm,algpseudocode}
+\usepackage{pdflscape,capt-of}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\input{tables/numbers.tex}
+\input{tables/ablnumbers.tex}
+\input{tables/resources.tex}
+\input{tables/congnumbers.tex}
+\input{tables/controlsnumbers.tex}
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}[proposition]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{Remark}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\GH}{\mathrm{GH}}
+\newcommand{\todo}[1]{\textcolor{red}{[#1]}}
+
+\begin{document}
+
+\title[New records for equal sums of like powers]{New records for equal sums of like powers\\ via lattice sieving}
+
+\author{J. G. Childers}
+\address{Department of Physics, California State University, Fullerton, 800 N. State College Blvd., Fullerton, CA 92831, USA}
+\email{gchilders@fullerton.edu}
+
+\subjclass[2020]{Primary 11D41, 11Y50; Secondary 11H06, 11Y16}
+\keywords{Equal sums of like powers, Euler's conjecture, integer relations, lattice reduction, lattice sieving}
+
+\begin{abstract}
+An equal sum of like powers of type $(k,m,n)$ is an identity
+$a_1^k+\dots+a_m^k=b_1^k+\dots+b_n^k$ in positive integers; for each $k$ and $m$ one seeks
+the least $n$. Between 2000 and 2003 many records for large $k$ were found by lattice reduction
+of the integer relations among $1^k,\dots,N^k$. We return to this lattice with the General
+Sieve Kernel and use the whole sieve database as the move set of a greedy descent on the
+numbers of terms. With bases at most $120$ this improves \NumImproved{} of the \NumCells{}
+entries with $m\le16$ and $17\le k\le30$ in Meyrignac's table of records; together with
+completions of congruence solutions, which use larger bases, it improves \HNumImproved{} of the
+\HNumCells{} entries for $33\le k\le100$; for 25 powers it also lowers the least known total number of terms. The
+powers that resist the search are mostly those for which $k-j$, for a small $j\ge1$, has many
+divisors $\ell-1$ with $\ell$ prime. Then the moment $\sum_x c_xx^j$, where $c_x$ is the signed
+multiplicity of the base $x$, vanishes on almost all short
+relations, a descent through such relations cannot change it, and the sublattice where it
+vanishes appears to contain few relations with one short side; for most of these powers,
+starting in other cosets removes this obstruction. All identities are verified in exact arithmetic,
+and a standalone verifier is provided with the data.
+\end{abstract}
+
+\maketitle
+
+%======================================================================
+\section{Introduction}
+%======================================================================
+
+Euler conjectured that for $k\ge3$ a $k$-th power is never a sum of fewer than $k$ positive
+$k$-th powers. Lander and Parkin disproved this for $k=5$ with
+$27^5+84^5+110^5+133^5=144^5$ \cite{LanderParkin1966,LanderParkin1967}. Elkies
+\cite{Elkies1988} disproved it for $k=4$, and Frye \cite{Frye1988} found the smallest
+counterexample. Lander, Parkin and
+Selfridge \cite{LanderParkinSelfridge1967} surveyed equal sums of like powers more generally
+and conjectured that a nontrivial identity of type $(k,m,n)$ requires $m+n\ge k$. Ekl
+\cite{Ekl1996,Ekl1998} found further identities, and Gerbicz, Meyrignac and Beckert
+\cite{GerbiczMeyrignacBeckert2011} attribute to Ekl \cite{Ekl1998} the name ``Euler's
+extended conjecture'' for this statement.
+
+For large $k$ nothing beyond computation is known. For each $k$ and $m$ one seeks an identity
+of type $(k,m,n)$ with $n$ as small as possible, and since 1999 the best known values have been
+collected by J.-C.~Meyrignac \cite{MeyrignacEuler}. About three quarters of the dated entries
+with $13\le k\le32$ in his table come from 2000--2003, when the problem was treated as an
+integer relation problem and attacked with lattice basis reduction
+\cite{LLL1982,SchnorrEuchner1994,ChildersSumsPage2000,CrumpEqualSums2001}. In the table no
+entry with $k\ge11$ is dated later than 2013.
+
+Lattice reduction has advanced considerably since then. BKZ~2.0
+\cite{ChenNguyen2011} and the floating-point LLL algorithm of Nguyen and Stehl\'e
+\cite{NguyenStehle2009} made strong reduction routine in fplll \cite{fplll}. Lattice sieving
+\cite{NguyenVidick2008,MicciancioVoulgaris2010,BeckerDucasGamaLaarhoven2016} has overtaken
+enumeration in practice, and the General Sieve Kernel (G6K) \cite{AlbrechtEtAl2019}
+organized sieving around a persistent database of short vectors. Its GPU version solved
+Darmstadt SVP challenges up to dimension $180$ on a single server with four GPUs
+\cite{DucasStevensVanWoerden2021}. Lattice reduction has also been used in other Diophantine
+searches, for rational points near curves and small values of $|x^3-y^2|$
+\cite{Elkies2000} and for $abc$ triples \cite{Dokchitser2004}, and integer relation
+algorithms such as PSLQ \cite{FergusonBaileyArno1999,BaileyBroadhurst2001} are a standard tool
+of experimental mathematics. We know of no refereed account of lattice methods for equal sums
+of like powers.
+
+The paper has two aims. The first is to record the method of 2000--2003 while the programs
+and records survive (Section~\ref{sec:history}). The second is to show that the same lattice,
+searched with current tools, yields many new records, and to determine which parts of the
+search are responsible. The components are not new individually: the relation lattice
+dates from 2000, the weighted greedy objective from the program \texttt{ResultLC} of 2001, and the
+sieve is G6K. The new element is the way they are combined. The descent
+(Section~\ref{sec:descent}) uses the whole sieve database, up to $6\times10^7$
+relations, as its set of moves, where the programs of 2000 used the $N-1$ rows of one
+reduced basis, and it records every relation it examines, not only the local minima it
+reaches.
+
+The results (Section~\ref{sec:results}) improve \NumImproved{} of the \NumCells{} entries with
+$m\le16$ and $17\le k\le30$, including every entry for $k\in\{\FullKList\}$.
+Section~\ref{sec:experiments} separates the contributions of the stages. Our combination
+procedure, applied to the identities already known, improves no entry of the table, while the
+identities found by individual runs, without combination and without the known identities,
+improve \CtrlRImp{} of the \NumImproved{} entries. The database alone reaches almost none of the
+records, and the descent does. With the same descent, an equal number of rows from thousands of
+independent BKZ reductions with block size 40 serves about as well as sieve vectors, and neither
+move set is uniformly better; the advantage of the sieve is that it produces many more moves in
+the same time.
+
+Section~\ref{sec:high} turns to the companion table for $33\le k\le100$. There a congruence
+obstruction (Proposition~\ref{prop:moment}) accounts for most of the powers that resist the
+search; starting the descent in other cosets of a sublattice of the relation lattice, and
+completing congruence solutions as in 2002, overcomes it for most of them, and \HNumImproved{}
+of the \HNumCells{} entries are improved. In the two tables together we lower the least known
+total $m+n$ for 25 powers (10 in the main table and 15 in the second). The identities, the
+reference version of the tables and a verification program that needs only a Python interpreter
+are in the data archive.
+
+%======================================================================
+\section{The problem and the record table}\label{sec:problem}
+%======================================================================
+
+\begin{definition}
+Let $k\ge2$. An identity
+\[
+a_1^k+\dots+a_m^k=b_1^k+\dots+b_n^k,\qquad a_i,b_j\in\Z_{>0},
+\]
+in which no base occurs on both sides is of type $(k,m,n)$; we take $m\le n$. Bases may
+repeat, and we write a repeated base with a multiplicity, as in $3\cdot7^k$. The identity is
+\emph{primitive} if the bases have no common divisor greater than $1$.
+\end{definition}
+
+Equivalently, an identity is a nonzero vector $c\in\Z^N$, where $N$ is at least the largest
+base, with
+\begin{equation}\label{eq:relation}
+\sum_{x=1}^{N} c_x\, x^k = 0.
+\end{equation}
+The positive and negative entries of $c$ give the two sides, and $|c_x|$ is the multiplicity
+of $x$. Write $p(c)=\sum_{c_x>0}c_x$ and $q(c)=\sum_{c_x<0}|c_x|$. Then $c$ gives an identity
+of type $(k,\min(p,q),\max(p,q))$ with $T=p+q=\|c\|_1$ terms, where
+$\|c\|_1=\sum_x|c_x|$. We call $c$ nearly balanced if $\min(p,q)$ is close to $T/2$, and
+unbalanced if $\min(p,q)$ is much smaller; the records with small $m$ are unbalanced. We write
+$\|c\|_2=(\sum_xc_x^2)^{1/2}$ for the Euclidean length of $c$, which is what lattice reduction
+and sieving make small; a norm without subscript, as in $\|c\|^2$, is the Euclidean norm.
+
+Two operations produce an identity from another without new information. Multiplying every
+base by an integer greater than $1$ preserves the type, and multiplying $c$ by an integer $t>1$ gives the type
+$(k,tm,tn)$. We count only primitive identities, and we check that none of our identities
+has a common factor in its multiplicities. Adding the same base to both sides is not an
+operation in this sense, since the result violates the definition.
+
+Meyrignac's table \cite{MeyrignacEuler} lists, for $2\le k\le32$ and $1\le m\le16$, the least
+known $n$ for each $(k,m)$; a second table covers $33\le k\le100$. The entries are of two
+kinds. Most are attained by an identity in the accompanying database, and a few of these are
+proved or conjectured minimal. The others, which we call derived bounds, are obtained from a
+neighboring entry by the rule that an identity of type $(k,m,n)$ gives the bound $n+i$ for the
+entry $(k,m+i)$. Such a bound does not correspond to an identity in the sense of the
+definition. Of the \NumCells{} entries with $17\le k\le30$ and $m\le16$, \NumCellsIdent{} are of
+the first kind and \NumCellsDerived{} of the second; the first kind includes $(18,15)$, which is
+empty in the table but attained by an identity of type $(18,15,15)$ in the database. Our counts
+refer to this range, which our main searches cover; the entries for $k=31$ and $32$, which were
+added later and needed partly different methods, are reported separately
+(Section~\ref{sec:notimproved}), and a search for $k=16$ improved no entry. We compare our
+results with the table and its database as accessed on 27 October 2026; the database was last
+modified in November 2022. The reference value of an entry is the smaller of the table entry
+and the least $n$ of an identity of type $(k,m,n)$ in the database. The archive records SHA-256
+checksums of the files from which the reference values were extracted, and lists the reference
+value of every entry.
+
+%======================================================================
+\section{The integer-relation searches, 2000--2003}\label{sec:history}
+%======================================================================
+
+The record table grew out of distributed enumeration. Meyrignac's search began in January 1999
+and became the EulerNet client--server project in July 2000, with the server hosted by the
+author for most of its life; from 2010 to 2011 it continued as a subproject of the BOINC project
+yoyo@home (Appendix~\ref{app:chronology}). Exhaustive enumeration of this kind settles small $k$ up to a bound on the terms; for large
+$k$ it is impractical, and lattice methods took its place.
+
+\subsection{Integer relations}
+Joe McLean formulated the search as $z^k=\sum_x c_x x^k$. In September 2000 the author
+treated \eqref{eq:relation} as an integer relation problem among $1^k,\dots,N^k$, tested the
+approach with the LLL algorithm \cite{LLL1982} of Mathematica before sharing it, and held the
+records for $k\ge23$ on 24 and 25 September \cite{MeyrignacEuler}. Joe K.~Crump then
+used the BKZ reduction of NTL \cite{SchnorrEuchner1994,NTL}, and from 26 September 2000 held
+every record above $k=12$ \cite{CrumpEqualSums2001}. The author's program, first written in PARI/GP and
+then as \texttt{SumsBKZ} using NTL's BKZ, reached version~1.3.2 by December 2000
+\cite{ChildersSumsPage2000}. Meyrignac's site credits the author with the application of integer relations
+to the problem \cite{MeyrignacEuler}.
+
+\texttt{SumsBKZ} reduces the $N\times(N+1)$ basis
+\[
+B=\begin{pmatrix} I_N \;\big|\; \lambda\,(x_1^k,\dots,x_N^k)^{\mathsf T}\end{pmatrix},\qquad \lambda=10^4,
+\]
+with NTL's \texttt{BKZ\_FP} ($\delta=0.9999$), where the bases $x_i$ are $1,\dots,N$ in random
+order or, for the table of prime bases, the first $N$ primes. Since $\lambda$ is large, the
+short vectors of this lattice have last coordinate zero, and the reduced rows with last
+coordinate zero are relations \eqref{eq:relation}. Each pass reduces one random ordering. Options restrict the reduction to
+a random subset of the bases, always include the smallest bases, or, for even $k$, use $1$
+and multiples of chosen primes. The last option addresses the following restriction. If $\ell$
+is prime and $(\ell-1)\mid k$, then $x^k\equiv1\pmod\ell$ whenever $\ell\nmid x$, so every
+relation satisfies $\sum_{\ell\nmid x}c_x\equiv0\pmod\ell$. The numbers of terms prime to $\ell$
+on the two sides are then congruent modulo $\ell$, and using multiples of $\ell$ as bases removes
+this restriction.
+
+\subsection{Post-processing and combination}
+BKZ produces vectors that are short in the Euclidean norm, whereas a record is judged by
+$\min(p,q)$ and then by $p+q$. Fumitaka Yura's post-processing step, adopted in
+\texttt{SumsBKZ} in December 2000, partly addresses this. Starting from each reduced
+relation, it adds or subtracts another reduced relation whenever this lowers $\min(p,q)$, and
+then repeats the process for $p+q$. Two further programs combined identities found in
+different runs. \texttt{ResultLC}, whose documentation states that it uses the algorithm of Yura's
+program \texttt{ysum}, applies the same kind of step to the objective
+$w\min(p,q)+p+q$ for an increasing sequence of weights $w$. \texttt{NewLC}, written by Meyrignac in
+January 2001, is a multi-pass beam search over sums and differences of known identities that
+keeps the best bound for each $m$. Later variants of 2002 included \texttt{SumBKZ2} and a version
+of \texttt{SumsBKZ} for large exponents.
+
+\subsection{Congruence methods and completion}
+Jaros\l aw Wr\'oblewski's searches, which produced many records for $9\le k\le20$, restrict
+the bases to residue classes modulo prime powers before searching
+\cite{WroblewskiProblemSet}; the method is otherwise unpublished. In 2002 he also supplied
+congruence solutions for larger powers, and a variant of \texttt{SumsBKZ} completed them; the
+records for $k=31$ and for several powers between $37$ and $97$ were found in this way. Given
+multisets of bases $P$ and $Q$ with $\sum_{y\in P}y^k-\sum_{y\in Q}y^k=M^k\Delta$, this variant
+appends the row $(0,\dots,0,\lambda\Delta)$ to $B$ and keeps the reduced vectors with last
+coordinate zero that use this row with coefficient $\pm1$; up to sign they satisfy
+$\sum_xc_xx^k=\Delta$, and the bases $Mx$ with multiplicities $c_x$ complete $P$ and $Q$ to an
+identity. This is a form of Kannan's embedding of a closest-vector problem into a
+shortest-vector problem \cite{Kannan1987}.
+
+\subsection{The archive and a baseline}
+The surviving archive of 2001--2003, which we call the 2003 archive, contains 1,042 identities
+for $k\le32$, 3,384 for $33\le k\le100$ and 866 for the table of prime bases, all of which
+verify. We rebuilt \texttt{SumsBKZ}~1.3.3, the last version that survives, against NTL~11.6 and
+ported it to Python with fpylll \cite{fpylll}. With identical settings (10 passes,
+$N=40,\dots,50$, $9\le k\le32$, block size~20) the original reproduced two of the archived
+records that are reachable with bases at most $50$, and the port four, using 146\,s and 197\,s
+of CPU time, respectively. This sample is small; it shows continuity of behavior, not
+equivalence of the two implementations. The port is baseline~A of
+Section~\ref{sec:experiments}.
+
+%======================================================================
+\section{Method}\label{sec:method}
+%======================================================================
+
+\subsection{The relation lattice}
+For $k$ and $N$ let $v=(1^k,2^k,\dots,N^k)$ and
+\[
+L=L_{k,N}=\{\,c\in\Z^N : \langle c,v\rangle=0\,\}.
+\]
+This is a lattice of rank $d=N-1$, and since $\gcd(v)=1$ its determinant is $\|v\|$. Since
+$1^k=1$, the vectors $e_x-x^ke_1$ ($2\le x\le N$) form a basis of $L$, but a poorly reduced
+one. We obtain a reduced basis from one LLL reduction of the embedding of
+Section~\ref{sec:history}: when exactly $N-1$ of the reduced rows have last coordinate zero, as
+we check, these rows form a basis of $L$, since a lattice vector with last coordinate zero has
+coefficient zero on the remaining row. We then reduce it further with BKZ of block size 20
+(BKZ-20; similarly BKZ-30 and BKZ-40). All later computation takes place
+in $L$, whose reduced basis has small entries.
+
+\subsection{The Gaussian heuristic and the number of terms}\label{sec:gh}
+Let
+\begin{equation}\label{eq:gh}
+\GH(L)=\Bigl(\frac{d}{2\pi e}\Bigr)^{1/2}\|v\|^{1/d},\qquad \|v\|^2=\sum_{x=1}^{N}x^{2k},
+\end{equation}
+the usual asymptotic estimate of the length of a shortest nonzero vector of $L$. (G6K uses the
+exact volume of the unit ball, which gives a value larger by $3$ to $5\%$ in these dimensions;
+the radius of Section~\ref{sec:sieve} and the ratios to $\GH$ in Section~\ref{sec:dbstats} use
+this exact form.) For an integer vector
+$c\in\Z^N$,
+\begin{equation}\label{eq:norms}
+\|c\|_2\le\|c\|_1\le\min\bigl(\|c\|_2^2,\ \sqrt N\,\|c\|_2\bigr).
+\end{equation}
+These inequalities are elementary. The second bound $\|c\|_1\le\|c\|_2^2$ holds because
+$|c_x|\le c_x^2$, with equality exactly when every nonzero coefficient is $\pm1$; such a
+relation has $T\le N$ terms but need not be balanced. The Lander--Parkin identity, for
+instance, has $p=4$, $q=1$ and $\|c\|_1=\|c\|_2^2=5$. By \eqref{eq:norms}, a relation with
+$T$ terms has $\|c\|_2^2\ge T^2/N$, and a relation of length close to $\GH(L)$ has at most
+$\min(\GH^2,\sqrt N\,\GH)$ terms. Table~\ref{tab:gh} gives $\GH(L_{k,N})^2$; it is smallest at
+$N=166$ for $k=20$ and $N=280$ for $k=30$, and to leading order in $N$ the minimum lies at
+$N\approx2k(\ln N-1)$.
+
+The Gaussian heuristic predicts Euclidean lengths and says nothing directly about $p$ and $q$.
+It is an empirical observation, not a consequence of \eqref{eq:norms}, that the short vectors
+of $L$ are nearly balanced. In the databases of Section~\ref{sec:dbstats}
+(Table~\ref{tab:dbstats}) the median of $\min(p,q)$ is close to $T/2$, and at most $53$ of the
+$5\times10^5$ to $1.2\times10^6$ vectors in each database have $\min(p,q)\le16$. The records
+with small $m$ are much longer: for the 50 improved entries with $m\le4$ and $17\le k\le30$,
+$\|c\|_2^2$ is between $1.3$ and $4.7$ times $\GH(L_{k,N})^2$, with $N$ the largest base. In
+our runs they were found at small $N$; for example, our identities of types $(20,3,56)$ and
+$(24,3,85)$ have largest bases $58$ and $59$. Table~\ref{tab:gh} therefore describes the
+balanced relations that the sieve finds, not the unbalanced relations that make up most
+records.
+Section~\ref{sec:nsweep} compares values of $N$ at a fixed budget.
+
+\begin{table}[htbp]
+\centering\small
+\input{tables/gh.tex}
+\caption{The heuristic $\GH(L_{k,N})^2$ of \eqref{eq:gh} and the value of $N$ that minimizes
+it. By \eqref{eq:norms} it bounds the number of terms of a relation of length near the
+shortest vector.}\label{tab:gh}
+\end{table}
+
+\subsection{The sieve database}\label{sec:sieve}
+After BKZ-20 preprocessing we sieve the full lattice with G6K, progressively: we sieve the last
+50 coordinates of the projected lattice, then extend the sieving context to the left one
+dimension at a time and sieve again, until the full lattice is reached. A few early runs
+started the full-dimensional sieve from random samples instead, which gives databases of the
+same size and similar quality, more slowly (Section~\ref{sec:dbstats}).
+
+We used two of G6K's sieves for the full lattice: \texttt{bgj1}, its variant of the sieve of
+Becker, Gama and Joux \cite{BeckerGamaJoux2015}, and \texttt{bdgl}, the sieve of Becker, Ducas,
+Gama and Laarhoven \cite{BeckerDucasGamaLaarhoven2016}. The GPU version of G6K, G6K-GPU
+\cite{DucasStevensVanWoerden2021}, uses bucketing of the BDGL type, or in one run of the BGJ1
+type, on the GPU. A sieve call stops when the database contains a given fraction, the
+saturation ratio, of the expected number $\tfrac12\rho^{d/2}$ (up to sign) of lattice vectors of
+length at most $\sqrt\rho\,\GH(L)$, where $\rho$ is the saturation radius and $\GH$ is computed
+from the exact volume of the ball. In the CPU runs we set $\rho$ between $4/3$, G6K's default,
+and $1.7$, the saturation ratio to $0.5$ and the database size to $3.2\,\rho^{d/2}$. The GPU
+runs used saturation ratio $0.375$ and database size $2.77\,\rho^{d/2}$, the settings of
+\cite{DucasStevensVanWoerden2021}, mostly with $\rho=4/3$. The radius is a stopping
+criterion, not a bound on the database: in the CPU runs the database holds about
+$3.2\,\rho^{d/2}$ vectors, so after saturation roughly $0.25/3.2\approx8\%$ of them lie
+inside the radius and the rest are longer. In our measurements $92\%$ of the vectors lie
+outside the radius and the longest have $\|c\|^2$ between about $1.7$ and $1.9$ times $\GH^2$
+(Table~\ref{tab:dbstats}). If G6K signals that it failed to reach the target, we continue with
+the current database; this did not happen in any of the \SatSieves{} sieve calls of the
+experiments of Section~\ref{sec:experiments}, where we recorded it. All database vectors are
+kept as moves. For $N=60$ and $\rho=1.5$ the database has $501{,}006$ vectors, for $N=90$ and
+$\rho=1.38$ it has $5{,}367{,}467$; the GPU databases have about $4.2\times10^6$ vectors for
+$N=100$ and $1.8\times10^7$ for $N=110$, and the two runs with $N=120$ kept the $6\times10^7$
+shortest vectors (Section~\ref{sec:cost}).
+
+By \eqref{eq:norms}, a relation with $T$ terms cannot be in a database whose longest vector has
+squared length less than $T^2/N$. This necessary condition is weak. Our identity of type
+$(28,1,126)$ has $T=127$ and largest base $69$, so it lies in $L_{28,70}$, and
+$T^2/70\approx230$ is just below the largest squared length, $234$, in the four databases we
+measured for $L_{28,70}$ (two seeds, progressive and random start); but its squared length is
+$455$. Relations of this kind are not in databases of this size, and the records with small $m$
+have to be reached by other means.
+
+\subsection{Descent}\label{sec:descent}
+Relations with small $\min(p,q)$ are longer than the database vectors. We reach them by a
+greedy descent that uses the database $D$ as its set of moves (Algorithm~\ref{alg:descent}).
+For a weight $w\ge0$ let
+\[
+f_w(c)=w\,\min(p(c),q(c))+p(c)+q(c),
+\]
+the objective of \texttt{ResultLC}. From each start the descent repeatedly replaces the current
+relation $c$ by the best $c\pm u$ with $u\in D$, as long as $f_w$ strictly decreases, for at
+most $t_{\max}=500$ steps. Ties are broken by the smallest index of $u$ in $D$, with $+$
+before $-$. Every candidate $c\pm u$ examined is itself a relation, whether or not it lowers
+$f_w$, and is used to update the frontier $F(m)$, the least $n$ found for each $m$. The
+frontier therefore reflects the whole neighborhood of each path, not only the local minima where
+the paths end; Section~\ref{sec:moveset} measures what this adds. Unless stated otherwise, the
+starts are the rows of the reduced basis and 300 database vectors chosen at random, and the
+weights are $\Omega=\{0,1,2,4,8,16,1000\}$. With $w=0$ the descent minimizes $p+q$; larger $w$
+favors relations with smaller $\min(p,q)$. Two other kinds of start are used for particular
+powers: coset starts, relations in a chosen coset of a sublattice of $L$
+(Section~\ref{sec:congruence}), and known-identity starts, the identities with $m\le40$ and bases
+at most $N$ in Meyrignac's database and, for $k\le32$, the 2003 archive, each alone and plus or minus random
+database vectors (Section~\ref{sec:notimproved}).
+
+The database is stored with one sign per vector (first nonzero entry positive), with
+duplicates and the zero vector removed, as 16-bit integers; extraction checks that no
+coefficient overflows. The descent works with 32-bit coefficients and 64-bit term counts, and
+every identity is checked in exact arithmetic before it is stored. Both signs are used as
+moves. The frontier is kept for $m<96$, with one
+relation attaining each value. The descents for different starts and weights are independent
+and run in parallel; each keeps its own frontier, and the frontiers are merged at the end. The
+step limit is never reached in practice: over the \StepsTasks{} descents of the experiments of
+Section~\ref{sec:experiments} the median number of accepted steps was \StepsMedian{} and the largest
+\StepsMax{}. The cost of a step is $2|D|$ evaluations of $f_w$ in dimension $N$.
+
+\begin{algorithm}[ht]
+\caption{Descent with the sieve database as move set}\label{alg:descent}
+\begin{algorithmic}[1]
+\Require starts $S\subset L$, database $D=(u_1,\dots,u_r)\subset L$, weights $\Omega$, step limit $t_{\max}$
+\State $F(m)\gets\infty$ for all $m$; update $F$ with every $s\in S$
+\ForAll{$s\in S$ and $w\in\Omega$}
+  \State $c\gets s$
+  \For{$i=1,\dots,t_{\max}$}
+    \State $(c^\ast,f^\ast)\gets(\bot,f_w(c))$ \Comment{$\bot$: no improving move found yet}
+    \For{$j=1,\dots,r$ and $\sigma=+1,-1$}
+      \State $c'\gets c+\sigma u_j$; \textbf{if} $c'=0$ \textbf{then continue}
+      \State $m'\gets\min(p(c'),q(c'))$, $n'\gets\max(p(c'),q(c'))$; $F(m')\gets\min(F(m'),n')$
+      \If{$f_w(c')<f^\ast$} $(c^\ast,f^\ast)\gets(c',f_w(c'))$ \EndIf
+    \EndFor
+    \If{$c^\ast=\bot$} \textbf{break} \Comment{local minimum}\EndIf
+    \State $c\gets c^\ast$
+  \EndFor
+\EndFor
+\State \Return $F$, together with a relation attaining each value
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Combination of runs}\label{sec:combine}
+Different values of $N$ and $\rho$ and different random choices give different relations. For
+each $k$ we embed in $\Z^{120}$ every verified identity with bases at most $120$, both the
+identities stored by our runs and those in Meyrignac's database and the 2003 archive, and
+combine them by Algorithm~\ref{alg:combine}. Algorithm~\ref{alg:descent} is run with the pool
+as both the starts and the moves. Because a relation that only ties a frontier value may
+combine with another to give an improvement, the pool keeps, for each $m\le40$, a set
+$\mathcal T_m$ of up to $\tau$ distinct relations attaining the current value $F(m)$, and since
+the descent breaks ties by position, each round is run on several orderings of the pool. The
+procedure stops after a round in which none of the sets $\mathcal T_m$ changes. It terminates:
+for each $m\le40$, once $F(m)$ is finite it is a positive integer that never increases, and
+while $F(m)$ is unchanged the set $\mathcal T_m$ only grows, up to $\tau$ elements, so each
+$\mathcal T_m$ changes only finitely often. We use $\tau=64$, the given ordering and three
+random ones, and at most 50 rounds; no run needed more than nine. On an early pool for $k=20$
+the frontier with $\tau=8$ was three terms worse in total than with $\tau=32$, $128$ or $512$,
+which all gave the same frontier; on later pools for $k=20$, $28$ and $30$ every $\tau$ from $8$
+to $256$ gave the same frontier. The runs store only identities
+that tie or improve the table, so the initial pool has between about 200 and 2{,}400 elements per
+$k$.
+
+\begin{algorithm}[ht]
+\caption{Combination of a pool of relations}\label{alg:combine}
+\begin{algorithmic}[1]
+\Require initial pool $\mathcal P_0\subset L$, tie limit $\tau$, number of orderings $\eta$, weights $\Omega$
+\State $F(m)\gets\infty$, $\mathcal T_m\gets\emptyset$ for all $m$; \Call{Offer}{$c$} for every $c\in\mathcal P_0$
+\Repeat
+  \State $\mathcal P\gets\mathcal P_0\cup\bigcup_m\mathcal T_m$; $\mathit{changed}\gets$ \textbf{false}
+  \For{$i=1,\dots,\eta$}
+    \State $\mathcal Q\gets\mathcal P$ in the given order ($i=1$) or a random order ($i>1$)
+    \State run Algorithm~\ref{alg:descent} with starts $\mathcal Q$ and moves $\mathcal Q$, and for each
+    descent and each $m$ \Call{Offer}{} the relation attaining its frontier value
+    \State $\mathit{changed}\gets\mathit{changed}$ \textbf{or} some \Call{Offer}{} returned \textbf{true}
+  \EndFor
+\Until{\textbf{not} $\mathit{changed}$}
+\Statex
+\Function{Offer}{$c$} \Comment{$m=\min(p(c),q(c))$, $n=\max(p(c),q(c))$; ignored if $m>40$}
+  \State \textbf{if} $n<F(m)$ \textbf{then} $F(m)\gets n$, $\mathcal T_m\gets\emptyset$
+  \State \textbf{if} $n=F(m)$, $|\mathcal T_m|<\tau$ and $\pm c\notin\mathcal T_m$ \textbf{then} add $c$ to $\mathcal T_m$; \Return \textbf{true}
+  \State \Return \textbf{false}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Variants that did not improve the results}\label{sec:variants}
+Three variants did not contribute to the final results.
+\begin{enumerate}
+\item A random $50$-element subset of $\{1,\dots,64\}$ gives a lattice of the same rank as
+$L_{k,50}$ but with a larger determinant, and hence a larger $\GH$. Up to 25 such runs for
+each $k$ from 19 to 30 improved only the entries $(22,8)$ and $(26,1)$, and full ranges of
+bases later improved both further.
+\item Sieving only the projection onto the last $d-f$ coordinates and lifting the database by
+Babai's nearest-plane algorithm \cite{Babai1986}, as in ``dimensions for free'' \cite{Ducas2018}, reduces the
+cost of the sieve, but the lifted relations are too long. For $k=28$, $N=70$ and $f=15$ the
+median of $\|c\|_2^2$ rose from 217 to 285, and the frontier was worse for every $m\le16$.
+\item Adding multiples of $\ell$ larger than $N$ to the bases, for primes $\ell$ with $(\ell-1)\mid k$,
+increases $\det L$ more than it relaxes the congruence condition of
+Section~\ref{sec:history}. It did not help for $k\in\{16,18,22,28,30\}$.
+\end{enumerate}
+
+%======================================================================
+\section{Implementation and verification}\label{sec:impl}
+%======================================================================
+
+The search is written in Python using fpylll~0.6.4 with fplll~5.5.0 \cite{fpylll,fplll}
+for LLL and BKZ~2.0 with fplll's default pruning strategies, G6K (commit \texttt{c71e084})
+\cite{AlbrechtEtAl2019,G6Krepo} for CPU sieving and G6K-GPU-Tensor (hereafter G6K-GPU; branch
+\texttt{python3lwe}, commit \texttt{e0e17ad}) \cite{DucasStevensVanWoerden2021,G6KGPUrepo}
+for GPU sieving. The descent is compiled with Numba~0.68 for CPUs and as a CUDA kernel
+(\texttt{numba-cuda}~0.20, CUDA~12.8--12.9) for GPUs. In the GPU kernel each thread evaluates one move
+against eight relations, and the best move for each relation and the frontier are reduced with
+64-bit atomic minima. The kernel breaks ties exactly as the CPU code does, and on a test lattice
+both return the same frontier. G6K required two small portability fixes on ARM processors;
+these are included with the code.
+
+We checked every sieve used (\texttt{gauss}, which G6K uses in small dimensions, \texttt{bgj1}
+and \texttt{bdgl} on CPUs; bucketing of the BGJ1 and BDGL types on GPUs)
+against unpruned enumeration on random lattices of dimensions 50 to 56, where each returned
+the exact shortest vector. Every identity reported is verified by evaluating both sides in
+exact integer arithmetic before it is counted. The tables and the numbers in
+Section~\ref{sec:results} are produced from the result files by a script that performs this
+check; it checked \NumChecked{} identities, and none failed. Meyrignac's database and the
+2003 archive were verified in the same way. The random choices of each run are determined by a
+recorded seed, but the multithreaded sieves are not deterministic, so repeated runs give
+different databases.
+
+The data archive separates verification from discovery. It contains every identity that
+improves an entry, the identities that lower the least known total $m+n$
+(Section~\ref{sec:results}), the reference value and kind of every entry with
+$17\le k\le100$ and $m\le16$, and a program of about 130 lines that uses only the Python
+standard library. The program checks each identity in exact integer arithmetic, checks that no
+base occurs on both sides, that the term counts agree with the stated type and that the
+identity is primitive, and compares $n$ with the reference value of the entry
+(Section~\ref{sec:problem}), or $m+n$ with the least total of an identity for the same $k$ in
+Meyrignac's database and the 2003 archive. It reports the improvements separately for the two
+kinds of entry. No part of the search software is needed.
+
+Development used an Apple M3 (8 cores). Production runs used CPU nodes of the National
+Research Platform (NRP; 12 or 16 cores per job) \cite{Weitzel2025NRP}, CPU nodes of the Turing
+cluster at the Titan Supercomputing Center, California State University, Fullerton (32 cores
+per job), a Turing node with four NVIDIA H200 GPUs and 1\,TB of memory, and two Turing nodes
+with six NVIDIA T4 GPUs each. One NVIDIA L40 was used for GPU validation. Of the 24 CPU
+searches with bases $1,\dots,100$ and the \texttt{bdgl} sieve, five (for $k=16$, $19$, $20$, $22$
+and $23$) ran for six to nine hours without finishing, where the others took between 10 and 75
+minutes; their
+databases had stopped growing, and they were rerun on T4 GPUs with G6K-GPU. We did not find the
+cause. Every GPU was checked against exact enumeration and the CPU descent before use.
+
+%======================================================================
+\section{Experiments}\label{sec:experiments}
+%======================================================================
+
+\subsection{Combination of known identities}\label{sec:controls}
+Table~\ref{tab:controls} tests whether the results could have been obtained by combining the
+identities already known. We applied Algorithm~\ref{alg:combine} separately for each
+$17\le k\le30$, and the table has six columns: the identities of Meyrignac's database and the 2003 archive with bases at most $120$, as they are ($H$) and after
+Algorithm~\ref{alg:combine} ($H^*$); the same identities with all bases after
+Algorithm~\ref{alg:combine} ($H^*_{\mathrm{all}}$, in $\Z^{N}$ with $N$ the largest base, up to
+1,921); the identities stored by our runs before any combination, as they are ($R$) and after
+Algorithm~\ref{alg:combine} ($R^*$); and both together after Algorithm~\ref{alg:combine}
+($RH^*$). Algorithm~\ref{alg:combine} applied to the known identities improves no entry, with or
+without the restriction on the bases. The identities produced by the runs, before any
+combination, improve \CtrlRImp{} of the \NumImproved{} entries, and Algorithm~\ref{alg:combine},
+with or without the historical identities, does not improve any of them further. (The other
+entries were improved by known-identity starts (Section~\ref{sec:notimproved}), whose
+identities are not in the pools of Table~\ref{tab:controls}.) Earlier in the project, combination did lower several entries, but in
+every case a later single run did at least as well. Since Algorithm~\ref{alg:combine} is a greedy
+search, this does not show that no combination of the known identities improves an entry. It
+shows that the improvements found without the known identities are present in the identities
+found by individual runs, and that the combination step serves only to merge runs.
+
+\begin{table}[htbp]
+\centering\small
+\input{tables/controls.tex}
+\caption{Entries with $m\le16$ and $17\le k\le30$ improved by each pool, without combination
+($H$, $R$) and after Algorithm~\ref{alg:combine} (starred). $H$: identities of Meyrignac's
+database and the 2003 archive with bases at most $120$; $H_{\mathrm{all}}$: all of them; $R$:
+identities stored by our runs; $RH$: both.}\label{tab:controls}
+\end{table}
+
+\subsection{Stages and baselines}\label{sec:ablation}
+Table~\ref{tab:ablation} compares the stages of the method with two baselines that use
+reduction only, on the lattices $L_{k,60}$ for $k\in\{\AblK\}$, each with \AblSeeds{} seeds, on CPU nodes with
+16 cores. The methods are as follows.
+\begin{description}
+\item[A] The 2003 procedure (the port of \texttt{SumsBKZ}): BKZ-20 followed by Yura's step,
+repeated on new random orderings of the bases in 16 parallel processes.
+\item[B] The sieve database alone ($\rho=1.5$, \texttt{bgj1}): the best $n$ for each $m$ among
+its vectors.
+\item[C] Sieve and descent (Algorithm~\ref{alg:descent}).
+\item[D] Three runs of C with different seeds on the same reduced basis, combined by
+Algorithm~\ref{alg:combine}.
+\item[E] The same descent as C with a move set from reduction only: BKZ-20 followed by BKZ~2.0
+with block size 40 on new random orderings in 16 parallel processes, for half the time of
+method~D; all
+distinct reduced rows (between $9\times10^4$ and $1.9\times10^5$) are the moves, and the
+starts are the BKZ-20 rows and 300 random rows, as in C.
+\end{description}
+Methods A and E receive the wall time of method~D, the most expensive method; E spends half of
+it on reduction and then runs the descent, which takes about a tenth of that time, so that E
+uses about $0.6$ of the time of D in all, and C about a third. Since the methods reach different sets of entries, we compare
+them on a common set: the entries that A, C, D and E reached in every seed. The column
+``excess'' gives the mean of $n-n_{\mathrm{table}}$ over this set, averaged over the seeds,
+with the standard deviation over the seeds.
+
+The 2003 procedure (A) carried out between about 3,000 and 5,500 BKZ reductions per power and
+seed. It improved at most three entries for $k=20$ and at most one for any other power. Its distance from the table grows with $k$:
+its mean excess on the common entries is $1.9$ terms for $k=20$ and $105.5$ for $k=30$. The
+database alone (B) improves at most one entry and reaches few. Adding the descent (C) gives
+between 5 and 13 improvements per power for $k\in\{22,26,28,30\}$ in about a third of the time
+of D, and combining three runs (D) adds up to four more, one or two on average. The
+reduction-only move set (E) is the stronger baseline. For $k=24$ it is better than C and D, with 7 or 8
+improvements against at most 3, and for $k=20$ it is better than C and comparable with D. For $k\in\{22,26,28,30\}$ it is
+clearly worse than C, although C used less time. The spread over the seeds is smaller than
+these differences. The descent with a large move set is what finds the records; the 2003
+procedure, whose moves are the rows of a single reduced basis, is far behind except for $k=20$.
+In this
+comparison the sieve database is a better move set than the pool of BKZ-40 rows for four of the
+six powers, but the two move sets differ in size, and three seeds per power make the comparison
+indicative only; Section~\ref{sec:moveset} compares move sets of equal size.
+
+We repeated the comparison on $L_{k,70}$ ($\rho=1.45$) for $k=24$ and $k=28$
+(Table~\ref{tab:ablation70}). For $k=28$ the difference between the sieve and the
+reduction-only move set is larger than at $N=60$. C improves 14 to 16 entries and E 7 or 8,
+and the mean excess on the common entries is $-13.2$ for C against $-2.7$ for E. For $k=24$,
+E improves more entries than C or D (4 to 6, against 2 and 2 to 5), but its mean excess on the
+common entries is larger ($3.8$, against $2.5$ for C and $0.3$ for D). The power $k=24$ is the
+one case in our experiments where the reduction-only move set is competitive at both
+dimensions.
+
+
+\begin{table}[htbp]
+\centering\small
+\input{tables/ablation.tex}
+\caption{The stages of the method and two baselines on $L_{k,60}$, \AblSeeds{} seeds each
+(Section~\ref{sec:ablation}). Time is the mean wall time on 16 cores. ``Improved'' gives the
+range over the seeds of the number of entries with $m\le16$ below the table; ``reached'' is
+the mean number of entries for which an identity was found. ``Excess'' is the mean of
+$n-n_{\mathrm{table}}$ over the entries reached by methods A, C, D and E in every seed, averaged
+over the seeds, $\pm$ its standard deviation over the seeds; ``median'' is the median of
+$n-n_{\mathrm{table}}$ over the same entries, averaged over the seeds. The number in parentheses
+after $k$ is the number of these entries. A negative value means that the method is on average
+below the table.}\label{tab:ablation}
+\end{table}
+\begin{table}[htbp]
+\centering\small
+\input{tables/ablation70.tex}
+\caption{As Table~\ref{tab:ablation}, on $L_{k,70}$ with $\rho=1.45$.}\label{tab:ablation70}
+\end{table}
+
+\subsection{Move sets of equal size}\label{sec:moveset}
+The sieve database and the move set of method~E differ in size as well as in content. To
+separate the two we repeated the descent of method~C on $L_{k,60}$ for $k=20$, $24$ and $28$,
+three seeds each, with the same starts and different move sets: the whole database, a random
+sample of it and its shortest vectors, both of the size of method~E's move set for the same $k$
+and seed, and random samples of $1/16$ to $1/2$ of it (Table~\ref{tab:moveset}). At equal size neither
+move set is uniformly better: for $k=20$ and $24$ the rows of~E are clearly better (mean excess
+$1.3$ and $1.5$, against $5.7$ to $14.2$ for the samples), while for $k=28$ a random sample is as
+good as~E and the shortest sample is better. For $k=28$ the frontier
+improves steadily with the size of the move set, from 2 to 4 improved entries with $1/16$ of
+the database to 9 to 11 with all of it. What distinguishes the sieve is therefore mostly the
+number of moves it supplies: on 16 cores it produced $5\times10^5$ vectors in about 11\,s,
+while method~E needed about 80\,s of BKZ-40 reductions for $1.5\times10^5$ rows. (The starts of
+method~E in Table~\ref{tab:ablation} were rows of~E rather than database vectors.)
+
+The same experiment measures the frontier update of Section~\ref{sec:descent}. Recording only
+the relations on the accepted path, or only the end points of the descents, raises the mean
+excess from $1.8$ to $2.5$ and $3.0$ for $k=20$ and from $10.2$ to $13.3$ for $k=24$, and changes
+little for $k=28$: the neighbors of the path supply the entries that are hardest to reach.
+
+\begin{table}[htbp]
+\centering\small
+\input{tables/moveset.tex}
+\caption{The descent of method~C on $L_{k,60}$, three seeds per power, with different move sets
+and the same starts (the BKZ-20 rows and 300 database vectors). ``Moves'': mean size of the move
+set, where $|E|$ is the size of method~E's move set for the same $k$ and seed. ``Improved'' and
+``reached'' as in Table~\ref{tab:ablation}. ``Excess'': mean of $n-n_{\mathrm{table}}$ over the
+entries reached by all six variants with a value in this column, with the standard deviation
+over the seeds; the number in parentheses after $k$ is the number of these entries. The last two
+rows update the frontier only on the accepted path or only at the end points of each descent.
+The row for~E is the run of method~E in Table~\ref{tab:ablation}, whose starts were rows of~E;
+its excess is taken over the entries of this table and so differs slightly from
+Table~\ref{tab:ablation}.}\label{tab:moveset}
+\end{table}
+
+\subsection{Properties of the sieve database}\label{sec:dbstats}
+Table~\ref{tab:dbstats} describes one database for each lattice of Section~\ref{sec:ablation}
+and for $L_{20,70}$. The fraction outside the saturation radius and the
+achieved saturation are fixed by G6K's parameters, as explained in Section~\ref{sec:sieve}.
+The databases are balanced in the sense of Section~\ref{sec:gh}: the median of $\min(p,q)$ is
+about $T/2$, and the least $\min(p,q)$ in a database of $5\times10^5$ to $1.2\times10^6$ vectors is
+between 9 and 19. The database alone therefore reaches few entries of the table (method B).
+
+The progressive sieve was about 2.4 to 4 times faster than the full-dimensional sieve from
+random samples on the six instances of Table~\ref{tab:progressive}, and its database was
+slightly longer (median $\|c\|^2$ larger by $0.4$ to $1.2\%$). The frontiers obtained by the same descent
+from the two databases differ by amounts in both directions, without a consistent sign, which
+is what one expects from two random databases of the same size and similar lengths.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\input{tables/dbstats.tex}
+\caption{The sieve databases, one per lattice (the first seed). ``Out'': fraction of vectors
+with $\|c\|^2>\rho\,\GH^2$; ``sat.'': number of vectors within the radius divided by
+$\tfrac12\rho^{d/2}$ (G6K's target is $0.5$). $\GH$ uses the exact ball volume.}\label{tab:dbstats}
+\end{table}
+
+\begin{table}[htbp]
+\centering\small
+\input{tables/progressive.tex}
+\caption{Progressive sieving against a full-dimensional sieve from random samples on
+$L_{k,70}$, $\rho=1.45$, 16 cores. The last column is the total difference of the frontiers
+(progressive minus random) over the entries $m\le16$ reached by both; it varies in sign.}
+\label{tab:progressive}
+\end{table}
+
+\subsection{The choice of \texorpdfstring{$N$}{N}}\label{sec:nsweep}
+Table~\ref{tab:gh} predicts that the shortest relations, and hence the shortest balanced
+identities, need $N$ between about 160 and 280 for $20\le k\le30$. The records with small $m$
+behave differently. To
+compare values of $N$ we gave each pair $(k,N)$ with $k\in\{20,24,28\}$ and
+$N\in\{50,60,70,80,90\}$ the same budget of one hour on 16 cores, repeating method~C on new
+random orderings of the bases while time remained. The saturation radius was $1.5$ for
+$N\le60$ and decreased to $1.38$ at $N=90$, so the comparison also varies $\rho$.
+Table~\ref{tab:nsweep} gives the result.
+The best $N$ grows with $k$: it is $60$ for $k=20$, where $N=60$ improves 11 entries, $70$ to $80$
+for $k=24$, and $80$ for $k=28$, where $N=80$ is best or nearly best for every $m$ and $N=50$
+is far behind. For the smaller powers the entries with small $m$ favor small $N$. For
+$k=20$ only $N=50$ and $60$ reach any entry with $m\le4$ within the hour, and for $k=24$ only
+$N=50$ reaches $m=1$. Finally, $N=90$ completes only three or four runs in the budget and is
+worse than $N=80$ for every power. All of these values lie far below the dimensions at which
+$\GH$ is smallest (Table~\ref{tab:gh}). For the unbalanced relations that make up the
+table, the useful dimension is set by the cost of a run and by the reach of the descent, not
+by the length of the shortest vectors. The experiment measures the combined effect of the two,
+since a larger $N$ allows fewer runs within the budget; it does not separate them.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\input{tables/nsweep.tex}
+\caption{Method C repeated for one hour on 16 cores for each $k$ and $N$. ``Runs'' is the
+number of runs completed; ``improved'' counts entries $m\le16$ below the table, and ``$m\le4$
+reached'' the entries with $m\le4$ for which an identity was found. The two gap columns give the
+distance to the best $N$, $\sum_m\bigl(n_N(m)-\min_{N'}n_{N'}(m)\bigr)$ over the entries reached
+at every $N$, separately for $m\le4$ and $5\le m\le16$.}\label{tab:nsweep}
+\end{table}
+
+\subsection{Saturation radius}
+For $k=20$ and $N=50$, raising $\rho$ from $4/3$ to $1.5$ and $1.7$ increases the database
+from $3{,}681$ to $65{,}976$ and $1{,}416{,}279$ vectors and improves the frontier. With
+$\rho=1.5$ the search took 7\,s on the M3 and found $(20,3,60)$, one term below the table entry; with
+$\rho=1.7$ it took 150\,s and also found $(20,2,61)$, below the table entry $62$, and matched the
+table for $m=4$ and $m=5$.
+
+\subsection{Cost}\label{sec:cost}
+The heuristic cost of a sieve grows exponentially in the dimension, as $2^{0.292d+o(d)}$ for
+the BDGL sieve \cite{BeckerDucasGamaLaarhoven2016}, and with a larger exponent for the
+\texttt{bgj1} sieve of G6K \cite{AlbrechtEtAl2019,BeckerGamaJoux2015}, used in most of our CPU
+runs. The descent costs $2|D|$ evaluations per
+step for each of the $(N+299)|\Omega|$ descents, and with $|D|$ growing like $\rho^{d/2}$ it is the
+larger cost on CPUs for $N\le70$; from $N=80$ on, the sieve costs more. On 32 CPU cores a
+search with $N=100$ ($\rho=4/3$, \texttt{bdgl}) took about an hour per power, most of it in the sieve. On
+GPUs both stages are much faster, and the descent becomes a small part of the cost: for $k=28$
+and $N=70$ it took 6\,s on an L40, against 207\,s on the eight cores of the M3. For $N=120$ the
+database at $\rho=4/3$ has about $7.5\times10^7$ vectors. Two such runs, for $k=28$ and $30$ on
+the node with four H200 GPUs, kept the $6\times10^7$ shortest of them as moves. They lowered our
+previous best values for $(28,15)$ from $70$ to $48$, $(28,16)$ from $52$ to $46$, $(30,12)$ from
+$102$ to $82$ and $(30,16)$ from $76$ to $50$, below every other run, and lowered no other entry
+with $m\le16$. For $N=140$ the database would have about $10^9$ vectors, which would need roughly
+the whole memory of the node.
+
+All runs reported in this paper, including those of Section~\ref{sec:high}, used about
+\CoreHoursTotal{} CPU core-hours (\CoreHoursNRP{} on the National Research Platform and
+\CoreHoursTuring{} on Turing) and \GPUHours{} GPU-hours on the H200 and T4 GPUs, counted as
+wall time multiplied by the cores or GPUs allocated. Development and the early runs on the 8-core M3
+are not included.
+
+%======================================================================
+\section{Results}\label{sec:results}
+%======================================================================
+
+This section and the next report the best identities found by any of the searches, which
+differ in $N$, $\rho$, method and number of repetitions (Table~\ref{tab:runs} lists those of this
+section).
+They do not measure what a single method yields under a fixed budget; that is the subject of
+Section~\ref{sec:experiments}.
+
+We count an entry as improved when we have a primitive identity of type $(k,m,n)$ with $n$
+smaller than the reference value of the entry (Section~\ref{sec:problem}). Every value we report as an improvement is also below the bound $n(m')+(m-m')$
+that the table's rule derives from each entry $(k,m')$ with $m'<m$, so no improvement merely
+fills a gap that the table's own rule closes. We do not apply the table's rule $n\mapsto n+i$
+for the entry $(k,m+i)$ to our own identities; doing so would improve \NumClosureExtra{} further entry, \ClosureExtra, and would
+lower \NumClosureLower{} of the values reported below.
+
+The searches are summarized in Table~\ref{tab:runs}. Of the \NumCells{} entries with
+$m\le16$ and $17\le k\le30$, \NumImproved{} are improved and \NumTies{} are matched, with a
+total saving of \TermsSaved{} terms. The improvements are of two kinds
+(Table~\ref{tab:perk}). Of the \NumCellsIdent{} entries attained by an identity,
+\NumImprovedIdent{} are improved, saving \TermsSavedIdent{} terms. Of the \NumCellsDerived{}
+entries that are derived bounds, \NumDerived{} are improved, saving \TermsSavedDerived{} terms;
+for these entries the database had no identity for this $(k,m)$, or only a longer one, and ours
+is the first identity below the bound. Three of them, \NoIdentCells{}, have no identity of any length
+in the database. \TiesDerivedSentence{} The largest saving is for \MaxGainCell, from $\MaxGainOld$ to $\MaxGainNew$.
+Every entry is improved for $k\in\{\FullKList\}$, and all new identities use bases at most
+\MaxBase. All of them are primitive, and none has a common factor in its multiplicities.
+Table~\ref{tab:grid} in Appendix~\ref{app:grid} gives every entry; the identities are in the
+data archive.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.5cm}l>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{3.4cm}}
+\toprule
+search & $N$ & $\rho$, sieve & hardware & powers (runs per power) \\
+\midrule
+exploratory searches\textsuperscript{a} & 50--90 & 4/3--1.7; \texttt{bgj1}, \texttt{bdgl} & M3, NRP & $17\le k\le30$ (1 to 25 per $N$); $k=31$, $32$ (1) \\
+experiments of Section~\ref{sec:experiments} & 50--90 & 1.38--1.5; \texttt{bgj1} & NRP & $k=20$, $22$, \dots, $30$ \\
+searches & 100 & 4/3; \texttt{bdgl}, G6K-GPU & Turing CPU, T4, H200 & $k=16$, $19\le k\le30$ (1; 2 for $k=24$, 5 for $k=28$) \\
+searches & 120 & 4/3; G6K-GPU & H200 & $k=28$, $30$ (1) \\
+repetitions\textsuperscript{b} & 60--110 & 4/3--1.5; G6K-GPU & T4, H200 & $17\le k\le32$ (up to 6) \\
+coset and known-identity starts\textsuperscript{c} & 48--110 & 4/3--1.7; G6K-GPU & T4, H200 & $17\le k\le21$, $24\le k\le26$, $32$ (up to 10 per $N$ and $\rho$) \\
+\bottomrule
+\end{tabular}
+\caption{Searches whose identities are counted in Section~\ref{sec:results}, all with bases
+$1,\dots,N$ except as stated in (a). Except where noted, each run used BKZ-20 preprocessing (BKZ-30 in two runs on the M3), the whole database as
+moves, the reduced basis and 300 database vectors as starts, and the weights $\Omega$; the GPU
+runs used the sieve settings of Section~\ref{sec:sieve}, taken from
+\cite{DucasStevensVanWoerden2021,G6KGPUrepo}, except one run with $N=100$ on the H200, which used
+the defaults of G6K-GPU. (a) Also
+random 50-element subsets of $1,\dots,64$ and bases with added multiples
+(Section~\ref{sec:variants}). (b) Repetitions of each power's most productive search with $N$ and
+$\rho$ as in its earlier best run, and then with $N=110$; $k=25$ and $k=31$ repeated the methods
+of Section~\ref{sec:high}. (c) Coset starts and known-identity starts
+(Sections~\ref{sec:notimproved} and~\ref{sec:congruence}), each repetition with a new database.
+The identities were then combined as in Section~\ref{sec:combine}.}\label{tab:runs}
+\end{table}
+
+\begin{table}[htbp]
+\centering\small
+\input{tables/perk.tex}
+\caption{Improvements by power, separated into entries attained by an identity in the table
+and entries that are derived bounds, with the total number of terms saved and the largest
+saving in a single entry.}\label{tab:perk}
+\end{table}
+
+Two of the shortest new identities show the typical size of the solutions. The first, of
+type $(17,8,22)$, improves the table entry $24$:
+\begin{multline*}
+90^{17}+83^{17}+58^{17}+48^{17}+42^{17}+36^{17}+24^{17}+3^{17}\\
+=88^{17}+84^{17}+82^{17}+75^{17}+68^{17}+62^{17}+55^{17}+51^{17}+41^{17}+40^{17}\\
++39^{17}+38^{17}+2\cdot27^{17}+26^{17}+23^{17}+21^{17}+3\cdot11^{17}+9^{17}+5^{17}.
+\end{multline*}
+The second, of type $(17,9,21)$, improves the entry $23$:
+\begin{multline*}
+85^{17}+77^{17}+73^{17}+67^{17}+65^{17}+64^{17}+54^{17}+21^{17}+6^{17}\\
+=84^{17}+76^{17}+75^{17}+2\cdot72^{17}+71^{17}+70^{17}+62^{17}+60^{17}+2\cdot56^{17}\\
++50^{17}+42^{17}+41^{17}+27^{17}+24^{17}+2\cdot23^{17}+16^{17}+14^{17}+8^{17}.
+\end{multline*}
+
+\subsection{Variation between runs}\label{sec:variation}
+The sieve, the random starts of the descent and the random choices of the completions make
+repeated runs differ. After all the searches described in this paper, we repeated for every
+power the method that had produced most of its best identities, in two rounds of two runs
+each with new random choices, and then in two rounds with bases up to $110$, for 75 and then 74
+of the 84 powers (Table~\ref{tab:runs} and Section~\ref{sec:high}). We say that a round lowers
+an entry when it finds an identity shorter than the best of all earlier runs, and, as before,
+that it improves an entry when it goes below the reference value for the first time. The first
+round lowered more than 700 of the entries for $17\le k\le100$ and improved 13 more. The second
+lowered about 430, saving more than 27,000 terms, and improved two more. The first round with
+$N=110$ lowered about 970, saving about 272,500 terms, and improved nine more; for 35 of the 45
+powers above $55$ it lowered every entry. The second round with $N=110$ lowered about 450,
+saving about 25,000 terms, but improved no further entry. The values we report are the best over all runs; they are not
+converged, and further runs would lower many of them.
+
+\subsection{Entries not improved}\label{sec:notimproved}
+Of the \NumNotImproved{} entries with $17\le k\le30$ that are not improved, three have record
+identities with bases beyond the range of our searches or at its edge: $(17,1)$ and $(26,14)$,
+with largest bases $208$ and $149$, and $(20,1)$, with $106$. Only the known-identity starts
+with bases up to $110$ covered $(20,1)$, without improving it. All three records involve
+Wr\'oblewski's congruence methods. Each of the others is a derived bound or has a record identity
+with bases at most $96$, within the range searched, which our runs did not reach. Most of these
+entries are for $k=18$, with 11, and $k=17$, with five; $k=19$, $20$, $21$ and $26$ have at most
+three each. For $k=17$ and $19$ the first moment is forced in the sense of
+Section~\ref{sec:congruence}, with $M_1(k)=510$ and $798$; for $k=18$ no moment is forced and we
+have no explanation. Its sieve database differs from those of its neighbors in one statistic we
+measured: on $L_{18,100}$ the largest quarter of the bases carries $16\%$ of the mass
+$\sum|c_x|$, against $19$ to $22\%$ for $k=17$, $19$, $20$ and $21$.
+
+Two methods of Section~\ref{sec:congruence} work much better at small $N$. The known-identity
+starts and the coset starts were first run with the databases of $L_{k,100}$ and $L_{k,110}$
+(and, for $k=50$, of $L_{50,117}$). With $N$ between $48$ and $96$, just above the largest bases
+of the records, a saturation radius between $1.4$ and $1.7$, and up to 10 repetitions with new
+databases for each $N$ and $\rho$, they improved 16 entries that no search with larger $N$ had
+improved: $(17,2)$; $(18,3)$, $(18,4)$, $(18,5)$ and $(18,8)$, the first improvements for $k=18$;
+$(19,5)$ and $(19,6)$; $(24,7)$ and $(24,11)$; $(25,3)$ to $(25,6)$; and $(32,1)$, $(32,2)$ and
+$(32,15)$, with $(32,1)$ falling from $230$ to $194$. They also lowered 23 entries that were
+already improved. With $\rho=4/3$ the same runs improved only $(25,6)$, and later repetitions
+continued to find improvements, so these entries are not converged either. Every entry is now
+improved for $k=24$, $25$ and $32$.
+
+For $k=31$ the record identities have largest bases between $127$ and $265$, beyond the bases
+of our other searches ($N\le100$); the completions of Section~\ref{sec:completion} improve all 16
+entries. For $k=32$ the searches with $N\le110$ and the starts of the previous paragraph improve
+all 16 entries, by \KThirtyTwoSaved{} terms in all; Table~\ref{tab:gh} suggests that
+$N\le110$ is far from optimal for this power.
+
+\subsection{Least total}\label{sec:leasttotal}
+The table also records, for each $k$, the identities with the least total $m+n$, which may have
+$m>16$. For $k=21$, $23\le k\le30$ and $k=32$, and for $33\le k\le38$, $43\le k\le48$, and
+$k=51$, $53$ and $56$ in the second table, one of our identities has fewer terms in total than every identity
+for the same $k$ in Meyrignac's database and the 2003 archive, and than the least total listed
+in his table; for example $(28,27,31)$ against
+$(28,31,32)$, and $(43,40,97)$ against $(43,59,106)$. For $k=17$, $19$, $20$, $22$ and $39$ we
+match the least total. For the other powers the least totals belong to nearly balanced
+identities, $(18,13,15)$ for $k=18$ and identities with $m\ge33$ for $k=31$ and $k\ge40$, which
+our searches did not target. These identities are in the data
+archive.
+
+\subsection{Comparison with other sources}\label{sec:sources}
+Our improvements are measured against Meyrignac's table and database. To check that they are
+also new with respect to the literature, we searched MathSciNet for the years 2015--2026: all
+items classified in 11D41 or 11D72, and title searches for equal sums, like powers, Euler's
+conjecture, and the Prouhet--Tarry--Escott and multigrade problems, about 1,200 items in all.
+We also searched Google Scholar from 2015 on (the phrase ``equal sums of like powers'', and
+Meyrignac, his site, ``Euler's extended conjecture'', the conjecture of Lander, Parkin and
+Selfridge, and lattice methods for like powers), arXiv, zbMATH Open, the OEIS and the main web
+collections on equal sums of like powers
+\cite{WroblewskiTables,PiezasCollection,ChenShuwenESLP,PerrenetPowersums}. None of these sources
+reports an identity with $k\ge11$ that improves an entry of the table; the closest publications
+treat small degrees, for example \cite{Choudhry2016,Wagstaff2022,Braun2026}.
+
+%======================================================================
+\section{The table for \texorpdfstring{$33\le k\le100$}{33 <= k <= 100}}\label{sec:high}
+%======================================================================
+
+Meyrignac's second table lists the least known $n$ for $33\le k\le100$ and $m\le16$. Of its
+\HNumCells{} entries, \HNumCellsIdent{} are attained by an identity and \HNumCellsDerived{} are
+derived bounds. Of the identities, 518 date from 2001 and 84 from 2002; most were found by
+Torbj\"orn Alm with \texttt{SumsBKZ}, and the median of their largest bases is $115$.
+
+\subsection{Searches and results}\label{sec:highsearch}
+For these powers the bound \eqref{eq:norms} is governed by $\sqrt N\,\GH(L)$ rather than by
+$\GH(L)^2$, since the coefficients of short relations are no longer small. At $N=100$ a
+relation of length $\GH(L)$ has at most about $250$ terms for $k=50$ and $2{,}500$ for $k=100$,
+while the table entries for these powers are between $700$ and $1{,}200$ and between
+$11{,}000$ and $14{,}000$. We therefore ran one search with bases $1,\dots,100$ for each
+$33\le k\le100$, which we call the plain search: method~C with $\rho=4/3$, on 32 CPU cores
+(\texttt{bdgl}) for $33\le k\le41$ and on one NVIDIA T4 GPU with G6K-GPU for $42\le k\le100$. The repetitions of Section~\ref{sec:results} used
+each power's most productive method, the last of them with bases up to $110$.
+
+For the powers where this search failed we also searched with bases $1,\dots,60$ and
+$1,\dots,70$, which improved every entry for $k=40$ and $42$, used coset starts and, for $k=50$,
+known-identity starts (Section~\ref{sec:congruence}),
+completed Wr\'oblewski's congruence solutions (Section~\ref{sec:completion}) and constructed
+congruence solutions of our own (Section~\ref{sec:structured}). Together these improve \HNumImproved{} of the \HNumCells{}
+entries, \HNumImprovedIdent{} of them attained by an identity and \HNumDerived{} derived
+bounds, and every entry for \HNumFullK{} of the \HNumK{} powers (Table~\ref{tab:perkhigh}). Because many of the old
+entries are far from what the lattice offers, the savings are large: \HTermsSaved{} terms in
+all, and \HMaxGain{} for the entry \HMaxGainCell, from \HMaxGainOld{} to \HMaxGainNew. \HNoneSentence{}
+Table~\ref{tab:contrib} separates the methods. Most improvements come from the sieve search
+itself, with all values of $N$ and all repetitions. Of the other methods, the coset starts and
+the completions of Wr\'oblewski's solutions each improve more than 90 entries that no other
+method improves, the known-identity starts 14 entries for $k=50$, and the completions of
+structured solutions the 31 improved entries for $k=75$, $85$ and $97$.
+
+\begin{table}[htbp]
+\centering\scriptsize
+\setlength{\tabcolsep}{3pt}
+\input{tables/perk_high.tex}
+\caption{Improvements by power for $33\le k\le100$ ($m\le16$), by all the methods of
+Section~\ref{sec:high}: entries improved that were attained by an identity and that were
+derived bounds, terms saved, and the largest saving in one entry.}\label{tab:perkhigh}
+\end{table}
+
+\begin{table}[htbp]
+\centering\small
+\input{tables/contrib.tex}
+\caption{Contribution of each method to the improvements for $33\le k\le100$ ($m\le16$).
+``Sieve search'': the searches of Section~\ref{sec:highsearch} with all values of $N$ and all
+repetitions. ``Improves'': entries improved by the method; ``only this'': entries improved by it
+and by no other method; ``cumulative'' and ``terms saved'': entries improved, and terms saved by
+the best identity found, when the methods are added in the order listed.}\label{tab:contrib}
+\end{table}
+
+\subsection{A congruence obstruction}\label{sec:congruence}
+The powers that resist the search have an arithmetic feature in common: for some small $j$,
+here $1\le j\le4$, the number $k-j$ has many divisors $\ell-1$ with $\ell$ prime.
+
+\begin{proposition}\label{prop:moment}
+Let $1\le j<k$, and let $M_j(k)$ be the product of the primes $\ell$ with $(\ell-1)\mid(k-j)$. Every
+relation $c\in L_{k,N}$ satisfies
+\[
+\sum_{x=1}^{N} c_x\,x^j\equiv 0 \pmod{M_j(k)}.
+\]
+If moreover $M_j(k)>\|c\|_1N^j$, then $\sum_x c_x x^j=0$.
+\end{proposition}
+
+\begin{proof}
+Let $\ell$ be a prime with $(\ell-1)\mid(k-j)$. If $\ell\nmid x$, then $x^{k-j}\equiv1\pmod\ell$
+by Fermat's theorem, so $x^k\equiv x^j$; if $\ell\mid x$, both sides are divisible by $\ell$
+since $j\ge1$. Hence $\sum c_x x^j\equiv\sum c_x x^k=0\pmod\ell$ for each such $\ell$, and the
+first claim follows from the Chinese remainder theorem. The second follows from
+$\bigl|\sum c_x x^j\bigr|\le\|c\|_1N^j$.
+\end{proof}
+
+For $j=0$ the same argument gives the familiar condition of Section~\ref{sec:history} on the
+numbers of terms prime to $\ell$. The values of $\mu_j(c)=\sum_xc_xx^j$ on $L_{k,N}$ are also easy
+to describe.
+
+\begin{lemma}\label{lem:image}
+For $1\le j<k$, $\mu_j(L_{k,N})=g\Z$ with $g=g_j(k,N)=\gcd_{2\le x\le N}(x^k-x^j)$, and
+$M_j(k)\mid g$.
+\end{lemma}
+
+\begin{proof}
+Since $1^k=1$, a relation $c$ has $c_1=-\sum_{x\ge2}c_xx^k$, so $c=\sum_{x\ge2}c_x(e_x-x^ke_1)$,
+and these $N-1$ vectors form a basis of $L_{k,N}$. Their moments are $x^j-x^k$. The divisibility
+follows from Proposition~\ref{prop:moment}.
+\end{proof}
+
+The modulus $g$ is always a multiple of $M_j(k)$. For $j=1$ it equals $M_1(k)$ for every power
+of Table~\ref{tab:congruence}, but for $j\ge2$ higher prime powers also divide every
+$x^k-x^j$: for $k=50$ and $j=2$, both $4$ and $9$ divide $x^{50}-x^2$ for every $x$, and
+$g=6\,M_2(50)$; similarly $g=36\,M_3(75)$ and $g=120\,M_4(64)$.
+
+The explanation of the powers that resist the search rests on three statements of different
+kinds. (i) Proposition~\ref{prop:moment} and Lemma~\ref{lem:image} are exact. (ii) That short
+relations lie in the kernel of $\mu_j$ when $M_j(k)$ is large is an empirical observation: the moment of a short relation is far smaller than the
+worst-case bound $\|c\|_1N^j$, and when it is smaller than $M_j(k)$ it vanishes. On the rows of a
+BKZ-20 basis of $L_{k,100}$, $\mu_j$ vanishes on more than 90\% of the rows for some $j\le12$ for
+\ForcedK{} of the powers $33\le k\le100$ (Table~\ref{tab:congruence}) and for
+$k\in\{\ForcedMainK\}$ in the main table; we then call the $j$-th moment forced. In each case $k-j$ is one of $16$, $18$, $24$, $30$, $36$, $40$,
+$48$, $60$, $66$, $72$, $80$, $84$, $88$, $90$ or $96$, numbers with many divisors $\ell-1$
+with $\ell$ prime. On the saved sieve databases of $L_{k,100}$, with $4.2\times10^6$ vectors each, the moment
+vanishes on every vector for all of these powers except $k=17$, where $M_1(17)=510$ is small and
+it vanishes on 65\% of them. (iii) A descent is confined to a coset of the kernel only under a
+further condition. When every move has $\mu_j=0$, as in these databases, a descent never changes
+$\mu_j$ and stays in the coset of its start. The database vectors used as starts lie in the
+kernel, and so do most rows of the reduced basis; the few rows with $\mu_j\ne0$ lead to other
+cosets, and for $k=50$ the plain search reached the coset $\mu_2=-3g$ in this way.
+
+Heuristically, the kernel contains few very unbalanced relations. If $\mu_j(c)=0$ and one side of
+$c$ has $m$ terms, the other side has $\sum|c_x|x^j\le mN^j$, hence $n\le mN^j$. For $j=1$ this
+bound is restrictive; for $j\ge2$ it is weak, and beyond it we have only the heuristic that a long
+side with small $\sum|c_x|x^j$ has mostly small bases, whose $k$-th powers are hard to balance
+against those of a short side. A relation with a small side and a long side would then have
+$\mu_j$ equal to a nonzero multiple of $g$, roughly $-n$ times the mean of $x^j$ on its long side,
+in a coset that a descent from the kernel never reaches. The data agree with this explanation.
+The plain search improved \ForcedSieveImp{} of the \ForcedCells{} entries for the \ForcedK{}
+powers with a forced moment, and \UnforcedSieveImp{} of the \UnforcedCells{} entries for the
+other \UnforcedK. For $k=82$ and $89$ the moment is not forced at $N=60$, where the search reached
+$m=1$, and is forced from $N=70$ on, where it found no relation with $m\le40$.
+
+The cure is to start in the right coset. An extended Euclidean algorithm on the moments of a
+reduced basis gives a relation with $\mu_j=g$ (Lemma~\ref{lem:image}), which is shortened by
+Babai's algorithm \cite{Babai1986} against the rows with $\mu_j=0$. The descent then starts from
+relations with $\mu_j=\pm tg$, obtained in the same way, for several $t$ between $1$ and $20$, and
+from these starts plus random database vectors; its moves preserve the coset. We call these
+coset starts. For the five powers $k\in\{64,76,82,87,89\}$, where nothing else had worked, they
+improve every entry with $m\le16$; for example $(89,1)$ falls from 11{,}431 to 3{,}645 and
+$(82,1)$ from 9{,}665 to 2{,}664. Coset starts also give the best identities found for all or
+nearly all entries with $k\in\{39,41,67,81,91,98\}$, and for $k=25$ in the main table they give
+most of the improvements.
+
+Coset starts do not help when the right coset is out of reach with bases at most
+$N$: a relation whose long side has $n$ terms has $|\mu_j|\le n\,N^j$, and on average about
+$nN^j/(j+1)$, so a coset $\mu_j=-tg$ with $t\ge1$ needs $n\gtrsim g(j+1)/N^j$. For $k=89$ this bound is about $1{,}200$, well below the records, and coset starts
+succeed. For $k=75$, where $g=36\,M_3(75)$, and for $k=85$ and $97$ it is about $20{,}000$,
+$68{,}000$ and $90{,}000$, far above the records; there only larger bases help, which is what
+the completions of the next two subsections provide. The criterion is necessary but not
+sufficient: it identifies the cosets that can contain short unbalanced relations, not the starts
+from which a descent reaches them.
+
+For $k=50$, where $g=6\,M_2(50)$ and the bound is about $84$, the coset starts reach $m\ge7$
+only with $n$ between two and five times the table entries, with bases up to $110$ as well. The
+long sides of these relations have root-mean-square base between $30$ and $36$, against $47$ to
+$83$ for the coset-start relations of the other powers of Table~\ref{tab:congruence} and $60$ to
+$70$ for the records, so that a given coset needs about three to five times as many terms. The
+sieve database of $L_{50,100}$ does not differ from those of the other powers in any statistic we
+measured, such as the distribution of its mass over the bases or the change in the number of
+terms per move. The records for $k=50$ use bases up to $117$ and lie in the cosets $t=10$ and
+$t=15$. Two runs of coset starts with bases $1,\dots,117$, one in these two cosets and one in
+five others, reach no relation with $m<40$ and $m<27$, respectively; their starts have median
+numbers of terms 3,300 and 2,100, two to four times that of the records. For this power the
+descent from coset starts does not reach the unbalanced relations even in the cosets that
+contain them, and we do not know why this happens for $k=50$ and not for the other powers. Known-identity
+starts work instead: from the 22 identities with $m\le40$ in Meyrignac's database, all of which
+have bases at most $117$, the descent with the sieve database of $L_{50,117}$ as moves improves
+all 16 entries, $(50,1)$ from 1{,}164 to 577. The new relations lie in the cosets $t=5$ and
+$t=10$, and their long sides have root-mean-square base between $59$ and $78$.
+
+\begin{table}[htbp]
+\centering\scriptsize
+\setlength{\tabcolsep}{4pt}
+\input{tables/congruence.tex}
+\caption{Powers $33\le k\le100$ whose short relations have a forced moment: the degree $j$, the
+primes in $M_j(k)$, the fraction of the rows of a BKZ-20 basis of $L_{k,100}$ on which $\mu_j$
+vanishes, and the entries ($m\le16$) improved by the plain search with bases $1,\dots,100$
+(``plain'') and by all methods (``all''), including the coset and known-identity starts of
+Section~\ref{sec:congruence} and the completions of Sections~\ref{sec:completion}
+and~\ref{sec:structured}.}\label{tab:congruence}
+\end{table}
+
+The proposition also explains why the method that produced the existing records for these
+powers works. In Wr\'oblewski's congruence searches and the completions of
+Section~\ref{sec:history} that the author ran on them in 2002, the congruence part supplies a
+large nonzero moment, which places the completed relation in a coset where unbalanced relations
+exist. Many records in the table are of this kind, for example those for $k=37$, $38$, $61$,
+$73$ and $97$.
+
+\subsection{Completing congruence solutions}\label{sec:completion}
+The completion of 2002 (Section~\ref{sec:history}) starts from bases $y_1,\dots,y_r$, found by
+Wr\'oblewski, with $\sum y_i^k$ divisible by $M^k$ for a large $M$, and writes
+$\Delta=\sum y_i^k/M^k$ as $\sum_{x\le N}c_x x^k$. This gives the identity
+\[
+\sum_{c_x>0}c_x\,(Mx)^k=\sum_{i=1}^{r}y_i^k+\sum_{c_x<0}|c_x|\,(Mx)^k .
+\]
+The congruence solutions supply the part of the relation that the moment conditions of
+Proposition~\ref{prop:moment} make hard to reach, and the lattice of small bases completes it.
+The 2003 archive contains Wr\'oblewski's congruence solutions for
+$k=31$, $37$, $38$, $49$, $61$, $62$, $63$, $68$, $73$, $74$, $85$ and $86$, as well as for
+$k=19$ and $26$; we call them the historical inputs. Most of them are one-sided, with all bases
+$y_i$ on one side as above;
+the signed ones have bases on both sides, as $P$ and $Q$ in Section~\ref{sec:history}. We
+repeated the completion with the methods of Section~\ref{sec:method}. A particular solution
+$c^{(0)}$ comes from a reduced row with last coordinate $0$ and middle coordinate $\pm1$ of the
+embedding basis
+$\bigl(\begin{smallmatrix}I&0&\lambda v\\0&1&-\lambda\Delta\end{smallmatrix}\bigr)$ after LLL and
+BKZ-20; the extra coordinate, which the variant of 2002 did not have, identifies the multiple of
+$\Delta$. The descent of Algorithm~\ref{alg:descent} then runs on $c$ with the sieve database of
+$L_{k,100}$ (later also $L_{k,110}$) as moves, with the fixed terms $y_i$ added to the count of
+their side, and starts at $c^{(0)}$ and at $c^{(0)}\pm u$ for 100 random database vectors $u$. A
+fixed base $y_i=Mx$ with $x\le N$ is first absorbed into $c_x$, so that the remaining fixed bases
+differ from every base $Mx$ of the completion and the descent counts the terms exactly. Every
+identity is assembled and verified in exact arithmetic.
+
+With bases at most $100$ the completions improve every entry with $m\le16$ for
+$k\in\{37,38,49,61,62,63,73,74\}$ and 15 of the 16 for $k=86$. For eight of these
+nine powers the plain search of Section~\ref{sec:highsearch} had improved no entry, and for
+$k=49$ it had improved 11 (Table~\ref{tab:congruence}, column ``plain''). For $k=68$ the completions
+improve every entry but do not beat the sieve search, and for $k=85$ they improve none. For
+$k=31$ of the main table, where the records use bases from 127 to 265 and no sieve search
+improved an entry, the completions improve all \KThirtyOneImproved{} entries, by
+\KThirtyOneSaved{} terms in all. For this power we also completed the signed inputs, and the
+one-sided ones with bases up to $140$, using the database of $L_{31,100}$ padded with zeros
+together with the rows of 100 BKZ-30 reductions of $L_{31,140}$. The 23{,}746 one-sided and 80{,}345 signed inputs for $k=19$ and $k=26$ gave
+identities below the table for five entries with $k=26$, but none shorter than those of the
+sieve searches; the one improvement on our own results, of type
+$(26,14,60)$, is still above the table entry $52$.
+
+\subsection{Structured congruence solutions}\label{sec:structured}
+For the powers without historical inputs we constructed congruence solutions ourselves. Two
+observations make this work. The first is structural. Wr\'oblewski's inputs, sorted by the
+$p$-adic valuation of their bases, fall into levels: his input for $k=37$ has 4, 5, 6, 5, 7 and 11
+bases of valuations $0,\dots,5$ for $M=2^6$. With bases $y=p^is$, $p\nmid s$, $0\le i<a$ and
+$M=p^a$, write $A_i=\sum_s u_s s^k$ for level $i$, where $u_s$ is the signed multiplicity of the
+base $p^is$. Then $\sum_y u_yy^k=\sum_ip^{ki}A_i$, and divisibility by $M^k$ is the recursion
+$h_0=0$, $h_{i+1}=(h_i+A_i)/p^k$ for the carries $h_i$, with $\Delta=h_a$: level $i$ needs only
+$A_i\equiv-h_i\pmod{p^k}$, a congruence in a lattice of determinant $p^k$ instead of $p^{ka}$.
+Each level is solved by a short affine start and a descent inside its lattice that favors one
+sign. We used $p=2$, and for even $k$ also $p=3$: for $p=2$ and even $k$, every odd $s$ satisfies
+$s^k\equiv1\pmod{2^{v_2(k)+2}}$, which fixes the number of terms of a one-sided level modulo
+$2^{v_2(k)+2}$.
+
+The second observation is a condition on the coset of the completion. Since $g=g_j(k,N)$
+divides $x^k-x^j$ for every $x\le N$ (Lemma~\ref{lem:image}), every completion $c$ with
+$\sum_xc_xx^k=\Delta$ satisfies $\sum_xc_xx^j\equiv\Delta\pmod g$, and the $j$-th moments of the
+completions are exactly the integers $\equiv\Delta\pmod g$. A completion leans to one side, as
+the records with small $m$ require, only if its moment is a moderate negative number, so the
+residue of $\Delta$ modulo $g$, taken in $(-g/2,g/2]$, should lie in a window $W$ of such values.
+This is the remark in a message of Wr\'oblewski of 14 October 2002 (personal communication) that
+a number to be decomposed into 31st powers ``has remainder 7017 mod 14322'', where
+$14322=M_1(31)=g_1(31,N)$: the first powers of its terms must sum to an integer
+$\equiv7017\pmod{14322}$. We took $W=[-\tfrac N2n_1,-\tfrac N{16}n_1]$, with $n_1$ the table entry
+for $m=1$, the range of the first moment of a completion with $n_1/8$ to $n_1$ terms of mean
+base $N/2$. Our implementation tested the residue of $\Delta$ modulo $M'$, the odd part of
+$M_j(k)$, instead of modulo $g$; here $g=2M'$ for $k=85$ and $97$, and $g=72M'$ for $k=75$. This
+test is weaker: for $k=85$ and $97$ it also keeps solutions whose moments are $r\pm M'$,
+$r\pm3M'$, \dots{} with $r\in W$, none of them in $W$. Of the 30 solutions kept for each of these
+two powers, 15 have $\Delta\bmod g$ in $W$, and all the improvements below come from these. For
+$k=75$, where $j=3$, the window is not matched to the third moment, and none of the 11 solutions
+kept has $\Delta\bmod g$ in $W$; the completions of one of them still produced the improvements
+reported below. Algorithm~\ref{alg:struct} summarizes the construction as it was run, and
+Table~\ref{tab:struct} gives its parameters.
+
+\begin{algorithm}[ht]
+\caption{Structured congruence solutions}\label{alg:struct}
+\begin{algorithmic}[1]
+\Require $k$, prime $p$, $M=p^a$, candidates per level $C$, bound $B$, modulus $M'$, window $W$
+\Repeat
+  \State $h\gets0$; $P,Q\gets\emptyset$
+  \For{$i=0,\dots,a-1$}
+    \State draw $C$ integers $s\le\max(B/p^i,2C+2)$ with $p\nmid s$, at random with weights
+    increasing linearly in $s$
+    \State reduce and sieve $\Lambda=\{u\in\Z^C:\sum_su_ss^k\equiv0\pmod{p^k}\}$
+    \State $u_0\gets$ a one-term solution of $\sum_su_ss^k\equiv-h\pmod{p^k}$, reduced by Babai
+    against $\Lambda$
+    \State descend from $u_0$ and $u_0\pm$ random vectors of $\Lambda$, moves $\Lambda$; keep the
+    $u$ minimizing $\|u\|_1+4\sum_{u_s<0}|u_s|$
+    \State $h\gets(h+\sum_su_ss^k)/p^k$; add $|u_s|$ copies of $p^is$ to $P$ if $u_s>0$, to $Q$ if
+    $u_s<0$
+  \EndFor
+  \If{$h\bmod M'$, taken in $(-M'/2,M'/2]$, lies in $W$} \textbf{output} $(P,Q)$, with
+  $\sum_{y\in P}y^k-\sum_{y\in Q}y^k=h\,M^k$ \EndIf
+\Until{enough solutions or tries}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{rrrrrrrr}
+\toprule
+$k$ & $M$ & $C$ & $B$ & $M'$ & window $W$ & tries & kept \\
+\midrule
+75 & $2^6$ & 48 & 2{,}048 & 70{,}050{,}435 & $[-408{,}000,-51{,}000]$ & 2{,}000 & 11 \\
+85 & $2^7$ & 48 & 4{,}096 & 1{,}702{,}155 & $[-294{,}650,-36{,}832]$ & 145 & 30 \\
+97 & $2^6$ & 48 & 2{,}048 & 2{,}250{,}885 & $[-568{,}100,-71{,}013]$ & 119 & 30 \\
+\bottomrule
+\end{tabular}
+\caption{Parameters of the structured congruence solutions whose completions gave the records
+for $k=75$, $85$ and $97$ ($p=2$, $B=32M$): the modulus $M=p^a$, candidates per level $C$,
+bound $B$ on the bases of level $0$, the modulus $M'$ and window $W$ for $\Delta$, and the numbers of
+tries and of solutions kept.}\label{tab:struct}
+\end{table}
+
+These congruence solutions have between about 200 and 360 bases, nearly all on one side.
+Larger moduli, up to $2^9$, gave no further improvement. Completed as above, with bases at most
+$100$ and, in the repetitions of Section~\ref{sec:variation}, $110$, they improve entries for
+three powers that no other method had touched: those with $m\ge5$ for $k=75$ (for example $(75,6)$ from 6{,}266 to
+1{,}991), those with $m\ge8$ for $k=85$, and those with $m\ge7$ for $k=97$. The entries with
+smaller $m$ for these three powers are the only ones in the second table that we did not
+improve. The structured solutions gave nothing for $k\in\{64,76,82,87,89\}$, which the coset starts of
+Section~\ref{sec:congruence} later resolved completely.
+
+%======================================================================
+\section{Discussion}\label{sec:discussion}
+%======================================================================
+
+Two kinds of conclusion should be kept apart. Section~\ref{sec:experiments} evaluates methods
+under controlled budgets on a few lattices, with three seeds each; Sections~\ref{sec:results}
+and~\ref{sec:high} report the best identities found by many searches that differ in $N$, $\rho$,
+method and number of repetitions, and so measure record discovery, not the expected yield of a
+method. Within these limits the experiments suggest the following. The records are not short
+vectors: the shortest relations of $L_{k,N}$ are balanced, and for $20\le k\le30$ a database of
+half a million to a million of them at $N=60$ or $70$ contains almost no relation with
+$\min(p,q)\le16$. A descent turns balanced relations into unbalanced ones in a few steps (the
+median is \StepsMedian), provided the move set is large; the 2003 procedure, whose moves are the
+rows of one reduced basis, is far behind except for $k=20$. The size of the move set matters
+most: at equal size neither BKZ-40 rows nor sieve vectors are uniformly better, but the sieve
+supplies many more moves in the same time. The records with small $m$ are found at small
+$N$, far below the dimension that the Gaussian heuristic suggests. Combining known identities
+with one another adds nothing here, but known identities are useful as starts, especially at
+small $N$. Where the search
+fails for the higher powers, the cause is usually arithmetic: a low moment vanishes on almost all
+short relations, a descent from such a relation cannot leave its coset, and for most of these
+powers starting in another coset removes the obstruction. The searches are randomized and the reported values are not
+converged: each round of repetitions lowered hundreds of entries.
+
+The results have clear limits. We make no claim of minimality; the descent is greedy and
+offers no completeness guarantee. The searches use bases at most $110$ for most powers and
+at most $120$ in all, and only the completions of Section~\ref{sec:high} use larger bases,
+through the congruence part and the factor $M$. The guidance of Table~\ref{tab:gh} is heuristic for this structured lattice. The
+reach of the method is limited by the size of the sieve database, which determines both the
+memory needed and the cost of the descent. We did not attempt the table of prime bases.
+
+Several questions remain open.
+\begin{enumerate}
+\item Sieving minimizes $\|c\|_2$, while a record is judged by $\min(p,q)$ and then by
+$\|c\|_1$, and the descent connects the two greedily. A sieve or enumeration that targets these
+quantities directly, for example with one-sided pruning, might find the unbalanced relations
+without the descent.
+\item Table~\ref{tab:gh} suggests that $N$ between about 210 and 300 would allow shorter
+balanced relations for $24\le k\le32$. A full sieve at that size is beyond current memory, so a
+method with smaller memory requirements, such as enumeration or tuple sieving
+\cite{BaiLaarhovenStehle2016}, or a form of dimensions for free suited to this objective, would
+be needed.
+\item For $k=75$, $85$ and $97$ the entries with small $m$ need a coset that bases at most $110$
+cannot reach, and the structured congruence solutions of Section~\ref{sec:structured} have so
+far reached only the entries with $m\ge5$, $m\ge8$ and $m\ge7$, respectively. Congruence solutions with fewer bases, or completions over a larger
+range of bases, might reach the remaining entries.
+\item The unimproved entries with small bases for $17\le k\le21$, most of them for $k=18$, and
+the failure of the coset starts for $k=50$ are not explained by Proposition~\ref{prop:moment}
+alone.
+\end{enumerate}
+
+\section*{Acknowledgments}
+We thank Jean-Charles Meyrignac for maintaining the record tables for more than two decades;
+the volunteers of EulerNet and yoyo@home; Uwe Beckert and Robert Gerbicz; Jaros\l aw
+Wr\'oblewski, whose congruence solutions of 2002 are used in Section~\ref{sec:completion}; and
+the contributors
+named in Section~\ref{sec:history} and Appendix~\ref{app:chronology}. This work used the Turing
+cluster of the Titan Supercomputing Center at California State University, Fullerton (CSUF). This work
+used resources available through the National Research Platform (NRP) at the University of
+California, San Diego. NRP has been developed, and is supported in part, by funding from
+National Science Foundation, from awards 1730158, 1540112, 1541349, 1826967, 2112167, 2100237,
+and 2120019, as well as additional funding from community partners. The Titan Supercomputing
+Center at CSUF is one of the partners contributing to NRP resources.
+
+\medskip\noindent\textit{Use of generative AI.}
+The author used Claude (Anthropic), a large language model, to assist with porting the original
+software, developing and running the search programs, searching the literature, and
+preparing the manuscript. The author designed and directed the work and takes full
+responsibility for its content. All identities reported were verified independently in exact
+integer arithmetic, and every reference was checked against Crossref, zbMATH Open, arXiv, or the
+current or archived version of the cited web page.
+
+\medskip\noindent\textit{Data availability.}
+The data archive \todo{Zenodo DOI} contains the identities, the reference values of the table,
+the standalone verification program, and SHA-256 checksums of the snapshot of Meyrignac's
+pages and database from which the reference values were extracted. The search code, the
+rebuilt \texttt{SumsBKZ}, the record databases of 2001--2003, and the scripts that produce every
+table and number in this paper are at \todo{repository URL}. The programs \texttt{NewLC}, \texttt{ResultLC} and \texttt{ysum}, written by others,
+are described from the author's archive and are not distributed, and neither are
+Wr\'oblewski's congruence solutions; the identities obtained from them are in the archive.
+
+\appendix
+
+\section{Chronology of the distributed searches}\label{app:chronology}
+Meyrignac's distributed search began on 1 January 1999, with ranges reserved by e-mail; the
+clients \texttt{Sum95} and \texttt{Sum99} followed during 1999. The client \texttt{Euler2000} and the automated EulerNet
+client--server system followed in July 2000, with the server hosted by the author from the
+start. Hosting moved to Nuutti Kuosa in December 2001 and returned to the author in 2002, and
+the server ran until 2010. The search moved from $(6,1,7)$ to $(6,1,6)$ in August 2000 and to
+$(6,2,5)$ in March 2002. Its last statistics, from October 2010, record about 309 CPU-years
+\cite{MeyrignacEuler}, and by then all solutions of $(6,2,5)$ with largest term below $88{,}000$ were known
+\cite{GerbiczMeyrignacBeckert2011}. Resta and Meyrignac determined the smallest solutions of
+$x^6+y^6=a^6+b^6+c^6+d^6+e^6$ \cite{RestaMeyrignac2003}.
+
+From April 2010 to July 2011 the $(6,2,5)$ enumeration continued as the Euler~(6,2,5)
+subproject of yoyo@home, a BOINC project \cite{Anderson2004,Anderson2020} provided and
+operated by Uwe Beckert, with an algorithm of Robert Gerbicz
+\cite{YoyoEuler625,MeyrignacEuler625Forum2010,GerbiczMeyrignacBeckert2011}. It ran in two phases, to $7^6=117{,}649$ (about
+70 GHz-years) and then to $250{,}000$ (about 740 GHz-years in all), and established that there are
+exactly 377 primitive solutions with all terms below $250{,}000$; 4,470 volunteers computed at
+least one work unit \cite{GerbiczMeyrignacBeckert2011}.
+
+\clearpage
+\begin{landscape}
+\section{All entries for \texorpdfstring{$17\le k\le32$}{17 <= k <= 32}}\label{app:grid}
+\begin{center}
+\scriptsize
+\input{tables/grid.tex}
+\captionof{table}{Entries with $m\le16$ of Meyrignac's table for $17\le k\le32$, accessed 27
+October 2026. Improved entries show the new $n$ in bold and the reference value after the
+slash; other entries show the reference value in gray. Blank entries are empty in the table;
+the entry $(18,15)$, also empty in the table, shows the value of an identity in its database. The
+counts of Section~\ref{sec:results} refer to $17\le k\le30$; the entries for $k=31$ and $32$
+are discussed in Sections~\ref{sec:notimproved} and~\ref{sec:completion}.}\label{tab:grid}
+\end{center}
+\end{landscape}
+
+\bibliographystyle{amsplain}
+\bibliography{literature/references}
+
+\end{document}

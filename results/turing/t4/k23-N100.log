@@ -1,0 +1,243 @@
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+80  0   22     16919  1994   0.68     1.500    1.339    0        168045   0        0        101926   | 0.00    0.10    0.26    1.26    1.72    2.17    
+80  1   33     16565  1830   1.00     1.486    1.332    0        163900   0        0        86751    | 0.00    0.20    0.40    1.13    1.81    1.98    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+81  0   27     16526  2974   0.71     1.500    1.338    0        192893   0        0        102063   | 0.00    0.17    0.25    1.29    1.71    2.70    
+81  1   38     16447  1740   1.00     1.487    1.331    0        177286   0        0        102522   | 0.00    0.22    0.49    1.30    2.08    1.85    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+82  0   31     16549  2244   0.70     1.500    1.339    0        201225   0        0        122643   | 0.00    0.28    0.45    1.58    2.39    1.66    
+82  1   44     16531  1582   1.00     1.486    1.332    0        184117   0        0        117804   | 0.00    0.21    0.34    1.46    2.03    3.09    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+83  0   34     16654  2539   0.67     1.500    1.339    0        201344   0        0        143360   | 0.00    0.23    0.52    1.98    2.80    1.63    
+83  1   51     15835  1481   0.99     1.487    1.333    0        177465   0        0        130192   | 0.00    0.34    0.62    1.68    2.72    1.82    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+84  0   40     16533  2513   0.68     1.500    1.340    0        211347   0        0        163744   | 0.00    0.29    0.78    2.19    3.40    1.26    
+84  1   59     15323  1516   1.00     1.487    1.334    0        174242   0        0        138659   | 0.00    0.20    0.87    2.34    3.43    1.40    
+84  2   59     15549  1110   1.00     1.461    1.329    0        116121   0        0        90044    | 0.00    0.35    0.90    1.13    2.40    1.38    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+85  0   51     16242  2332   0.74     1.500    1.336    0        247010   0        0        183031   | 0.00    0.21    0.61    1.60    2.43    1.98    
+85  1   68     16535  2225   1.00     1.482    1.331    0        202994   0        0        157042   | 0.00    0.14    0.58    2.01    2.96    2.83    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+86  0   54     16263  2366   0.68     1.500    1.340    0        247175   0        0        199790   | 0.00    0.23    0.96    2.90    4.11    1.33    
+86  1   77     16208  2015   0.97     1.490    1.334    0        215096   0        0        174523   | 0.00    0.39    0.96    2.51    3.88    1.87    
+86  2   79     16478  1656   1.00     1.464    1.329    0        150077   0        0        120397   | 0.00    0.49    1.25    1.67    3.42    1.52    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+87  0   63     16367  3175   0.69     1.500    1.338    0        270368   0        0        236899   | 0.00    0.28    0.83    2.75    3.93    1.84    
+87  1   90     16197  1594   0.99     1.488    1.333    0        221845   0        0        185679   | 0.00    0.54    1.32    2.73    4.83    1.57    
+87  2   91     16356  1643   1.00     1.463    1.329    0        155655   0        0        129259   | 0.00    0.46    1.29    1.62    3.50    1.66    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+88  0   77     16291  3761   0.73     1.500    1.338    0        304228   0        0        255676   | 0.00    0.43    1.06    3.34    4.86    1.77    
+88  1   105    16115  2270   0.99     1.487    1.334    0        250280   0        0        208687   | 0.00    0.68    1.50    2.72    4.92    1.62    
+88  2   106    16386  1708   1.00     1.463    1.329    0        161184   0        0        135033   | 0.00    0.65    1.79    2.07    4.54    1.40    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+89  0   84     16378  3797   0.69     1.500    1.340    0        305394   0        0        283250   | 0.00    0.35    0.95    2.54    3.87    2.18    
+89  1   117    16314  2546   0.96     1.492    1.335    0        282292   0        0        240171   | 0.00    0.50    2.05    3.99    6.66    1.36    
+89  2   122    16456  1675   1.00     1.468    1.331    0        180751   0        0        153369   | 0.00    0.68    2.03    2.48    5.23    1.43    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+90  0   93     16416  3638   0.66     1.500    1.343    0        307180   0        0        288091   | 0.00    0.29    0.94    4.02    5.35    2.44    
+90  1   128    16292  2325   0.91     1.500    1.339    0        306673   0        0        276260   | 0.00    0.60    1.54    3.68    5.84    1.97    
+90  2   141    16426  1680   1.00     1.475    1.335    0        204584   0        0        176256   | 0.00    0.54    1.77    2.08    4.48    1.89    
+90  3   141    16432  1622   1.00     1.468    1.331    0        183065   0        0        158676   | 0.00    0.49    1.34    2.42    4.32    2.50    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+91  0   106    16442  3242   0.65     1.500    1.344    0        309283   0        0        294433   | 0.00    0.37    1.26    4.15    5.84    2.06    
+91  1   142    16278  2357   0.87     1.500    1.341    0        305779   0        0        285452   | 0.00    0.57    1.54    3.25    5.40    2.17    
+91  2   163    16297  1984   1.00     1.480    1.337    0        240165   0        0        210285   | 0.00    0.50    1.02    2.44    3.98    3.75    
+91  3   163    16419  1681   1.00     1.471    1.334    0        203263   0        0        179705   | 0.00    0.63    1.75    2.06    4.50    2.22    
+91  4   163    16422  1424   1.00     1.463    1.330    0        175613   0        0        155389   | 0.00    0.54    1.61    1.96    4.23    2.40    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+92  0   123    16400  3338   0.66     1.500    1.343    0        349614   0        0        333553   | 0.00    0.66    1.56    5.76    8.03    1.93    
+92  1   164    16308  2566   0.87     1.500    1.339    0        346615   0        0        326252   | 0.00    0.71    1.81    4.43    7.00    2.16    
+92  2   188    16246  1807   1.00     1.480    1.336    0        251353   0        0        222788   | 0.00    0.81    1.88    2.76    5.47    2.33    
+92  3   188    16431  1595   1.00     1.474    1.333    0        231863   0        0        205183   | 0.00    0.68    1.82    2.25    4.87    2.46    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+93  0   143    16409  3300   0.66     1.500    1.346    0        343929   0        0        331210   | 0.00    0.56    1.58    4.89    7.06    2.21    
+93  1   184    15924  2614   0.85     1.500    1.343    0        332765   0        0        319318   | 0.00    0.83    2.15    4.10    7.13    1.94    
+93  2   217    16152  1840   1.00     1.490    1.340    0        288183   0        0        259721   | 0.00    0.93    2.47    3.82    7.40    2.03    
+93  3   217    16360  1431   1.00     1.481    1.337    0        260805   0        0        234601   | 0.00    0.88    2.48    3.19    6.68    2.06    
+93  4   217    16386  1401   1.00     1.472    1.334    0        225757   0        0        203387   | 0.00    0.61    1.65    1.52    3.86    3.11    
+93  5   217    16390  1597   1.00     1.465    1.332    0        198462   0        0        178805   | 0.00    0.60    1.70    1.68    4.06    3.02    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+94  0   170    16434  3259   0.68     1.500    1.345    0        391341   0        0        377395   | 0.00    1.05    2.51    6.33    10.03   1.66    
+94  1   216    16164  2692   0.86     1.500    1.342    0        392168   0        0        377003   | 0.00    1.15    3.30    5.91    10.52   1.54    
+94  2   251    16128  1978   1.00     1.487    1.339    0        310467   0        0        281248   | 0.00    1.34    3.76    4.50    9.72    1.54    
+94  3   251    16292  1685   1.00     1.481    1.337    0        276150   0        0        249910   | 0.00    1.46    3.08    3.33    7.97    1.91    
+94  4   251    16383  1384   1.00     1.472    1.334    0        240984   0        0        219330   | 0.00    1.28    3.68    2.68    7.67    1.61    
+94  5   251    16403  1500   1.00     1.465    1.332    0        227919   0        0        206799   | 0.00    1.05    2.18    1.69    4.98    2.73    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+95  0   184    16302  3397   0.63     1.500    1.346    0        393936   0        0        380548   | 0.00    1.00    2.59    5.58    9.35    1.72    
+95  1   230    16207  2666   0.79     1.500    1.344    0        385111   0        0        372161   | 0.00    1.25    3.05    5.57    10.13   1.77    
+95  2   276    16062  2128   0.95     1.500    1.341    0        410939   0        0        383855   | 0.00    1.44    3.64    5.72    10.91   1.74    
+95  3   290    16320  1637   1.00     1.484    1.339    0        315171   0        0        286562   | 0.00    1.32    3.29    4.13    8.78    2.07    
+95  4   290    16368  1458   1.00     1.479    1.336    0        277500   0        0        255181   | 0.00    1.55    3.60    3.56    8.84    1.90    
+95  5   290    16394  1385   1.00     1.472    1.334    0        246557   0        0        227194   | 0.00    1.21    2.88    2.91    7.22    2.38    
+95  6   290    16395  1422   1.00     1.466    1.332    0        231166   0        0        212542   | 0.00    1.27    3.05    2.28    6.73    2.25    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+96  0   217    16287  3739   0.65     1.500    1.346    0        425377   0        0        411693   | 0.00    1.15    3.27    6.54    11.09   1.62    
+96  1   267    16100  2764   0.80     1.500    1.344    0        417596   0        0        404202   | 0.00    1.46    3.94    6.60    12.20   1.58    
+96  2   316    15982  2220   0.94     1.500    1.342    0        426641   0        0        402749   | 0.00    1.72    4.55    6.14    12.45   1.58    
+96  3   335    16216  1723   1.00     1.489    1.340    0        347686   0        0        319746   | 0.00    1.62    4.02    4.50    10.29   1.93    
+96  4   335    16362  1404   1.00     1.482    1.337    0        312972   0        0        289174   | 0.00    1.53    4.11    4.42    10.16   1.92    
+96  5   335    16372  1459   1.00     1.475    1.335    0        283858   0        0        262505   | 0.00    1.71    4.85    3.79    10.38   1.63    
+96  6   335    16371  1330   1.00     1.469    1.333    0        246503   0        0        228360   | 0.00    1.66    3.91    3.18    8.81    2.02    
+96  7   335    16388  1386   1.00     1.464    1.332    0        233476   0        0        216085   | 0.00    1.32    3.24    3.10    7.90    2.44    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+97  0   237    16378  4018   0.61     1.500    1.347    0        602042   0        0        582203   | 0.00    1.81    4.88    9.59    16.41   1.61    
+97  1   308    16235  3234   0.80     1.500    1.344    0        615689   0        0        597419   | 0.00    2.32    5.18    8.81    16.50   1.90    
+97  2   377    16009  2406   0.97     1.491    1.341    0        544561   0        0        502384   | 0.00    3.09    6.96    7.46    17.68   1.65    
+97  3   387    16308  1793   1.00     1.480    1.338    0        454490   0        0        411719   | 0.00    2.46    6.94    7.24    16.67   1.75    
+97  4   387    16383  1761   1.00     1.472    1.335    0        406554   0        0        370889   | 0.00    2.66    5.96    5.38    14.07   2.05    
+97  5   387    16390  1839   1.00     1.465    1.333    0        360608   0        0        329004   | 0.00    2.04    5.24    4.82    12.26   2.34    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+98  0   278    16255  4327   0.62     1.500    1.348    0        654540   0        0        635384   | 0.00    1.85    4.36    9.41    15.66   2.10    
+98  1   355    16175  3338   0.80     1.500    1.346    0        656426   0        0        639117   | 0.00    2.37    6.35    9.68    18.54   1.77    
+98  2   430    16046  2515   0.96     1.495    1.342    0        629981   0        0        584669   | 0.00    2.74    6.25    8.08    17.10   2.11    
+98  3   447    16286  2027   1.00     1.484    1.339    0        518704   0        0        471629   | 0.00    2.40    5.26    6.80    14.57   2.66    
+98  4   447    16356  1766   1.00     1.475    1.337    0        452270   0        0        416617   | 0.00    2.90    6.77    6.18    16.04   2.08    
+98  5   447    16368  1754   1.00     1.470    1.335    0        401704   0        0        370102   | 0.00    2.54    5.21    4.11    12.02   2.70    
+98  6   447    16373  1686   1.00     1.462    1.333    0        366586   0        0        338176   | 0.00    2.33    6.20    4.74    13.42   2.27    
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+
+n   It  #B     Bsize  Bvar   A/S      lenbound s.i.len  #Ql      #Q2      #Q3      #nondup  #replaced| L       B       P       Qi      T       Psflops
+99  0   316    16318  4118   0.61     1.500    1.347    0        798274   0        0        777990   | 0.00    1.71    4.71    11.43   17.89   2.21    
+99  1   411    16208  3114   0.80     1.500    1.347    0        813697   0        0        794065   | 0.00    2.69    6.49    11.30   20.56   2.01    
+99  2   508    15953  2217   0.98     1.499    1.347    0        656798   0        0        609221   | 0.00    3.46    7.85    9.07    20.47   1.95    
+99  3   516    16278  1828   1.00     1.480    1.347    0        452372   0        0        419375   | 0.00    2.65    6.77    5.95    15.48   2.38    
+99  4   516    16347  1615   1.00     1.480    1.347    0        469939   0        0        437334   | 0.00    3.24    7.93    6.22    17.54   2.04    
+99  5   516    16342  1567   1.00     1.480    1.328    0        483321   0        0        397751   | 0.00    3.45    7.02    4.66    15.29   2.31    
+/data/ChildersGroup/euler/sumsbkz-py/env/lib/python3.10/site-packages/numba_cuda/numba/cuda/cudadrv/driver.py:381: UserWarning: cuda-bindings was built for CUDA major version 13, but the NVIDIA driver only supports up to CUDA 12. Some cuda-bindings features may not work correctly. Consider updating your NVIDIA driver, or using a cuda-bindings version built for CUDA 12. (Set CUDA_PYTHON_DISABLE_MAJOR_VERSION_WARNING=1 to suppress this warning.)
+  dev = Device(devnum)
+k=23 run 1/1  bases 1..100 (100)  db 4230677  sieve 1585.4s  descent 186.1s
+  k= 23  1:86<105!  2:90<91!  3:78<87!  4:75<86!  5:66<81!  6:61<72!  7:47<62!  8:55<63!  9:47<62!  10:38<53!  11:36<49!  12:36<47!  13:33<41!  14:32<36!  15:32<37!  16:29<33!  17:29<30!  18:28<34!  19:26<28!  20:25<28!
+Exception ignored in: <module 'threading' from '/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/threading.py'>
+Traceback (most recent call last):
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/threading.py", line 1537, in _shutdown
+    atexit_call()
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/concurrent/futures/process.py", line 93, in _python_exit
+    thread_wakeup.wakeup()
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/concurrent/futures/process.py", line 79, in wakeup
+    self._writer.send_bytes(b"")
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+OSError: [Errno 9] Bad file descriptor

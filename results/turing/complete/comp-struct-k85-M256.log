@@ -1,0 +1,44 @@
+k=85: 40 distinct congruence inputs
+database 4235915 vectors, 5s
+  dev = Device(devnum)
+  input 0: c=367+10 M=256 fixed=367+10 D~10^143 particular=1 new frontier entries 0  64s
+  input 1: c=320+17 M=256 fixed=320+17 D~10^141 particular=1 new frontier entries 0  63s
+  input 2: c=337+11 M=256 fixed=337+11 D~10^143 particular=1 new frontier entries 0  18s
+  input 3: c=322+11 M=256 fixed=322+11 D~10^140 particular=1 new frontier entries 0  64s
+  input 4: c=321+10 M=256 fixed=321+10 D~10^143 particular=1 new frontier entries 4  18s
+  input 5: c=314+12 M=256 fixed=314+12 D~10^142 particular=1 new frontier entries 24  21s
+  input 6: c=335+9 M=256 fixed=335+9 D~10^143 particular=1 new frontier entries 0  55s
+  input 7: c=349+22 M=256 fixed=349+22 D~10^139 particular=1 new frontier entries 0  21s
+  input 8: c=312+18 M=256 fixed=312+18 D~10^143 particular=1 new frontier entries 16  17s
+  input 9: c=351+11 M=256 fixed=351+11 D~10^141 particular=1 new frontier entries 11  17s
+  input 10: c=329+11 M=256 fixed=329+11 D~10^143 particular=1 new frontier entries 21  14s
+  input 11: c=338+16 M=256 fixed=338+16 D~10^141 particular=1 new frontier entries 0  17s
+  input 12: c=358+7 M=256 fixed=358+7 D~10^143 particular=1 new frontier entries 12  17s
+  input 13: c=322+20 M=256 fixed=322+20 D~10^143 particular=1 new frontier entries 0  61s
+  input 14: c=353+12 M=256 fixed=353+12 D~10^142 particular=1 new frontier entries 0  60s
+  input 15: c=324+15 M=256 fixed=324+15 D~10^143 particular=1 new frontier entries 0  59s
+  input 16: c=359+8 M=256 fixed=359+8 D~10^143 particular=1 new frontier entries 0  18s
+  input 17: c=315+14 M=256 fixed=315+14 D~10^142 particular=1 new frontier entries 0  54s
+  input 18: c=330+12 M=256 fixed=330+12 D~10^143 particular=1 new frontier entries 1  16s
+  input 19: c=358+9 M=256 fixed=358+9 D~10^143 particular=1 new frontier entries 0  15s
+  input 20: c=354+10 M=256 fixed=354+10 D~10^143 particular=1 new frontier entries 0  57s
+  input 21: c=356+9 M=256 fixed=356+9 D~10^143 particular=1 new frontier entries 5  15s
+  input 22: c=362+8 M=256 fixed=362+8 D~10^142 particular=1 new frontier entries 0  57s
+  input 23: c=316+16 M=256 fixed=316+16 D~10^143 particular=1 new frontier entries 0  16s
+  input 24: c=357+12 M=256 fixed=357+12 D~10^142 particular=1 new frontier entries 0  60s
+  input 25: c=355+10 M=256 fixed=355+10 D~10^142 particular=1 new frontier entries 0  15s
+  input 26: c=335+11 M=256 fixed=335+11 D~10^143 particular=1 new frontier entries 0  17s
+  input 27: c=337+10 M=256 fixed=337+10 D~10^142 particular=1 new frontier entries 5  18s
+  input 28: c=344+11 M=256 fixed=344+11 D~10^142 particular=1 new frontier entries 0  19s
+  input 29: c=329+23 M=256 fixed=329+23 D~10^143 particular=1 new frontier entries 0  60s
+  input 30: c=340+13 M=256 fixed=340+13 D~10^143 particular=1 new frontier entries 0  59s
+  input 31: c=338+18 M=256 fixed=338+18 D~10^143 particular=1 new frontier entries 0  16s
+  input 32: c=330+14 M=256 fixed=330+14 D~10^143 particular=1 new frontier entries 0  17s
+  input 33: c=350+10 M=256 fixed=350+10 D~10^143 particular=1 new frontier entries 0  19s
+  input 34: c=309+16 M=256 fixed=309+16 D~10^143 particular=1 new frontier entries 0  19s
+  input 35: c=345+13 M=256 fixed=345+13 D~10^142 particular=1 new frontier entries 0  59s
+  input 36: c=316+15 M=256 fixed=316+15 D~10^142 particular=1 new frontier entries 0  56s
+  input 37: c=333+12 M=256 fixed=333+12 D~10^143 particular=1 new frontier entries 0  55s
+  input 38: c=333+15 M=256 fixed=333+15 D~10^143 particular=1 new frontier entries 0  15s
+  input 39: c=340+13 M=256 fixed=340+13 D~10^143 particular=1 new frontier entries 0  18s
+  k= 85  10:4268<5211!  11:3968<5212!  12:3808<5191!  13:3799<5192!  14:3593<5193!  15:3618<5194!  16:3058<5195!

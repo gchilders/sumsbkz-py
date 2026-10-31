@@ -1,0 +1,30 @@
+make[1]: Warning: File '.deps/sieving.Plo' has modification time 760 s in the future
+(CDPATH="${ZSH_VERSION+.}:" && cd .. && /bin/sh /home/gchilders/data/euler/sumsbkz-py/g6kcpu/missing autoheader)
+rm -f stamp-h1
+touch g6k_config.h.in
+cd .. && /bin/sh ./config.status kernel/g6k_config.h
+config.status: creating kernel/g6k_config.h
+config.status: kernel/g6k_config.h is unchanged
+make  all-am
+make[2]: Entering directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu/kernel'
+make[2]: Warning: File '.deps/sieving.Plo' has modification time 760 s in the future
+  CXX      sieving.lo
+  CXX      control.lo
+  CXX      bgj1_sieve.lo
+  CXX      hk3_sieve.lo
+  CXX      bdgl_sieve.lo
+  CXX      fht_lsh.lo
+  CXX      params.lo
+  CXX      cpuperf.lo
+  CXXLD    libg6k.la
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Leaving directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu/kernel'
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+make[1]: Leaving directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu/kernel'
+make[1]: Entering directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu'
+make[1]: Warning: File 'Makefile' has modification time 749 s in the future
+make[1]: Nothing to be done for 'all-am'.
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+make[1]: Leaving directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu'
+make: warning:  Clock skew detected.  Your build may be incomplete.
+/var/spool/slurmd/job502124/slurm_script: line 21: pip: command not found

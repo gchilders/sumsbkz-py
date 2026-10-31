@@ -1,0 +1,14 @@
+== ns-k20-n90 start Wed Oct 28 03:48:30 UTC 2026 on gc-eslp-ns-k20-n90-vw649 threads=16
+model name	: AMD EPYC 7402P 24-Core Processor
+avx2 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Wed Oct 28 03:49:55 UTC 2026
+run 1 894.5s  12:42 13:41 14:40 15:40 16:25
+run 2 972.4s  12:42 13:41 14:40 15:40 16:25
+run 3 927.7s  8:43 9:41 10:43 11:42 12:42 13:41 14:39 15:40 16:20
+run 4 854.5s  8:43 9:41 10:43 11:42 12:42 13:41 14:39 15:37 16:20
+== ns-k20-n90 done Wed Oct 28 04:50:45 UTC 2026

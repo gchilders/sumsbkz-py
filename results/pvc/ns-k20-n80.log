@@ -1,0 +1,24 @@
+== ns-k20-n80 start Wed Oct 28 03:49:18 UTC 2026 on gc-eslp-ns-k20-n80-9r6kj threads=16
+model name	: Intel(R) Xeon(R) Gold 6132 CPU @ 2.60GHz
+avx2 avx512f 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Wed Oct 28 03:52:10 UTC 2026
+run 1 268.6s  11:37 12:36 13:38 14:37 15:37 16:37
+run 2 270.5s  11:37 12:36 13:38 14:37 15:37 16:37
+run 3 258.2s  11:37 12:36 13:38 14:36 15:37 16:37
+run 4 275.1s  11:37 12:36 13:38 14:36 15:36 16:37
+run 5 256.9s  11:37 12:36 13:38 14:36 15:36 16:37
+run 6 267.6s  11:37 12:36 13:38 14:36 15:36 16:25
+run 7 265.0s  11:37 12:36 13:38 14:36 15:36 16:25
+run 8 271.4s  11:37 12:36 13:38 14:36 15:36 16:25
+run 9 261.8s  11:37 12:36 13:38 14:36 15:36 16:25
+run 10 270.1s  9:55 10:53 11:37 12:36 13:37 14:36 15:36 16:25
+run 11 275.8s  9:55 10:44 11:37 12:36 13:37 14:36 15:35 16:24
+run 12 275.1s  9:42 10:43 11:37 12:36 13:37 14:36 15:35 16:24
+run 13 274.2s  7:55 9:42 10:43 11:37 12:36 13:37 14:25 15:28 16:24
+run 14 251.9s  7:55 9:42 10:43 11:37 12:36 13:37 14:25 15:28 16:24
+== ns-k20-n80 done Wed Oct 28 04:54:33 UTC 2026

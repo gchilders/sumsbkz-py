@@ -1,0 +1,26 @@
+k=97 M=256 C=100: bases 2561..2759; moments [(1, 4501770)]; Lambda database 4891214, lifting 20000 (226s)
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "/data/ChildersGroup/euler/sumsbkz-py/tools/joint.py", line 45, in _lift_row
+    sols = particular(D, k, N)
+  File "/data/ChildersGroup/euler/sumsbkz-py/tools/../tools/complete.py", line 147, in particular
+    B = IntegerMatrix.from_matrix(rel)
+  File "src/fpylll/fplll/integer_matrix.pyx", line 396, in fpylll.fplll.integer_matrix.IntegerMatrix.from_matrix
+IndexError: list index out of range
+"""
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/data/ChildersGroup/euler/sumsbkz-py/tools/joint.py", line 170, in <module>
+    main()
+  File "/data/ChildersGroup/euler/sumsbkz-py/tools/joint.py", line 101, in main
+    lifts = P.map(_lift_row, [(D, k, N) for D in Ds])
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/pool.py", line 774, in get
+    raise self._value
+IndexError: list index out of range

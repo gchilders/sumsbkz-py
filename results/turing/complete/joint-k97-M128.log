@@ -1,0 +1,11 @@
+k=97 M=128 C=100: bases 1281..1479; moments [(1, 4501770)]; Lambda database 4891214, lifting 20000 (211s)
+  lifted 100 basis rows (66s)
+  target R=-5000: congruence part 5012 terms, completion 3284 terms, first moment -5000
+  target R=-10000: congruence part 4960 terms, completion 4191 terms, first moment -10000
+  target R=-20000: congruence part 4850 terms, completion 3589 terms, first moment -20000
+  target R=-40000: congruence part 5618 terms, completion 4012 terms, first moment -40000
+  dev = Device(devnum)
+  descent inside Lambda: small sides [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]..., 41 lifted starts (78s)
+  descent over 4256015 moves from 345 starts (268s)
+  smallest sides reached (m:n): 
+  k= 97     (688s)

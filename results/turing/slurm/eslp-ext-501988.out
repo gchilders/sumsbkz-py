@@ -1,0 +1,10 @@
+build_ext exit 1
+34991 | static PyMethodDef __pyx_mdef___pyx_array_1__reduce_cython__ = {"__reduce_cython__", (PyCFunction)__pyx_pw___pyx_array_1__reduce_cython__, METH_NOARGS, 0};
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+error: Command '['c++', '-pthread', '-fno-strict-overflow', '-Wsign-compare', '-Wunreachable-code', '-DNDEBUG', '-g', '-O3', '-Wall', '-O3', '-fstack-protector', '-fstack-clash-protection', '-U_FORTIFY_SOURCE', '-D_FORTIFY_SOURCE=2', '-fno-omit-frame-pointer', '-mno-omit-leaf-frame-pointer', '-fPIC', '-fPIC', '-I./g6k', '-I/data/ChildersGroup/euler/sumsbkz-py/env/lib/python3.12/site-packages/cysignals', '-I/data/ChildersGroup/euler/sumsbkz-py/env/lib/python3.12/site-packages/numpy/core/include', '-Iparallel-hashmap', '-I/data/ChildersGroup/euler/sumsbkz-py/env/include', '-I/home/gchilders/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/include/python3.12', '-c', 'g6k/siever.cpp', '-o', 'build/temp.linux-x86_64-cpython-312/g6k/siever.o', '-fPIC', '-Ofast', '-march=x86-64-v3', '-ftree-vectorize', '-funroll-loops', '-std=c++11', '-pthread', '-Wall', '-Wextra', '-DNOYR=1', '-DPOPCOUNT=0', '-DNDEBUG', '-DTEMPLATED_DIM', '-DMAX_SIEVING_DIM=160', '-DGPUVECNUM=65536', '-DHAVE_CUDA', '-I../parallel-hashmap', '-lineinfo', '-I/opt/ohpc/pub/apps/cuda/12.9.1/include', '-I../parallel-hashmap']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/gchilders/data/euler/sumsbkz-py/g6kgpu/g6k/__init__.py", line 3, in <module>
+    from .siever_params import SieverParams # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'g6k.siever_params'

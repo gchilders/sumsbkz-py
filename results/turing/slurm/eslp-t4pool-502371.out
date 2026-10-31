@@ -1,0 +1,10 @@
+0, Tesla T4, GPU-bb7fd22d-408f-d3b8-db8e-87e91e37c51c
+1, Tesla T4, GPU-6ff8376b-a6a8-bd42-bb28-c624aa3babef
+2, Tesla T4, GPU-7645e160-f7e2-76bb-840b-7da5c104ab12
+3, Tesla T4, GPU-026f9199-7874-9694-8ab2-e470fa266cfc
+4, Tesla T4, GPU-930dceec-c60e-7814-21e9-b43252fc4b1d
+5, Tesla T4, GPU-690285ad-3c60-9f90-0735-b16aa09a3c47
+GPU 3 validated Wed Oct 28 06:08:15 PDT 2026
+GPU 3 start k=16 N=100 Wed Oct 28 06:08:15 PDT 2026
+GPU 3 done  k=16 N=100 Wed Oct 28 06:20:28 PDT 2026 :: k=16 run 1/1  bases 1..100 (100)  db 4230677  sieve 645.4s  descent 83.6s
+all workers done Wed Oct 28 06:20:28 PDT 2026

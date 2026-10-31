@@ -1,0 +1,43 @@
+# Third-party material that is not ours to redistribute:
+# NewLC, ResultLC, ysum and J. Wroblewski's congruence inputs
+legacy/third_party_private/
+# snapshot of J.-C. Meyrignac's pages and database (regenerate with tools/scrape_euler.py)
+data/euler_free_fr/
+# fplll's BKZ strategies (shipped with fplll)
+data/fplll/
+# G6K source tarball
+remote/g6kcpu.tar
+
+# Private correspondence and drafts
+paper/review.md
+paper/response.md
+paper/main_v1.tex
+paper/main_v2.tex
+paper/literature/literature_review.md
+paper/literature/verification.md
+
+# Build products and caches
+.venv/
+env/
+__pycache__/
+*.pyc
+legacy/sumsbkz
+bases/
+paper/*.aux
+paper/*.log
+paper/*.bbl
+paper/*.blg
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.out
+paper/*.pdf
+paper/build.log
+
+# Large or transient run files
+*.npy
+*.lock
+remote/cmd_queue.txt
+remote/h200_queue.*
+remote/t4*_queue.txt
+remote/STATUS.md
+.DS_Store

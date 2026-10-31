@@ -1,0 +1,9 @@
+== w2c-k17-18 start Tue Oct 27 09:29:21 UTC 2026 on gc-eslp-w2c-k17-18-v748p threads=12
+model name	: Intel(R) Xeon(R) CPU E5-2697 v3 @ 2.60GHz
+avx2 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Tue Oct 27 09:31:07 UTC 2026

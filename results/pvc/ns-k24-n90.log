@@ -1,0 +1,14 @@
+== ns-k24-n90 start Wed Oct 28 03:49:12 UTC 2026 on gc-eslp-ns-k24-n90-mwsmk threads=16
+model name	: AMD EPYC 7282 16-Core Processor
+avx2 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Wed Oct 28 03:50:59 UTC 2026
+run 1 1006.1s  3:111 4:101 5:100 6:88 7:86 8:74 9:75 10:71 11:68 12:64 13:65 14:53 15:41 16:42
+run 2 1022.0s  3:111 4:101 5:100 6:88 7:86 8:74 9:75 10:67 11:63 12:64 13:63 14:45 15:39 16:41
+run 3 1024.9s  3:111 4:101 5:100 6:88 7:86 8:74 9:75 10:67 11:63 12:64 13:63 14:45 15:39 16:40
+run 4 1021.9s  3:103 4:98 5:100 6:88 7:86 8:74 9:75 10:67 11:63 12:64 13:60 14:45 15:39 16:40
+== ns-k24-n90 done Wed Oct 28 04:58:55 UTC 2026

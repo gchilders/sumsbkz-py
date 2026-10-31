@@ -1,0 +1,16 @@
+0, NVIDIA H200, 143771 MiB
+1, NVIDIA H200, 143771 MiB
+2, NVIDIA H200, 143771 MiB
+3, NVIDIA H200, 143771 MiB
+GPU 0 validated Tue Oct 27 12:00:59 PDT 2026
+GPU 3 validated Tue Oct 27 12:00:59 PDT 2026
+GPU 2 validated Tue Oct 27 12:00:59 PDT 2026
+GPU 1 validated Tue Oct 27 12:00:59 PDT 2026
+GPU 0 start k=30 N=120 Tue Oct 27 12:00:59 PDT 2026
+GPU 3 start k=29 N=120 Tue Oct 27 12:00:59 PDT 2026
+GPU 2 start k=28 N=120 Tue Oct 27 12:00:59 PDT 2026
+GPU 1 start k=27 N=120 Tue Oct 27 12:00:59 PDT 2026
+GPU 2 done  k=28 N=120 Tue Oct 27 12:02:28 PDT 2026 :: 
+GPU 2 start k=26 N=120 Tue Oct 27 12:02:29 PDT 2026
+slurmstepd-h200-4u-0-1: error: *** JOB 502002 ON h200-4u-0-1 CANCELLED AT 2026-10-27T12:06:27 ***
+/var/spool/slurmd/job502002/slurm_script: line 52: 3571048 Terminated              worker $g

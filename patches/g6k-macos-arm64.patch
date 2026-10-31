@@ -1,0 +1,219 @@
+diff --git a/kernel/bdgl_sieve.cpp b/kernel/bdgl_sieve.cpp
+index c04ccae..4a10bb9 100644
+--- a/kernel/bdgl_sieve.cpp
++++ b/kernel/bdgl_sieve.cpp
+@@ -20,7 +20,9 @@
+ 
+ #include "siever.h"
+ #include "fht_lsh.h"
++#if defined(__x86_64__) || defined(__i386__)
+ #include <immintrin.h>
++#endif
+ #include <stdio.h>
+ #include <assert.h>
+ #include <cstring>
+@@ -308,7 +310,7 @@ void Siever::bdgl_queue_create_task( const size_t t_id, const std::vector<QEntry
+             continue;
+         }
+         bdgl_reduce_with_delayed_replace( queue[index].i, queue[index].j, 
+-                                                  cdb[std::min(S-1, insert_after+params.threads*write_index)].len / REDUCE_LEN_MARGIN,
++                                                  cdb[std::min<size_t>(S-1, insert_after+params.threads*write_index)].len / REDUCE_LEN_MARGIN,
+                                                   transaction_db, write_index, queue[index].len, queue[index].sign);
+         if( write_index < 0 ){
+             std::cerr << "Spilling full transaction db" << t_id << " " << Q-index << std::endl;
+diff --git a/kernel/cpuperformance.hpp b/kernel/cpuperformance.hpp
+index 2072564..f7ada77 100644
+--- a/kernel/cpuperformance.hpp
++++ b/kernel/cpuperformance.hpp
+@@ -65,7 +65,11 @@ namespace cpu {
+ 
+ 	inline uint64_t cpu_timestamp()
+ 	{
+-#ifdef __GNUC__
++#if defined(__aarch64__)
++		uint64_t v;
++		asm volatile("mrs %0, cntvct_el0" : "=r"(v));
++		return v;
++#elif defined(__GNUC__)
+ 		uint32_t highpart, lowpart;
+ 		asm volatile("rdtsc": "=d"(highpart), "=a"(lowpart));
+ 		return (uint64_t(highpart) << 32) | uint64_t(lowpart);
+diff --git a/kernel/fht_lsh.cpp b/kernel/fht_lsh.cpp
+index 1a2a3af..c536926 100644
+--- a/kernel/fht_lsh.cpp
++++ b/kernel/fht_lsh.cpp
+@@ -19,6 +19,7 @@
+ 
+ #include "g6k_config.h"
+ #include "fht_lsh.h"
++#include <cstring>
+ 
+ // Please note that this file originally came from:
+ // https://github.com/lducas/AVX2-BDGL-bucketer commit 630c2286a440fae1eddd9f90341ff2020f18b614
+@@ -338,7 +339,8 @@ template<> void ProductLSH::hash_templated<2>(const float * const vv, int32_t *
+ {
+     int32_t h0[multi_hash_block], h1[multi_hash_block];
+     float c0[multi_hash_block], c1[multi_hash_block];
+-    float c[multi_hash] = {0};
++    float c[multi_hash];
++    memset(c, 0, sizeof(float) * multi_hash);
+ 
+     // Now hash against the two subcode blocks.
+     lshs[0].hash(&(vv[0]), c0, h0);
+diff --git a/kernel/simd.h b/kernel/simd.h
+index 82948d1..385bab4 100644
+--- a/kernel/simd.h
++++ b/kernel/simd.h
+@@ -4,7 +4,9 @@
+ #include "g6k_config.h"
+ 
+ #include <cstdint>
++#if defined(__x86_64__) || defined(__i386__)
+ #include <immintrin.h>
++#endif
+ #include <iostream>
+ 
+ /**
+diff --git a/kernel/simd.inl b/kernel/simd.inl
+index fe5898c..0ec87cc 100644
+--- a/kernel/simd.inl
++++ b/kernel/simd.inl
+@@ -5,12 +5,40 @@
+ #include <cstring> // Needed for memcpy. If (for some unknown reason) this is prohibitive you can instead
+                    // use __builtin_memcpy.
+ 
++#if defined(__clang__)
++// clang lacks GCC's __builtin_shuffle and forbids taking the address of a vector
++// element.  Scalar equivalents for the non-AVX2 fallback path (macOS/arm64 port).
++template <typename V, typename M>
++static inline V g6k_shuffle(const V a, const M m) {
++  constexpr unsigned N = sizeof(V) / sizeof(a[0]);
++  V r;
++  for (unsigned i = 0; i < N; i++) r[i] = a[m[i] & (N - 1)];
++  return r;
++}
++template <typename V, typename M>
++static inline V g6k_shuffle(const V a, const V b, const M m) {
++  constexpr unsigned N = sizeof(V) / sizeof(a[0]);
++  V r;
++  for (unsigned i = 0; i < N; i++) {
++    const unsigned j = m[i] & (2 * N - 1);
++    r[i] = j < N ? a[j] : b[j - N];
++  }
++  return r;
++}
++#define G6K_SHUFFLE g6k_shuffle
++#define G6K_ELEM_PTR(v, i) ((void *)((char *)&(v) + (i) * sizeof((v)[0])))
++#else
++#define G6K_SHUFFLE __builtin_shuffle
++#define G6K_ELEM_PTR(v, i) ((void *)&(v)[i])
++#endif
++
+ inline Simd::SmallVecType Simd::m128_slli_epi64(const SmallVecType a,
+                                                 const int mask) {
+ #ifdef HAVE_AVX2
+   return _mm_slli_epi64(a, mask);
+ #else
+-  return a << mask;
++  // 64-bit lanes (was a 16-bit lane shift: wrong, and UB for mask >= 16).
++  return (SmallVecType)(((Vec2uq)a) << mask);
+ #endif
+ }
+ 
+@@ -74,8 +102,8 @@ inline Simd::VecType Simd::m256_hadd_epi16(const Simd::VecType a,
+   static constexpr Vec16s shift_right_1_epi16 = {1, 2,  3,  4,  5,  6,  7,  8,
+                                                  9, 10, 11, 12, 13, 14, 15, 0};
+ 
+-  const auto a1 = __builtin_shuffle(a, shift_right_1_epi16);
+-  const auto b1 = __builtin_shuffle(b, shift_right_1_epi16);
++  const auto a1 = G6K_SHUFFLE(a, shift_right_1_epi16);
++  const auto b1 = G6K_SHUFFLE(b, shift_right_1_epi16);
+ 
+   // a2 = (a[0] + a[1], a[1] + a[2]  , a[2] + a[3], a[3] + a[4],
+   //       a[4] + a[5], a[5] + a[6]  , a[6] + a[7], a[7] + a[8],
+@@ -89,7 +117,7 @@ inline Simd::VecType Simd::m256_hadd_epi16(const Simd::VecType a,
+   // The mask works by shuffling mod the length of the vector.
+   // This means that (for example) a value of `18` refers to b2[2], whereas `2`
+   // refers to a2[2].
+-  return __builtin_shuffle(a2, b2, hadd_shift_mask_epi16);
++  return G6K_SHUFFLE(a2, b2, hadd_shift_mask_epi16);
+ #endif
+ }
+ 
+@@ -132,7 +160,7 @@ inline Simd::SmallVecType Simd::m128_srli_epi64(const SmallVecType a,
+ #ifdef HAVE_AVX2
+   return _mm_srli_si128(a, pos);
+ #else
+-  return (SmallVecType)(((Vec2q)a) >> pos);
++  return (SmallVecType)(((Vec2uq)a) >> pos);  // logical, as _mm_srli_epi64
+ #endif
+ }
+ 
+@@ -167,7 +195,7 @@ inline Simd::VecType Simd::m256_permute4x64_epi64(const VecType a) {
+   constexpr Vec4q temp_mask{mask & 3, (mask & 12) >> 2, (mask & 48) >> 4,
+                             (mask & 192) >> 6};
+   return reinterpret_cast<Vec16s>(
+-      __builtin_shuffle(reinterpret_cast<Vec4q>(a), temp_mask));
++      G6K_SHUFFLE(reinterpret_cast<Vec4q>(a), temp_mask));
+ #endif
+ }
+ 
+@@ -184,7 +212,7 @@ Simd::m256_permute4x64_epi64_for_hadamard(const VecType a) {
+   // got no idea beyond that.
+   constexpr Vec4q mask{arr[3], arr[2], arr[1], arr[0]};
+   return reinterpret_cast<Vec16s>(
+-      __builtin_shuffle(reinterpret_cast<Vec4q>(a), mask));
++      G6K_SHUFFLE(reinterpret_cast<Vec4q>(a), mask));
+ #endif
+ }
+ 
+@@ -200,7 +228,7 @@ inline int Simd::m256_testz_si256(const VecType a, const VecType b) {
+ 
+   Vec8s p1, p2;
+   memcpy(&p1, &res, sizeof(p1));
+-  memcpy(&p2, &res[8], sizeof(p2));
++  memcpy(&p2, G6K_ELEM_PTR(res, 8), sizeof(p2));
+ 
+   __int128_t lhs = reinterpret_cast<__int128_t>(p1);
+   __int128_t rhs = reinterpret_cast<__int128_t>(p2);
+@@ -313,8 +341,8 @@ inline Simd::VecType Simd::m256_broadcastsi128_si256(const SmallVecType in) {
+   // code. A better solution (although still slower than the ideal case) is to
+   // use memcpy, since GCC seems to do better there: I have no idea why.
+   Vec16s out;
+-  memcpy(&out[0], &in[0], sizeof(Vec8s));
+-  memcpy(&out[8], &in[0], sizeof(Vec8s));
++  memcpy(G6K_ELEM_PTR(out, 0), G6K_ELEM_PTR(in, 0), sizeof(Vec8s));
++  memcpy(G6K_ELEM_PTR(out, 8), G6K_ELEM_PTR(in, 0), sizeof(Vec8s));
+   return out;
+ #endif
+ }
+@@ -332,7 +360,7 @@ inline Simd::SmallVecType Simd::m128_shuffle_epi8(const SmallVecType in,
+   // So now we've gotten that match, we'll want to make the shuffle. Sounds
+   // easy, right?
+   const auto intermediate =
+-      __builtin_shuffle(reinterpret_cast<Vec16c>(in), shuffle_mask);
++      G6K_SHUFFLE(reinterpret_cast<Vec16c>(in), shuffle_mask);
+ 
+   // Aha! Gotcha.
+   // It turns out the mm_shuffle_epi8 intrinsic is a bit weird.
+@@ -363,9 +391,9 @@ inline Simd::VecType Simd::m256_shuffle_epi8(const VecType in,
+   // NOTE: the compiler is likely to turn these into moves, since these
+   // variables are most likely in registers.
+   memcpy(&first, &in, sizeof(Vec8s));
+-  memcpy(&last, &in[8], sizeof(Vec8s));
++  memcpy(&last, G6K_ELEM_PTR(in, 8), sizeof(Vec8s));
+   memcpy(&first_mask, &mask, sizeof(Vec8s));
+-  memcpy(&last_mask, &mask[8], sizeof(Vec8s));
++  memcpy(&last_mask, G6K_ELEM_PTR(mask, 8), sizeof(Vec8s));
+ 
+   // Delegate to the 128-bit version.
+   auto res_1 = Simd::m128_shuffle_epi8(
+@@ -375,7 +403,7 @@ inline Simd::VecType Simd::m256_shuffle_epi8(const VecType in,
+ 
+   // Same caveat as above.
+   memcpy(&result, &res_1, sizeof(Vec8s));
+-  memcpy(&result[8], &res_2, sizeof(Vec8s));
++  memcpy(G6K_ELEM_PTR(result, 8), &res_2, sizeof(Vec8s));
+   return result;
+ #endif
+ }

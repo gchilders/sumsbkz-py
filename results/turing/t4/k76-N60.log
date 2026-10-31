@@ -1,0 +1,39 @@
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+max_nr_buckets = 65536
+/data/ChildersGroup/euler/sumsbkz-py/env/lib/python3.10/site-packages/numba_cuda/numba/cuda/cudadrv/driver.py:381: UserWarning: cuda-bindings was built for CUDA major version 13, but the NVIDIA driver only supports up to CUDA 12. Some cuda-bindings features may not work correctly. Consider updating your NVIDIA driver, or using a cuda-bindings version built for CUDA 12. (Set CUDA_PYTHON_DISABLE_MAJOR_VERSION_WARNING=1 to suppress this warning.)
+  dev = Device(devnum)
+k=76 run 1/1  bases 1..60 (60)  db 159528  sieve 60.3s  descent 19.1s
+  k= 76  13:6182/3666  14:6304/3667  17:6421+  19:6600/3174  22:6692/2830  23:6474+  25:6520+  30:7206+  31:6790+  32:6111+  36:6474/2837  37:6646+  38:5779/2818  39:6757/2775  40:6519+
+Exception ignored in: <module 'threading' from '/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/threading.py'>
+Traceback (most recent call last):
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/threading.py", line 1537, in _shutdown
+    atexit_call()
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/concurrent/futures/process.py", line 93, in _python_exit
+    thread_wakeup.wakeup()
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/concurrent/futures/process.py", line 79, in wakeup
+    self._writer.send_bytes(b"")
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/connection.py", line 200, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/connection.py", line 411, in _send_bytes
+    self._send(header + buf)
+  File "/home/gchilders/.local/share/uv/python/cpython-3.10-linux-x86_64-gnu/lib/python3.10/multiprocessing/connection.py", line 368, in _send
+    n = write(self._handle, buf)
+OSError: [Errno 9] Bad file descriptor

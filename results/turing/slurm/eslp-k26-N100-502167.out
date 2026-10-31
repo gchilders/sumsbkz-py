@@ -1,0 +1,5 @@
+Spilling full transaction db4 1
+Spilling full transaction db6 1
+Spilling full transaction db15 1
+k=26 run 1/1  bases 1..100 (100)  db 4887424  sieve 1616.4s  descent 345.1s
+  k= 26  10:118/82  11:107/75  12:99/72  13:94/70  14:85/52  15:63/53  16:62/54  17:45<49!  18:44/40  19:37<45!  20:30<48!  21:33<40!  22:33=  23:29<31!  24:28=  25:30<31!  26:28=  27:27<28!  28:28=  29:29=

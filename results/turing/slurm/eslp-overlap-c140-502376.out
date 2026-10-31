@@ -1,0 +1,10 @@
+0, Tesla T4, GPU-99af83c9-b683-ff3c-c791-a27f84b1de2c
+1, Tesla T4, GPU-a83def41-d404-e524-dd17-32b0f4b7c896
+2, Tesla T4, GPU-fc836285-c106-ae05-fcee-b00f16584051
+3, Tesla T4, GPU-01fd094c-d9ce-9cdd-601f-8fa7e3c38163
+4, Tesla T4, GPU-ea50b7ee-5479-967e-c1e4-38af00f869fd
+5, Tesla T4, GPU-2477e4ba-c660-d40c-f06b-2f5b853f870b
+GPU 4 validated Wed Oct 28 11:51:27 PDT 2026
+GPU 4 start completion k=85 N=140 Wed Oct 28 11:51:27 PDT 2026
+GPU 4 done  k=85 N=140 Wed Oct 28 12:38:46 PDT 2026 :: 
+GPU 4 start completion k=31 N=140 Wed Oct 28 12:38:46 PDT 2026

@@ -1,0 +1,16 @@
+k=75: 11 distinct congruence inputs
+BKZ-30 pool: 100 reductions, 131s
+database 4249815 vectors, 131s
+  dev = Device(devnum)
+  input 0: c=200+9 M=64 fixed=200+9 D~10^126 particular=1 new frontier entries 19  37s
+  input 1: c=216+6 M=64 fixed=216+6 D~10^126 particular=1 new frontier entries 1  29s
+  input 2: c=211+8 M=64 fixed=211+8 D~10^125 particular=1 new frontier entries 1  30s
+  input 3: c=230+4 M=64 fixed=230+4 D~10^126 particular=1 new frontier entries 24  29s
+  input 4: c=204+9 M=64 fixed=204+9 D~10^126 particular=1 new frontier entries 20  32s
+  input 5: c=200+6 M=64 fixed=200+6 D~10^126 particular=1 new frontier entries 0  35s
+  input 6: c=211+10 M=64 fixed=211+10 D~10^125 particular=1 new frontier entries 0  31s
+  input 7: c=218+6 M=64 fixed=218+6 D~10^125 particular=1 new frontier entries 19  26s
+  input 8: c=206+6 M=64 fixed=206+6 D~10^126 particular=1 new frontier entries 0  25s
+  input 9: c=212+5 M=64 fixed=212+5 D~10^126 particular=1 new frontier entries 18  28s
+  input 10: c=250+3 M=64 fixed=250+3 D~10^126 particular=1 new frontier entries 1  25s
+  k= 75  15:5656<5878!  16:5603<5879!

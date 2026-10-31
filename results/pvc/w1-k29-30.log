@@ -1,0 +1,9 @@
+== w1-k29-30 start Tue Oct 27 08:51:41 UTC 2026 on gc-eslp-w1-k29-30-j24pg threads=12
+model name	: Intel(R) Xeon(R) Gold 6230 CPU @ 2.10GHz
+avx2 avx512f 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Tue Oct 27 08:53:19 UTC 2026

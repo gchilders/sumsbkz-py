@@ -1,0 +1,32 @@
+{
+ "sieve": {
+  "improves": 795,
+  "only": 688,
+  "cumulative": 795,
+  "saved": 1572286
+ },
+ "coset": {
+  "improves": 188,
+  "only": 98,
+  "cumulative": 894,
+  "saved": 1928740
+ },
+ "recstart": {
+  "improves": 16,
+  "only": 14,
+  "cumulative": 908,
+  "saved": 1935133
+ },
+ "wcomplete": {
+  "improves": 160,
+  "only": 132,
+  "cumulative": 1040,
+  "saved": 2089106
+ },
+ "struct": {
+  "improves": 31,
+  "only": 31,
+  "cumulative": 1071,
+  "saved": 2218809
+ }
+}

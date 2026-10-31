@@ -1,0 +1,660 @@
+{
+ "17": {
+  "nH": 34,
+  "nR": 1453,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   9,
+   21
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 1921,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 6,
+   "pool": 149,
+   "capped": false,
+   "seconds": 1.1
+  },
+  "R*": [
+   9,
+   21
+  ],
+  "R* info": {
+   "rounds": 2,
+   "pool": 1983,
+   "capped": false,
+   "seconds": 12.9
+  },
+  "RH*": [
+   9,
+   21
+  ],
+  "RH* info": {
+   "rounds": 2,
+   "pool": 2005,
+   "capped": false,
+   "seconds": 12.6
+  }
+ },
+ "18": {
+  "nH": 46,
+  "nR": 163,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   0,
+   0
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 519,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 9,
+   "pool": 229,
+   "capped": false,
+   "seconds": 3.6
+  },
+  "R*": [
+   0,
+   0
+  ],
+  "R* info": {
+   "rounds": 3,
+   "pool": 1098,
+   "capped": false,
+   "seconds": 7.0
+  },
+  "RH*": [
+   0,
+   0
+  ],
+  "RH* info": {
+   "rounds": 3,
+   "pool": 1154,
+   "capped": false,
+   "seconds": 8.8
+  }
+ },
+ "19": {
+  "nH": 31,
+  "nR": 2371,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   13,
+   49
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 1109,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 4,
+   "pool": 64,
+   "capped": false,
+   "seconds": 0.3
+  },
+  "R*": [
+   13,
+   49
+  ],
+  "R* info": {
+   "rounds": 3,
+   "pool": 2630,
+   "capped": false,
+   "seconds": 34.2
+  },
+  "RH*": [
+   13,
+   49
+  ],
+  "RH* info": {
+   "rounds": 3,
+   "pool": 2654,
+   "capped": false,
+   "seconds": 34.7
+  }
+ },
+ "20": {
+  "nH": 35,
+  "nR": 492,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   13,
+   63
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 960,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 4,
+   "pool": 67,
+   "capped": false,
+   "seconds": 0.3
+  },
+  "R*": [
+   13,
+   63
+  ],
+  "R* info": {
+   "rounds": 3,
+   "pool": 1201,
+   "capped": false,
+   "seconds": 9.5
+  },
+  "RH*": [
+   13,
+   63
+  ],
+  "RH* info": {
+   "rounds": 3,
+   "pool": 1226,
+   "capped": false,
+   "seconds": 9.7
+  }
+ },
+ "21": {
+  "nH": 50,
+  "nR": 370,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   15,
+   130
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 229,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 3,
+   "pool": 84,
+   "capped": false,
+   "seconds": 0.3
+  },
+  "R*": [
+   15,
+   130
+  ],
+  "R* info": {
+   "rounds": 3,
+   "pool": 962,
+   "capped": false,
+   "seconds": 6.7
+  },
+  "RH*": [
+   15,
+   130
+  ],
+  "RH* info": {
+   "rounds": 3,
+   "pool": 1008,
+   "capped": false,
+   "seconds": 7.2
+  }
+ },
+ "22": {
+  "nH": 58,
+  "nR": 348,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   16,
+   118
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 223,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 3,
+   "pool": 86,
+   "capped": false,
+   "seconds": 0.3
+  },
+  "R*": [
+   16,
+   118
+  ],
+  "R* info": {
+   "rounds": 3,
+   "pool": 788,
+   "capped": false,
+   "seconds": 5.2
+  },
+  "RH*": [
+   16,
+   118
+  ],
+  "RH* info": {
+   "rounds": 3,
+   "pool": 844,
+   "capped": false,
+   "seconds": 6.0
+  }
+ },
+ "23": {
+  "nH": 83,
+  "nR": 368,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   16,
+   240
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 229,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 3,
+   "pool": 108,
+   "capped": false,
+   "seconds": 0.4
+  },
+  "R*": [
+   16,
+   240
+  ],
+  "R* info": {
+   "rounds": 2,
+   "pool": 711,
+   "capped": false,
+   "seconds": 2.7
+  },
+  "RH*": [
+   16,
+   240
+  ],
+  "RH* info": {
+   "rounds": 2,
+   "pool": 790,
+   "capped": false,
+   "seconds": 3.3
+  }
+ },
+ "24": {
+  "nH": 83,
+  "nR": 546,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   14,
+   143
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 120,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 2,
+   "pool": 96,
+   "capped": false,
+   "seconds": 0.3
+  },
+  "R*": [
+   14,
+   143
+  ],
+  "R* info": {
+   "rounds": 3,
+   "pool": 763,
+   "capped": false,
+   "seconds": 5.5
+  },
+  "RH*": [
+   14,
+   143
+  ],
+  "RH* info": {
+   "rounds": 3,
+   "pool": 839,
+   "capped": false,
+   "seconds": 6.6
+  }
+ },
+ "25": {
+  "nH": 78,
+  "nR": 1298,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   16,
+   172
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 229,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 2,
+   "pool": 92,
+   "capped": false,
+   "seconds": 0.2
+  },
+  "R*": [
+   16,
+   172
+  ],
+  "R* info": {
+   "rounds": 3,
+   "pool": 1328,
+   "capped": false,
+   "seconds": 15.2
+  },
+  "RH*": [
+   16,
+   172
+  ],
+  "RH* info": {
+   "rounds": 3,
+   "pool": 1415,
+   "capped": false,
+   "seconds": 16.5
+  }
+ },
+ "26": {
+  "nH": 116,
+  "nR": 243,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   15,
+   235
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 227,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 2,
+   "pool": 120,
+   "capped": false,
+   "seconds": 0.4
+  },
+  "R*": [
+   15,
+   235
+  ],
+  "R* info": {
+   "rounds": 2,
+   "pool": 253,
+   "capped": false,
+   "seconds": 0.9
+  },
+  "RH*": [
+   15,
+   235
+  ],
+  "RH* info": {
+   "rounds": 2,
+   "pool": 361,
+   "capped": false,
+   "seconds": 1.6
+  }
+ },
+ "27": {
+  "nH": 93,
+  "nR": 378,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   16,
+   419
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 349,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 2,
+   "pool": 99,
+   "capped": false,
+   "seconds": 0.3
+  },
+  "R*": [
+   16,
+   419
+  ],
+  "R* info": {
+   "rounds": 2,
+   "pool": 384,
+   "capped": false,
+   "seconds": 1.7
+  },
+  "RH*": [
+   16,
+   419
+  ],
+  "RH* info": {
+   "rounds": 2,
+   "pool": 471,
+   "capped": false,
+   "seconds": 2.4
+  }
+ },
+ "28": {
+  "nH": 133,
+  "nR": 859,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   16,
+   449
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 229,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 2,
+   "pool": 142,
+   "capped": false,
+   "seconds": 0.6
+  },
+  "R*": [
+   16,
+   449
+  ],
+  "R* info": {
+   "rounds": 2,
+   "pool": 860,
+   "capped": false,
+   "seconds": 5.3
+  },
+  "RH*": [
+   16,
+   449
+  ],
+  "RH* info": {
+   "rounds": 2,
+   "pool": 984,
+   "capped": false,
+   "seconds": 6.4
+  }
+ },
+ "29": {
+  "nH": 132,
+  "nR": 334,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   16,
+   559
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 229,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 1,
+   "pool": 132,
+   "capped": false,
+   "seconds": 0.3
+  },
+  "R*": [
+   16,
+   559
+  ],
+  "R* info": {
+   "rounds": 1,
+   "pool": 334,
+   "capped": false,
+   "seconds": 0.7
+  },
+  "RH*": [
+   16,
+   559
+  ],
+  "RH* info": {
+   "rounds": 1,
+   "pool": 461,
+   "capped": false,
+   "seconds": 1.2
+  }
+ },
+ "30": {
+  "nH": 96,
+  "nR": 415,
+  "H": [
+   0,
+   0
+  ],
+  "R": [
+   16,
+   575
+  ],
+  "Ha*": [
+   0,
+   0
+  ],
+  "Ha maxbase": 120,
+  "H*": [
+   0,
+   0
+  ],
+  "H* info": {
+   "rounds": 2,
+   "pool": 104,
+   "capped": false,
+   "seconds": 0.4
+  },
+  "R*": [
+   16,
+   575
+  ],
+  "R* info": {
+   "rounds": 1,
+   "pool": 415,
+   "capped": false,
+   "seconds": 1.1
+  },
+  "RH*": [
+   16,
+   575
+  ],
+  "RH* info": {
+   "rounds": 1,
+   "pool": 505,
+   "capped": false,
+   "seconds": 1.5
+  }
+ }
+}

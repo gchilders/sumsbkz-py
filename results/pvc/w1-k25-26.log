@@ -1,0 +1,9 @@
+== w1-k25-26 start Tue Oct 27 08:51:37 UTC 2026 on gc-eslp-w1-k25-26-wmggs threads=12
+model name	: Intel(R) Xeon(R) Platinum 8452Y
+avx2 avx512f 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Tue Oct 27 08:52:50 UTC 2026

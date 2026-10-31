@@ -1,0 +1,9 @@
+build_ext exit 0
+g6k/../kernel/db.inl:41:43: warning: unused parameter ‘test_bijection’ [-Wunused-parameter]
+   41 | inline bool Siever::verify_integrity(bool test_bijection)
+      |                                      ~~~~~^~~~~~~~~~~~~~
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/gchilders/data/euler/sumsbkz-py/g6kgpu/g6k/__init__.py", line 3, in <module>
+    from .siever_params import SieverParams # noqa
+ImportError: libcuda.so.1: cannot open shared object file: No such file or directory

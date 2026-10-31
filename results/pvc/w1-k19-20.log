@@ -1,0 +1,9 @@
+== w1-k19-20 start Tue Oct 27 08:52:42 UTC 2026 on gc-eslp-w1-k19-20-lz5d6 threads=12
+model name	: Intel(R) Xeon(R) Gold 6230 CPU @ 2.10GHz
+avx2 avx512f 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Tue Oct 27 08:54:14 UTC 2026

@@ -1,0 +1,7 @@
+0, NVIDIA H200, GPU-b31d6c22-1210-1c19-c6cc-86ab210e4280
+1, NVIDIA H200, GPU-2349ab86-c3e0-36b7-1667-57fad106b07a
+2, NVIDIA H200, GPU-69d03c74-da7d-4db0-d2d6-4a77ca0715f5
+3, NVIDIA H200, GPU-b0b6f0db-714d-fbf9-caff-1ac4a37e55af
+GPU 1 failed validation - worker stops
+GPU 2 validated Wed Oct 28 12:32:01 PDT 2026
+GPU 2 start completion k26-N100-s4 Wed Oct 28 12:32:01 PDT 2026

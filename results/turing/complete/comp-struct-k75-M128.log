@@ -1,0 +1,17 @@
+k=75: 13 distinct congruence inputs
+database 4235915 vectors, 6s
+  dev = Device(devnum)
+  input 0: c=210+19 M=128 fixed=210+19 D~10^126 particular=1 new frontier entries 0  24s
+  input 1: c=251+10 M=128 fixed=251+10 D~10^126 particular=1 new frontier entries 30  19s
+  input 2: c=246+8 M=128 fixed=246+8 D~10^123 particular=1 new frontier entries 0  27s
+  input 3: c=249+6 M=128 fixed=249+6 D~10^126 particular=1 new frontier entries 34  18s
+  input 4: c=211+24 M=128 fixed=211+24 D~10^126 particular=1 new frontier entries 0  18s
+  input 5: c=243+8 M=128 fixed=243+8 D~10^126 particular=1 new frontier entries 0  23s
+  input 6: c=270+5 M=128 fixed=270+5 D~10^126 particular=1 new frontier entries 0  28s
+  input 7: c=270+17 M=128 fixed=270+17 D~10^126 particular=1 new frontier entries 0  27s
+  input 8: c=248+9 M=128 fixed=248+9 D~10^126 particular=1 new frontier entries 29  19s
+  input 9: c=268+7 M=128 fixed=268+7 D~10^124 particular=1 new frontier entries 0  22s
+  input 10: c=267+6 M=128 fixed=267+6 D~10^125 particular=1 new frontier entries 0  29s
+  input 11: c=266+6 M=128 fixed=266+6 D~10^126 particular=1 new frontier entries 0  19s
+  input 12: c=225+10 M=128 fixed=225+10 D~10^126 particular=1 new frontier entries 0  18s
+  k= 75  7:2890<6267!  8:2684<6268!  9:2600<6269!  10:2312<6233!  11:2370<6164!  12:2233<5997!  13:2142<5998!  14:2022<5877!  15:2121<5878!  16:1950<5879!

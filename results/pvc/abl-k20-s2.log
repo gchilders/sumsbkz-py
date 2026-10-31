@@ -1,0 +1,16 @@
+== abl-k20-s2 start Wed Oct 28 03:45:24 UTC 2026 on gc-eslp-abl-k20-s2-8lvg7 threads=16
+model name	: AMD EPYC 7713 64-Core Processor
+avx2 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Wed Oct 28 03:46:46 UTC 2026
+k=20 seed=2 A:  2 entries below the table, time   134.6s
+k=20 seed=2 B:  0 entries below the table, time     8.6s
+k=20 seed=2 C:  2 entries below the table, time    41.7s
+k=20 seed=2 D:  4 entries below the table, time   133.8s
+k=20 seed=2 E:  3 entries below the table, time    78.7s
+{"k": 20, "N": 60, "seed": 2, "radius": 1.5, "threads": 16, "db": {"size": 501006, "gh2_exact": 61.3135615474249, "gh2_asym": 56.11439029029947, "norm2_over_gh2_q": [0.9948859348647956, 1.5167933105315736, 1.6798893654274416, 1.7940566038545493, 1.8429854203233098], "frac_outside_radius": 0.9200229138972388, "sat_achieved": 0.5118543015941124, "T_q": [40.0, 55.0, 60.0, 64.0, 72.0], "minpq_q": [16.0, 26.0, 29.0, 31.0, 36.0], "minpq_le16": 1, "max_T": 72, "max_norm2": 113, "sieves": 10, "unsaturated": 0, "final_unsaturated": false}, "sieve_s": 8.6, "descent_steps": {"tasks": 2513, "median": 2.0, "p99": 7.0, "max": 11, "at_cap": 0}, "combine": {"rounds": 4, "pool": 903, "capped": false, "seconds": 17.2}, "A_passes": 4159, "E_passes": 2947, "E_moves": 137070, "E_descent_steps": {"tasks": 2513, "median": 4.0, "p99": 9.0, "max": 12, "at_cap": 0}}
+== abl-k20-s2 done Wed Oct 28 03:52:42 UTC 2026

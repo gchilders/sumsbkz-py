@@ -1,0 +1,44 @@
+0, Tesla T4, GPU-99af83c9-b683-ff3c-c791-a27f84b1de2c
+1, Tesla T4, GPU-a83def41-d404-e524-dd17-32b0f4b7c896
+2, Tesla T4, GPU-fc836285-c106-ae05-fcee-b00f16584051
+3, Tesla T4, GPU-01fd094c-d9ce-9cdd-601f-8fa7e3c38163
+4, Tesla T4, GPU-ea50b7ee-5479-967e-c1e4-38af00f869fd
+5, Tesla T4, GPU-2477e4ba-c660-d40c-f06b-2f5b853f870b
+GPU 5 validated Wed Oct 28 11:51:27 PDT 2026
+GPU 5 start k=40 N=60 Wed Oct 28 11:51:27 PDT 2026
+GPU 5 done  k=40 N=60 Wed Oct 28 11:52:44 PDT 2026 :: k=40 run 1/1  bases 1..60 (60)  db 159528  sieve 48.9s  descent 17.5s
+GPU 5 start k=42 N=60 Wed Oct 28 11:52:44 PDT 2026
+GPU 5 done  k=42 N=60 Wed Oct 28 11:54:17 PDT 2026 :: k=42 run 1/1  bases 1..60 (60)  db 159528  sieve 59.7s  descent 18.6s
+GPU 5 start k=50 N=60 Wed Oct 28 11:54:18 PDT 2026
+GPU 5 done  k=50 N=60 Wed Oct 28 11:55:54 PDT 2026 :: k=50 run 1/1  bases 1..60 (60)  db 159528  sieve 62.0s  descent 19.0s
+GPU 5 start k=64 N=60 Wed Oct 28 11:55:55 PDT 2026
+GPU 5 done  k=64 N=60 Wed Oct 28 11:57:32 PDT 2026 :: k=64 run 1/1  bases 1..60 (60)  db 159528  sieve 62.2s  descent 19.3s
+GPU 5 start k=75 N=60 Wed Oct 28 11:57:32 PDT 2026
+GPU 5 done  k=75 N=60 Wed Oct 28 11:59:14 PDT 2026 :: k=75 run 1/1  bases 1..60 (60)  db 159528  sieve 64.6s  descent 20.5s
+GPU 5 start k=76 N=60 Wed Oct 28 11:59:14 PDT 2026
+GPU 5 done  k=76 N=60 Wed Oct 28 12:00:49 PDT 2026 :: k=76 run 1/1  bases 1..60 (60)  db 159528  sieve 60.3s  descent 19.1s
+GPU 5 start k=82 N=60 Wed Oct 28 12:00:49 PDT 2026
+GPU 5 done  k=82 N=60 Wed Oct 28 12:02:30 PDT 2026 :: k=82 run 1/1  bases 1..60 (60)  db 159528  sieve 63.3s  descent 19.4s
+GPU 5 start k=87 N=60 Wed Oct 28 12:02:31 PDT 2026
+GPU 5 done  k=87 N=60 Wed Oct 28 12:04:08 PDT 2026 :: k=87 run 1/1  bases 1..60 (60)  db 159528  sieve 62.2s  descent 19.0s
+GPU 5 start k=89 N=60 Wed Oct 28 12:04:09 PDT 2026
+GPU 5 done  k=89 N=60 Wed Oct 28 12:05:49 PDT 2026 :: k=89 run 1/1  bases 1..60 (60)  db 159528  sieve 61.7s  descent 19.6s
+GPU 5 start k=40 N=70 Wed Oct 28 12:05:50 PDT 2026
+GPU 5 done  k=40 N=70 Wed Oct 28 12:11:14 PDT 2026 :: k=40 run 1/1  bases 1..70 (70)  db 1022530  sieve 255.0s  descent 52.4s
+GPU 5 start k=42 N=70 Wed Oct 28 12:11:14 PDT 2026
+GPU 5 done  k=42 N=70 Wed Oct 28 12:15:52 PDT 2026 :: k=42 run 1/1  bases 1..70 (70)  db 1022530  sieve 223.1s  descent 40.3s
+GPU 5 start k=50 N=70 Wed Oct 28 12:15:52 PDT 2026
+GPU 5 done  k=50 N=70 Wed Oct 28 12:19:31 PDT 2026 :: k=50 run 1/1  bases 1..70 (70)  db 1022530  sieve 172.0s  descent 36.0s
+GPU 5 start k=64 N=70 Wed Oct 28 12:19:32 PDT 2026
+GPU 5 done  k=64 N=70 Wed Oct 28 12:23:12 PDT 2026 :: k=64 run 1/1  bases 1..70 (70)  db 1022530  sieve 170.7s  descent 37.0s
+GPU 5 start k=75 N=70 Wed Oct 28 12:23:12 PDT 2026
+GPU 5 done  k=75 N=70 Wed Oct 28 12:26:53 PDT 2026 :: k=75 run 1/1  bases 1..70 (70)  db 1022530  sieve 169.8s  descent 39.1s
+GPU 5 start k=76 N=70 Wed Oct 28 12:26:54 PDT 2026
+GPU 5 done  k=76 N=70 Wed Oct 28 12:28:41 PDT 2026 :: k=76 run 1/1  bases 1..70 (70)  db 1022530  sieve 87.0s  descent 12.3s
+GPU 5 start k=82 N=70 Wed Oct 28 12:28:41 PDT 2026
+GPU 5 done  k=82 N=70 Wed Oct 28 12:29:15 PDT 2026 :: k=82 run 1/1  bases 1..70 (70)  db 1022530  sieve 20.8s  descent 11.4s
+GPU 5 start k=87 N=70 Wed Oct 28 12:29:15 PDT 2026
+GPU 5 done  k=87 N=70 Wed Oct 28 12:29:49 PDT 2026 :: k=87 run 1/1  bases 1..70 (70)  db 1022530  sieve 20.1s  descent 12.0s
+GPU 5 start k=89 N=70 Wed Oct 28 12:29:49 PDT 2026
+GPU 5 done  k=89 N=70 Wed Oct 28 12:30:21 PDT 2026 :: k=89 run 1/1  bases 1..70 (70)  db 1022530  sieve 20.6s  descent 10.4s
+all workers done Wed Oct 28 12:30:21 PDT 2026

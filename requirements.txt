@@ -1,0 +1,4 @@
+fpylll>=0.6.4
+cysignals>=1.12
+numpy>=1.26
+numba>=0.60

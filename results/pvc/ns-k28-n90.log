@@ -1,0 +1,13 @@
+== ns-k28-n90 start Wed Oct 28 03:49:10 UTC 2026 on gc-eslp-ns-k28-n90-8zqs7 threads=16
+model name	: Intel(R) Xeon(R) CPU E5-2680 v3 @ 2.50GHz
+avx2 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Wed Oct 28 03:51:02 UTC 2026
+run 1 1466.3s  1:147 2:123 3:122 4:120 5:120 6:118 7:94 8:94 9:94 10:94 11:95 12:70 13:72 14:70 15:71 16:71
+run 2 1323.9s  1:147 2:123 3:122 4:120 5:120 6:118 7:94 8:94 9:94 10:94 11:95 12:70 13:72 14:70 15:71 16:71
+run 3 1498.9s  1:147 2:123 3:122 4:95 5:119 6:94 7:94 8:94 9:94 10:93 11:71 12:70 13:72 14:70 15:71 16:71
+== ns-k28-n90 done Wed Oct 28 05:02:32 UTC 2026

@@ -1,0 +1,7 @@
+G6K-GPU n=50 bgj1: OK 2.7s
+G6K-GPU n=50 bdgl: OK 2.7s
+G6K-GPU n=52 bgj1: MISMATCH 2.9s
+G6K-GPU n=52 bdgl: OK 3.1s
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+AssertionError: sieve validation failed

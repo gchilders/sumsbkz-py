@@ -1,0 +1,11 @@
+([ -f results/complete/db-k18-N100.npy ] || $TS python tools/makedb.py -k 18 -N 100 -o results/complete/db-k18-N100.npy) && $TS python tools/recordstart.py -k 18 -N 100 --per 12 -o results/recstart/recstart-k18-N100.txt
+([ -f results/complete/db-k24-N100.npy ] || $TS python tools/makedb.py -k 24 -N 100 -o results/complete/db-k24-N100.npy) && $TS python tools/recordstart.py -k 24 -N 100 --per 12 -o results/recstart/recstart-k24-N100.txt
+$TS python tools/recordstart.py -k 32 -N 100 --per 12 -o results/recstart/recstart-k32-N100.txt
+$TS python tools/recordstart.py -k 26 -N 100 --per 12 -o results/recstart/recstart-k26-N100.txt
+$TS python tools/recordstart.py -k 25 -N 100 --per 12 -o results/recstart/recstart-k25-N100.txt
+([ -f results/complete/db-k21-N100.npy ] || $TS python tools/makedb.py -k 21 -N 100 -o results/complete/db-k21-N100.npy) && $TS python tools/recordstart.py -k 21 -N 100 --per 12 -o results/recstart/recstart-k21-N100.txt
+([ -f results/complete/db-k20-N110.npy ] || $TS python tools/makedb.py -k 20 -N 110 -o results/complete/db-k20-N110.npy) && $TS python tools/recordstart.py -k 20 -N 110 --per 12 -o results/recstart/recstart-k20-N110.txt
+$TS python tools/recordstart.py -k 17 -N 100 --per 12 -o results/recstart/recstart-k17-N100.txt
+$TS python tools/recordstart.py -k 19 -N 100 --per 12 -o results/recstart/recstart-k19-N100.txt
+([ -f results/complete/db-k20-N100.npy ] || $TS python tools/makedb.py -k 20 -N 100 -o results/complete/db-k20-N100.npy) && $TS python tools/recordstart.py -k 20 -N 100 --per 12 -o results/recstart/recstart-k20-N100.txt
+$TS python tools/recordstart.py -k 25 -N 110 --per 12 -o results/recstart/recstart-k25-N110.txt

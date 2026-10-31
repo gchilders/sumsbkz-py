@@ -1,0 +1,5 @@
+k=85 M=128 C=100: bases 1281..1479; moments [(1, 3404310)]; Lambda database 4891214, lifting 20000 (220s)
+  lifted 100 basis rows (33s)
+  dev = Device(devnum)
+  descent over 4256015 moves from 300 starts (151s)
+  k= 85     (457s)

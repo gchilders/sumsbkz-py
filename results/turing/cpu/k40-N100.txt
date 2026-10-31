@@ -1,0 +1,1 @@
+// sievesearch k=40..40 N=100 subset=0 runs=1 radius=1.3333 alg=bdgl starts=300 moves=0 seed=40100 2026-10-28 00:18

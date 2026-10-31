@@ -1,0 +1,12 @@
+== dbs-k20-s2 start Wed Oct 28 03:45:55 UTC 2026 on gc-eslp-dbs-k20-s2-92lh6 threads=16
+model name	: AMD EPYC 7713 64-Core Processor
+avx2 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Wed Oct 28 03:47:33 UTC 2026
+progressive {"sieve_s": 25.7, "descent_s": 48.5, "db": {"size": 1181262, "gh2_exact": 51.879941474606426, "gh2_asym": 47.985940868295344, "norm2_over_gh2_q": [0.8866625268364177, 1.4649206965123422, 1.6191228750925888, 1.7347745090277737, 1.7926003259953662], "frac_outside_radius": 0.9218158207070066, "sat_achieved": 0.500378952501541, "T_q": [38.0, 52.0, 57.0, 61.0, 69.0], "minpq_q": [18.0, 25.0, 28.0, 30.0, 34.0], "minpq_le16": 0, "max_T": 69, "max_norm2": 93, "sieves": 20, "unsaturated": 0, "final_unsaturated": false}, "descent_steps": {"tasks": 2583, "median": 2.0, "p99": 5.0, "max": 8, "at_cap": 0}, "frontier": {"14": 43, "15": 38, "16": 39}, "improved": 0}
+random {"sieve_s": 60.6, "descent_s": 59.7, "db": {"size": 1181262, "gh2_exact": 51.879941474606426, "gh2_asym": 47.985940868295344, "norm2_over_gh2_q": [0.8866625268364177, 1.4649206965123422, 1.599847602770058, 1.6576734197376506, 1.6576734197376506], "frac_outside_radius": 0.92179465690084, "sat_achieved": 0.5005144009165062, "T_q": [38.0, 52.0, 56.0, 60.0, 68.0], "minpq_q": [14.0, 25.0, 27.0, 29.0, 34.0], "minpq_le16": 5, "max_T": 68, "max_norm2": 86, "sieves": 1, "unsaturated": 0, "final_unsaturated": false}, "descent_steps": {"tasks": 2583, "median": 2.0, "p99": 9.0, "max": 13, "at_cap": 0}, "frontier": {"2": 64, "3": 65, "4": 60, "5": 57, "6": 58, "7": 38, "8": 42, "9": 38, "10": 37, "11": 37, "12": 36, "13": 37, "14": 36, "15": 36, "16": 29}, "improved": 2}
+== dbs-k20-s2 done Wed Oct 28 03:50:55 UTC 2026

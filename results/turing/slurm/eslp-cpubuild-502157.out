@@ -1,0 +1,30 @@
+checking for PTHREAD_PRIO_INHERIT... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating kernel/Makefile
+config.status: creating g6k.pc
+config.status: creating kernel/g6k_config.h
+config.status: kernel/g6k_config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+make: Warning: File 'Makefile' has modification time 760 s in the future
+Making all in kernel
+make[1]: Entering directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu/kernel'
+make[1]: Warning: File '.deps/sieving.Plo' has modification time 725 s in the future
+make  all-am
+make[2]: Entering directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu/kernel'
+make[2]: Warning: File '.deps/sieving.Plo' has modification time 725 s in the future
+make[2]: warning:  Clock skew detected.  Your build may be incomplete.
+make[2]: Leaving directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu/kernel'
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+make[1]: Leaving directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu/kernel'
+make[1]: Entering directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu'
+make[1]: Warning: File 'Makefile' has modification time 760 s in the future
+make[1]: Nothing to be done for 'all-am'.
+make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+make[1]: Leaving directory '/data/ChildersGroup/euler/sumsbkz-py/g6kcpu'
+make: warning:  Clock skew detected.  Your build may be incomplete.
+error: Failed to inspect Python interpreter from provided path at `../envcpu/bin/python`
+  cause: Failed to query Python interpreter
+  cause: failed to canonicalize path `/data/ChildersGroup/euler/sumsbkz-py/g6kcpu/../envcpu/bin/python`: Stale file handle (os error 116)

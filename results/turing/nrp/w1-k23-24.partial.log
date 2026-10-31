@@ -1,0 +1,9 @@
+== w1-k23-24 start Tue Oct 27 08:51:27 UTC 2026 on gc-eslp-w1-k23-24-498wg threads=12
+model name	: AMD EPYC 7742 64-Core Processor
+avx2 
+patching file kernel/bdgl_sieve.cpp
+patching file kernel/cpuperformance.hpp
+patching file kernel/fht_lsh.cpp
+patching file kernel/simd.h
+patching file kernel/simd.inl
+== build done Tue Oct 27 08:52:43 UTC 2026
