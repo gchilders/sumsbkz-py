@@ -3,6 +3,8 @@
 Code and data for the paper *New records for equal sums of like powers via lattice sieving*
 by J. G. Childers.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23849788.svg)](https://doi.org/10.5281/zenodo.23849788)
+
 An identity of type (k,m,n) is a₁ᵏ+…+aₘᵏ = b₁ᵏ+…+bₙᵏ in positive integers with m ≤ n.
 J.-C. Meyrignac's tables (<http://euler.free.fr>) record the least known n for each k and m.
 This repository contains
@@ -94,6 +96,12 @@ c++ -O2 -std=c++11 -I/opt/homebrew/include -o legacy/sumsbkz legacy/sumsbkz.cpp 
 Meyrignac's current pages and database, the programs NewLC, ResultLC and ysum, and J. Wróblewski's congruence solutions are the work of others and
 are not distributed here. The identities obtained from them are in `archive/` and `results/`.
 The archive records SHA-256 checksums of the snapshot of Meyrignac's site that was used.
+
+## Citation
+
+Please cite the paper and this repository, archived at Zenodo as
+[doi:10.5281/zenodo.23849788](https://doi.org/10.5281/zenodo.23849788) (all versions; each
+release also has its own DOI). `CITATION.cff` gives the citation in machine-readable form.
 
 ## License
 

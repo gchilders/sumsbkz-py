@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it as below, together with the accompanying paper."
+title: "sumsbkz-py: lattice sieving and descent for equal sums of like powers"
+abstract: >-
+  Code, run outputs, paper source and data archive for the paper "New records for equal
+  sums of like powers via lattice sieving". The search sieves the lattice of integer
+  relations among 1^k, ..., N^k with the General Sieve Kernel and uses the sieve database as
+  the move set of a greedy descent on the numbers of terms. The repository includes a Python
+  port of SumsBKZ (2000-2003), the record databases of 2001-2003, and a standalone verifier
+  for the new identities.
+type: software
+authors:
+  - family-names: Childers
+    given-names: J. G.
+    affiliation: "Department of Physics, California State University, Fullerton"
+    email: gchilders@fullerton.edu
+doi: 10.5281/zenodo.23849788
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23849788
+    description: "Zenodo concept DOI (all versions)"
+  - type: doi
+    value: 10.5281/zenodo.23849789
+    description: "Zenodo DOI of release v1.0"
+repository-code: "https://github.com/gchilders/sumsbkz-py"
+license: BSD-3-Clause
+keywords:
+  - equal sums of like powers
+  - Euler's conjecture
+  - integer relations
+  - lattice reduction
+  - lattice sieving
